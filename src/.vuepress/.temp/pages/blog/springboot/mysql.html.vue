@@ -1,0 +1,148 @@
+<template><div><h1 id="mysql" tabindex="-1"><a class="header-anchor" href="#mysql" aria-hidden="true">#</a> Mysql</h1>
+<p><a href="https://www.bilibili.com/video/BV1Kr4y1i7ru/?p=4&amp;vd_source=f8821730ff8a13ec89104c8629e6d42b" target="_blank" rel="noopener noreferrer">哔哩哔哩_bilibili<ExternalLinkIcon/></a></p>
+<p><code v-pre>utf8mb4</code>: 编码格式</p>
+<h4 id="insert" tabindex="-1"><a class="header-anchor" href="#insert" aria-hidden="true">#</a> insert</h4>
+<ul>
+<li>给指定字段添加值</li>
+</ul>
+<div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>insert into 表名 (字段1，字段2..) values(值1，值2..);
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><ul>
+<li>给指定字段批量添加值</li>
+</ul>
+<div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>insert into 表名 (字段1，字段2..) values(值1，值2..),(值1，值2..),(值1，值2..);
+insert into 表名  values(值1，值2..),(值1，值2..),(值1，值2..);
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><ul>
+<li>给全部字段添加值</li>
+</ul>
+<div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>insert into 表名  values(值1，值2..);
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h4 id="update" tabindex="-1"><a class="header-anchor" href="#update" aria-hidden="true">#</a> update</h4>
+<div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>update 表名 set 字段1=值1，字段2=值2... [where 条件];
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><blockquote>
+<p>不写条件 更新所有</p>
+</blockquote>
+<h4 id="delete" tabindex="-1"><a class="header-anchor" href="#delete" aria-hidden="true">#</a> delete</h4>
+<div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>delete from 表名 [where 条件];
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><blockquote>
+<p>delete from 表名   删除所有数据</p>
+</blockquote>
+<h2 id="select" tabindex="-1"><a class="header-anchor" href="#select" aria-hidden="true">#</a> select</h2>
+<div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>select [字段列表] from [表名列表] where [条件列表] group by [分组字段列表] having [分组后条件列表] order by [排序字段列表] limit [分页]
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><blockquote>
+<p>条件查询(where)、聚合查询(count,max,min,avg,sum)、分组查询(group by)、排序查询(order by)、分页查询(limit)</p>
+</blockquote>
+<h3 id="基本查询" tabindex="-1"><a class="header-anchor" href="#基本查询" aria-hidden="true">#</a> 基本查询</h3>
+<ul>
+<li>起别名</li>
+</ul>
+<div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>select name as '姓名' from 表名;    或者  select name '姓名' from 表名;
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><ul>
+<li>不重复</li>
+</ul>
+<div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>select distinct name from 表名;
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p><code v-pre>distinct</code>: 去重  <code v-pre>as</code>: 别名</p>
+<h3 id="条件查询" tabindex="-1"><a class="header-anchor" href="#条件查询" aria-hidden="true">#</a> 条件查询</h3>
+<table>
+<thead>
+<tr>
+<th>比较运算符</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td></td>
+</tr>
+<tr>
+<td>=</td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;&gt;或!=</td>
+<td>不等于</td>
+</tr>
+<tr>
+<td>between...and...</td>
+<td>某个范围之内   []</td>
+</tr>
+<tr>
+<td>in(..)</td>
+<td>列表中的值，多选一</td>
+</tr>
+<tr>
+<td>like 占位符</td>
+<td>模糊匹配（_单个字符、%任意个字符）</td>
+</tr>
+<tr>
+<td>is null</td>
+<td>为空</td>
+</tr>
+<tr>
+<td>and 或 &amp;&amp;</td>
+<td>并且</td>
+</tr>
+<tr>
+<td>or或 ||</td>
+<td>或者</td>
+</tr>
+<tr>
+<td>not 或 ！</td>
+<td>非</td>
+</tr>
+</tbody>
+</table>
+<h3 id="聚合函数" tabindex="-1"><a class="header-anchor" href="#聚合函数" aria-hidden="true">#</a> 聚合函数</h3>
+<blockquote>
+<p>null 不参与计算</p>
+</blockquote>
+<ul>
+<li>
+<p>sum</p>
+<div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>select sum(*) from 表名; 
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div></li>
+<li>
+<p>avg</p>
+<div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>select agv(age) from 表名;
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div></li>
+<li>
+<p>max | min</p>
+<div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>select max(age) from 表名;   select min(age) from 表名; 
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div></li>
+</ul>
+<h3 id="分组查询" tabindex="-1"><a class="header-anchor" href="#分组查询" aria-hidden="true">#</a> 分组查询</h3>
+<blockquote>
+<p>分组后的列只有待分组的字段和聚合函数</p>
+</blockquote>
+<figure><img src="https://images.beink.cn/study/bwSxT-4sdgkRCKhbCV1hH.png" alt="study" tabindex="0" loading="lazy"><figcaption>study</figcaption></figure>
+<div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>select sex,count(sex) from s group by sex having avg(age) &gt; 50;
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h3 id="排序查询" tabindex="-1"><a class="header-anchor" href="#排序查询" aria-hidden="true">#</a> 排序查询</h3>
+<ul>
+<li>ASC	升序（默认）</li>
+<li>DESC  降序</li>
+</ul>
+<blockquote>
+<p>多字段排序，先按第一个排序，然后相同的按照第二个方式排序</p>
+</blockquote>
+<div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>select * from s order by age asc , id desc;
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h3 id="分页查询" tabindex="-1"><a class="header-anchor" href="#分页查询" aria-hidden="true">#</a> 分页查询</h3>
+<div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>select * from 表名 limit 起始索引，查询记录数
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><ul>
+<li>起始索引从0开始， 起始索引 = （查询页码-1）* 每页记录数</li>
+</ul>
+<div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>select * from s limit 0,10;   select * from s limit 10,10;
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h2 id="函数" tabindex="-1"><a class="header-anchor" href="#函数" aria-hidden="true">#</a> 函数</h2>
+</div></template>
+
+

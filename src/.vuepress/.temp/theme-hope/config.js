@@ -1,14 +1,14 @@
 import { defineClientConfig } from "@vuepress/client";
 
-import { Layout, NotFound, useScrollPromise, injectDarkmode, setupDarkmode, setupSidebarItems } from "E:/c/my-docs/node_modules/vuepress-theme-hope/lib/bundle/export.js";
+import { Layout, NotFound, useScrollPromise, injectDarkmode, setupDarkmode, setupSidebarItems } from "E:/my-docs/node_modules/vuepress-theme-hope/lib/bundle/export.js";
 
-import { HopeIcon } from "E:/c/my-docs/node_modules/vuepress-theme-hope/lib/bundle/export.js";
-import { defineAutoCatalogIconComponent } from "E:/c/my-docs/node_modules/vuepress-plugin-auto-catalog/lib/client/index.js"
-import { GlobalEncrypt, LocalEncrypt } from "E:/c/my-docs/node_modules/vuepress-theme-hope/lib/bundle/modules/encrypt/export.js";
-import "E:/c/my-docs/node_modules/vuepress-theme-hope/lib/bundle/modules/encrypt/styles/all.scss"
-import Slide from "E:/c/my-docs/node_modules/vuepress-plugin-md-enhance/lib/client/SlidePage.js";
+import { HopeIcon } from "E:/my-docs/node_modules/vuepress-theme-hope/lib/bundle/export.js";
+import { defineAutoCatalogIconComponent } from "E:/my-docs/node_modules/vuepress-plugin-auto-catalog/lib/client/index.js"
+import { GlobalEncrypt, LocalEncrypt } from "E:/my-docs/node_modules/vuepress-theme-hope/lib/bundle/modules/encrypt/export.js";
+import "E:/my-docs/node_modules/vuepress-theme-hope/lib/bundle/modules/encrypt/styles/all.scss"
+import Slide from "E:/my-docs/node_modules/vuepress-plugin-md-enhance/lib/client/SlidePage.js";
 
-import "E:/c/my-docs/node_modules/vuepress-theme-hope/lib/bundle/styles/all.scss";
+import "E:/my-docs/node_modules/vuepress-theme-hope/lib/bundle/styles/all.scss";
 
 defineAutoCatalogIconComponent(HopeIcon);
 
