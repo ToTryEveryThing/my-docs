@@ -17,8 +17,6 @@ export const pagesComponents = {
   "v-0232aca2": defineAsyncComponent(() => import(/* webpackChunkName: "v-0232aca2" */"E:/my-docs/src/.vuepress/.temp/pages/blog/springboot/Mybatis.html.vue")),
   // path: /blog/springboot/MybatisPlus.html
   "v-b324bab0": defineAsyncComponent(() => import(/* webpackChunkName: "v-b324bab0" */"E:/my-docs/src/.vuepress/.temp/pages/blog/springboot/MybatisPlus.html.vue")),
-  // path: /blog/springboot/mysql.html
-  "v-243fa3da": defineAsyncComponent(() => import(/* webpackChunkName: "v-243fa3da" */"E:/my-docs/src/.vuepress/.temp/pages/blog/springboot/mysql.html.vue")),
   // path: /blog/springboot/rabbitmq.html
   "v-4229923f": defineAsyncComponent(() => import(/* webpackChunkName: "v-4229923f" */"E:/my-docs/src/.vuepress/.temp/pages/blog/springboot/rabbitmq.html.vue")),
   // path: /blog/springboot/redis.html
@@ -35,6 +33,8 @@ export const pagesComponents = {
   "v-083f0e38": defineAsyncComponent(() => import(/* webpackChunkName: "v-083f0e38" */"E:/my-docs/src/.vuepress/.temp/pages/blog/other/linux.html.vue")),
   // path: /blog/other/Maven.html
   "v-9e67bfbe": defineAsyncComponent(() => import(/* webpackChunkName: "v-9e67bfbe" */"E:/my-docs/src/.vuepress/.temp/pages/blog/other/Maven.html.vue")),
+  // path: /blog/other/mysql.html
+  "v-60223b4a": defineAsyncComponent(() => import(/* webpackChunkName: "v-60223b4a" */"E:/my-docs/src/.vuepress/.temp/pages/blog/other/mysql.html.vue")),
   // path: /404.html
   "v-3706649a": defineAsyncComponent(() => import(/* webpackChunkName: "v-3706649a" */"E:/my-docs/src/.vuepress/.temp/pages/404.html.vue")),
   // path: /blog/oother/

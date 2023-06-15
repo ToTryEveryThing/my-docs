@@ -15,8 +15,6 @@ export const pagesData = {
   "v-0232aca2": () => import(/* webpackChunkName: "v-0232aca2" */"E:/my-docs/src/.vuepress/.temp/pages/blog/springboot/Mybatis.html.js").then(({ data }) => data),
   // path: /blog/springboot/MybatisPlus.html
   "v-b324bab0": () => import(/* webpackChunkName: "v-b324bab0" */"E:/my-docs/src/.vuepress/.temp/pages/blog/springboot/MybatisPlus.html.js").then(({ data }) => data),
-  // path: /blog/springboot/mysql.html
-  "v-243fa3da": () => import(/* webpackChunkName: "v-243fa3da" */"E:/my-docs/src/.vuepress/.temp/pages/blog/springboot/mysql.html.js").then(({ data }) => data),
   // path: /blog/springboot/rabbitmq.html
   "v-4229923f": () => import(/* webpackChunkName: "v-4229923f" */"E:/my-docs/src/.vuepress/.temp/pages/blog/springboot/rabbitmq.html.js").then(({ data }) => data),
   // path: /blog/springboot/redis.html
@@ -33,6 +31,8 @@ export const pagesData = {
   "v-083f0e38": () => import(/* webpackChunkName: "v-083f0e38" */"E:/my-docs/src/.vuepress/.temp/pages/blog/other/linux.html.js").then(({ data }) => data),
   // path: /blog/other/Maven.html
   "v-9e67bfbe": () => import(/* webpackChunkName: "v-9e67bfbe" */"E:/my-docs/src/.vuepress/.temp/pages/blog/other/Maven.html.js").then(({ data }) => data),
+  // path: /blog/other/mysql.html
+  "v-60223b4a": () => import(/* webpackChunkName: "v-60223b4a" */"E:/my-docs/src/.vuepress/.temp/pages/blog/other/mysql.html.js").then(({ data }) => data),
   // path: /404.html
   "v-3706649a": () => import(/* webpackChunkName: "v-3706649a" */"E:/my-docs/src/.vuepress/.temp/pages/404.html.js").then(({ data }) => data),
   // path: /blog/oother/
