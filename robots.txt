@@ -2,4 +2,4 @@
 User-agent:*
 Disallow:
 
-Sitemap: https://beink.cn/ink.png/./sitemap.xml
+Sitemap: https://beink.cn/ink.png/sitemap.xml
