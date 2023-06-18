@@ -15,6 +15,10 @@ export const pagesRoutes = [
   ["v-2bcb26fa","/blog/other/Git.html",{"y":"a","t":"版本控制","i":"route","O":2},["/blog/other/Git","/blog/other/Git.md"]],
   ["v-083f0e38","/blog/other/linux.html",{"y":"a","t":"Linux","i":"grip","O":2},["/blog/other/linux","/blog/other/linux.md"]],
   ["v-9e67bfbe","/blog/other/Maven.html",{"y":"a","t":"Maven","i":"clone","O":2},["/blog/other/Maven","/blog/other/Maven.md"]],
+<<<<<<< HEAD
+=======
+  ["v-60223b4a","/blog/other/mysql.html",{"y":"a","t":"Mysql","i":"download","O":2},["/blog/other/mysql","/blog/other/mysql.md"]],
+>>>>>>> 3b618451cf0cfd827ccd8f4debf3440adc3899f7
   ["v-3706649a","/404.html",{"y":"p","t":""},["/404"]],
   ["v-3fc7045a","/blog/oother/",{"y":"p","t":"Oother"},["/blog/oother/index.html"]],
   ["v-d5b928c8","/blog/springboot/",{"y":"p","t":"Springboot"},["/blog/springboot/index.html"]],
