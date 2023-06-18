@@ -9,7 +9,7 @@
     "docs:clean-dev": "vuepress dev src --clean-cache",
     "docs:dev": "vuepress dev src",
     "docs:update-package": "npx vp-update",
-    "update": "scp -r dist  beink:/www/wwwroot/mydocs"
+    "update": "scp -r src/.vuepress/dist  beink:/www/wwwroot/mydocs"
   },
   "devDependencies": {
     "@vuepress/client": "2.0.0-beta.62",
