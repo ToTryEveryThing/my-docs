@@ -1,7 +1,6 @@
 import { navbar } from "vuepress-theme-hope";
 
 export default navbar([
-  "/blog/",
   {
     text: "主站",
     icon: "lightbulb",
@@ -10,7 +9,6 @@ export default navbar([
   {
     text: "Github",
     icon: "github",
-    link: "https://github.com/ToTryEveryThing",
+    link: "https://github.com/ToTryEveryThing/my-docs",
   },
-
 ]);
