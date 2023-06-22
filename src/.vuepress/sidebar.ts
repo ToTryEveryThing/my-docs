@@ -15,12 +15,12 @@ export default sidebar({
       prefix: "blog/springboot/",
       children: "structure"
     },
-    {
-      text: "其他",
-      icon: "ellipsis",
-      prefix: "blog/oother/",
-      children: "structure"
-    },
+    // {
+    //   text: "其他",
+    //   icon: "ellipsis",
+    //   prefix: "blog/oother/",
+    //   children: "structure"
+    // },
     "slides",
   ],
 });
