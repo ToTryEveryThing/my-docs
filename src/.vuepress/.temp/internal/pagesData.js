@@ -33,6 +33,8 @@ export const pagesData = {
   "v-6c8528da": () => import(/* webpackChunkName: "v-6c8528da" */"E:/my-docs/src/.vuepress/.temp/pages/blog/springboot/redis.html.js").then(({ data }) => data),
   // path: /blog/springboot/ssm.html
   "v-3eed5af0": () => import(/* webpackChunkName: "v-3eed5af0" */"E:/my-docs/src/.vuepress/.temp/pages/blog/springboot/ssm.html.js").then(({ data }) => data),
+  // path: /blog/tool/cron.html
+  "v-095629c8": () => import(/* webpackChunkName: "v-095629c8" */"E:/my-docs/src/.vuepress/.temp/pages/blog/tool/cron.html.js").then(({ data }) => data),
   // path: /404.html
   "v-3706649a": () => import(/* webpackChunkName: "v-3706649a" */"E:/my-docs/src/.vuepress/.temp/pages/404.html.js").then(({ data }) => data),
   // path: /blog/oother/
@@ -41,4 +43,6 @@ export const pagesData = {
   "v-5e797cda": () => import(/* webpackChunkName: "v-5e797cda" */"E:/my-docs/src/.vuepress/.temp/pages/blog/other/index.html.js").then(({ data }) => data),
   // path: /blog/springboot/
   "v-d5b928c8": () => import(/* webpackChunkName: "v-d5b928c8" */"E:/my-docs/src/.vuepress/.temp/pages/blog/springboot/index.html.js").then(({ data }) => data),
+  // path: /blog/tool/
+  "v-e9bd66ba": () => import(/* webpackChunkName: "v-e9bd66ba" */"E:/my-docs/src/.vuepress/.temp/pages/blog/tool/index.html.js").then(({ data }) => data),
 }

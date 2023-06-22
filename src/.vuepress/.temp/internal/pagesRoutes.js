@@ -16,8 +16,10 @@ export const pagesRoutes = [
   ["v-4229923f","/blog/springboot/rabbitmq.html",{"y":"a","t":"RabbitMQ","i":"sitemap","O":2},["/blog/springboot/rabbitmq","/blog/springboot/rabbitmq.md"]],
   ["v-6c8528da","/blog/springboot/redis.html",{"y":"a","t":"Redis","i":"chart-pie","O":2},["/blog/springboot/redis","/blog/springboot/redis.md"]],
   ["v-3eed5af0","/blog/springboot/ssm.html",{"y":"a","t":"Spring SpringMVC","i":"link","O":1},["/blog/springboot/ssm","/blog/springboot/ssm.md"]],
+  ["v-095629c8","/blog/tool/cron.html",{"y":"a","t":"cron","i":"book"},["/blog/tool/cron","/blog/tool/cron.md"]],
   ["v-3706649a","/404.html",{"y":"p","t":""},["/404"]],
   ["v-3fc7045a","/blog/oother/",{"y":"p","t":"Oother"},["/blog/oother/index.html"]],
   ["v-5e797cda","/blog/other/",{"y":"p","t":"Other"},["/blog/other/index.html"]],
   ["v-d5b928c8","/blog/springboot/",{"y":"p","t":"Springboot"},["/blog/springboot/index.html"]],
+  ["v-e9bd66ba","/blog/tool/",{"y":"p","t":"Tool"},["/blog/tool/index.html"]],
 ]
