@@ -130,7 +130,7 @@ select sex,count(sex) from s group by sex having avg(age) > 50;
 
 ### 排序查询
 
-- ASC	升序（默认）
+- ASC 升序（默认）
 - DESC  降序
 
 > 多字段排序，先按第一个排序，然后相同的按照第二个方式排序
@@ -250,7 +250,7 @@ alter table s add constraint fk_s_b_id foreign key (b_id) references b(id);
 
 ```mysql
 select s.name,b.name from s,b  where s.b_id = b.id;               隐式内连接
-select s.name,b.name from s inner join b on s.b_id = b.id;		  显式内连接
+select s.name,b.name from s inner join b on s.b_id = b.id;      显式内连接
 ```
 
 ### 左外连接
@@ -281,38 +281,93 @@ s表的全部 以及b表的name
 
 ```mysql
 select * from s where age < 50 union all select * from s where sex = '男' ;    不去重
-select * from s where age < 50 union select * from s where sex = '男' ;		去重
+select * from s where age < 50 union select * from s where sex = '男' ;    去重
 ```
 
 ### 子查询
 
 > [43. 基础-多表查询-子查询介绍_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Kr4y1i7ru?p=43&vd_source=f8821730ff8a13ec89104c8629e6d42b)
 
-## 事务
+## 索引
 
+> MySQL的索引类型包括FULLTEXT、NORMAL（或称为BTREE）、SPATIAL和UNIQUE。它们具有不同的特点和适用场景：
 
+1. FULLTEXT索引：用于全文搜索。它适用于对文本内容进行关键词搜索的场景，比如文章标题或描述的搜索。FULLTEXT索引使用特定的搜索算法来提高搜索性能，并支持关键词匹配和排名。它只能应用于MyISAM和InnoDB存储引擎。
+2. NORMAL索引（BTREE索引）：是最常见的索引类型，也是默认的索引类型。它使用B树数据结构来加速对数据的查找。NORMAL索引适用于一般的数据查询，可以加速等值查询、范围查询和排序操作。它可以应用于大多数的数据类型和存储引擎。
+3. SPATIAL索引：用于地理数据的空间索引。它支持对空间数据进行高效的地理位置查询，如点、线、多边形等。SPATIAL索引适用于处理地理信息系统（GIS）相关的数据。它只能应用于支持空间数据类型的存储引擎，如MyISAM和InnoDB。
+4. UNIQUE索引：用于强制保证某列或某组列的唯一性。它确保索引列的值在表中是唯一的，不允许重复值。UNIQUE索引适用于需要唯一性约束的列，比如用户名或身份证号。它可以应用于大多数的数据类型和存储引擎。
 
+`当对某一字段增加索引后,会减少查询耗时，空间换时间。`
 
+## 其他
 
+### 查看curd执行频率
 
+> show global status like 'Com_______';
 
+### 慢查询日志
 
+> MySQL的慢查询日志是MySQL提供的一种日志记录，它用来记录在MySQL中响应时间超过阀值的语句，具体指运行时间超过long_query_time值的SQL，则会被记录到慢查询日志中。long_query_time的默认值为 10，意思是运行10秒以上的SQL语句。
+>
+> 由他来查看哪些SQL超出了我们的最大忍耐时间值，比如一条sql执行超过5秒钟，我们就算慢SQL，希望能 收集超过5秒的sql，结合之前explain进行全面分析。
 
+```mysql
+SHOW VARIABLES LIKE 'long_query_time%';  #查询目前慢日志时间
+```
 
+修改配置文件my.cnf 永久生效
 
+```
+[mysqld] 
+slow_query_log=1 
+slow_query_log_file=/var/lib/mysql/atguigu-slow.log 
+long_query_time=3 
+log_output=FILE
+```
 
+### show profiles
 
+> 用来查看sql语句性能，等其他
 
+```mysql
+mysql> select @@have_profiling;  # 是否支持
++------------------+
+| @@have_profiling |
++------------------+
+| YES              |
++------------------+
+1 row in set (0.04 sec)
 
+mysql> select @@profiling;   #是否开启
++-------------+
+| @@profiling |
++-------------+
+|           0 |
++-------------+
+1 row in set (0.04 sec)
 
+mysql> set profiling=1;   ## 开启
+Query OK, 0 rows affected (0.00 sec)
 
+mysql> select @@profiling;
++-------------+
+| @@profiling |
++-------------+
+|           1 |
++-------------+
+mysql> show profiles;   ##查看所有的sql情况
++----------+------------+--------------------+
+| Query_ID | Duration   | Query              |
++----------+------------+--------------------+
+|        1 | 0.00033425 | select @@profiling |
+|        2 | 0.00012275 | show profiling     |
+|        3 | 0.00013375 | select * from s    |
+|        4 | 0.00026325 | use text           |
+|        5 | 0.00077300 | select * from s    |
++----------+------------+--------------------+
 
-
-
-
-
-
-
+show profile for query	query_id;  #查看某个具体sql
+```
 
 
 
