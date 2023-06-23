@@ -3,8 +3,14 @@ import { navbar } from "vuepress-theme-hope";
 export default navbar([
   {
     text:"工具",
-    icon:"star",
-    children:["../blog/tool/cron"]
+    icon:"puzzle-piece",
+    children:[
+      {
+        text:"cron",
+        link:"/blog/tool/cron.md",
+        icon:"clock",
+      },
+    ]
   },
   {
     text: "主站",
@@ -13,7 +19,7 @@ export default navbar([
   },
   {
     text: "Github",
-    icon: "github",
+    icon: "blog",
     link: "https://github.com/ToTryEveryThing/my-docs",
   },
 ]);

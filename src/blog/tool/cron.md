@@ -1,10 +1,10 @@
 ---
 title: cron
-icon: book
+icon: clock
 category:
-  - 使用指南
+  - Tool
 tag:
-  - Markdown  
+  - cron 
 ---
 # cron
 
