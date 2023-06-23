@@ -1,14 +1,13 @@
 import { defineClientConfig } from "@vuepress/client";
+import { VPLink } from "D:/mishu/my-docs/node_modules/vuepress-shared/lib/client/index.js";
 
-import { Layout, NotFound, useScrollPromise, injectDarkmode, setupDarkmode, setupSidebarItems } from "E:/my-docs/node_modules/vuepress-theme-hope/lib/bundle/export.js";
+import { HopeIcon, Layout, NotFound, useScrollPromise, injectDarkmode, setupDarkmode, setupSidebarItems } from "D:/mishu/my-docs/node_modules/vuepress-theme-hope/lib/bundle/export.js";
 
-import { HopeIcon } from "E:/my-docs/node_modules/vuepress-theme-hope/lib/bundle/export.js";
-import { defineAutoCatalogIconComponent } from "E:/my-docs/node_modules/vuepress-plugin-auto-catalog/lib/client/index.js"
-import { GlobalEncrypt, LocalEncrypt } from "E:/my-docs/node_modules/vuepress-theme-hope/lib/bundle/modules/encrypt/export.js";
-import "E:/my-docs/node_modules/vuepress-theme-hope/lib/bundle/modules/encrypt/styles/all.scss"
-import Slide from "E:/my-docs/node_modules/vuepress-plugin-md-enhance/lib/client/SlidePage.js";
+import { defineAutoCatalogIconComponent } from "D:/mishu/my-docs/node_modules/vuepress-plugin-auto-catalog/lib/client/index.js"
+import { GlobalEncrypt, LocalEncrypt } from "D:/mishu/my-docs/node_modules/vuepress-theme-hope/lib/bundle/modules/encrypt/export.js";
+import "D:/mishu/my-docs/node_modules/vuepress-theme-hope/lib/bundle/modules/encrypt/styles/all.scss"
 
-import "E:/my-docs/node_modules/vuepress-theme-hope/lib/bundle/styles/all.scss";
+import "D:/mishu/my-docs/node_modules/vuepress-theme-hope/lib/bundle/styles/all.scss";
 
 defineAutoCatalogIconComponent(HopeIcon);
 
@@ -25,6 +24,11 @@ export default defineClientConfig({
     // inject global properties
     injectDarkmode(app);
 
+    // provide HopeIcon as global component
+    app.component("HopeIcon", HopeIcon);
+    // provide VPLink as global component
+    app.component("VPLink", VPLink);
+
     app.component("GlobalEncrypt", GlobalEncrypt);
     app.component("LocalEncrypt", LocalEncrypt);
   },
@@ -36,6 +40,6 @@ export default defineClientConfig({
   layouts: {
     Layout,
     NotFound,
-    Slide,
+
   }
 });

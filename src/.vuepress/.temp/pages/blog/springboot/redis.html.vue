@@ -157,9 +157,9 @@ zinterstore: 计算多个有序集合的交集，并将结果存储到新的有�
 </blockquote>
 <h4 id="触发" tabindex="-1"><a class="header-anchor" href="#触发" aria-hidden="true">#</a> 触发</h4>
 <ul>
-<li>保存配置：
--- save：只管保存，其他不管，全部阻塞。
--- bgsave：Redis 会在后台异步进行快照操作，快照同时还可以响应客户端请求。
+<li>保存配置：<br>
+-- save：只管保存，其他不管，全部阻塞。<br>
+-- bgsave：Redis 会在后台异步进行快照操作，快照同时还可以响应客户端请求。<br>
 -- lastsave：获取最后一次成功执行快照的时间。</li>
 <li>执行 flushall 命令，也会产生 dump.rdb 文件，但里面是空的，无意义 。</li>
 <li>退出的时候也会产生 dump.rdb 文件。</li>

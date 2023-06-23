@@ -1,6 +1,6 @@
 <template><div><h1 id="rabbitmq" tabindex="-1"><a class="header-anchor" href="#rabbitmq" aria-hidden="true">#</a> RabbitMQ</h1>
 <blockquote>
-<p>安装地址 <a href="https://www.cnblogs.com/Aamir-Ye/p/16832374.html" target="_blank" rel="noopener noreferrer">Docker安装RabbitMQ详细步骤 - 逊老头 - 博客园 (cnblogs.com)<ExternalLinkIcon/></a>
+<p>安装地址 <a href="https://www.cnblogs.com/Aamir-Ye/p/16832374.html" target="_blank" rel="noopener noreferrer">Docker安装RabbitMQ详细步骤 - 逊老头 - 博客园 (cnblogs.com)<ExternalLinkIcon/></a><br>
 学习地址 <a href="https://www.bilibili.com/video/BV1dE411K7MG?p=7&amp;vd_source=f8821730ff8a13ec89104c8629e6d42b" target="_blank" rel="noopener noreferrer">MQ的引言和不同MQ的特点_哔哩哔哩_bilibili<ExternalLinkIcon/></a></p>
 </blockquote>
 <h2 id="simple简单模式" tabindex="-1"><a class="header-anchor" href="#simple简单模式" aria-hidden="true">#</a> simple简单模式</h2>
@@ -149,7 +149,7 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="广播" tabindex="-1"><a class="header-anchor" href="#广播" aria-hidden="true">#</a> 广播</h2>
-<p><img src="https://www.rabbitmq.com/img/tutorials/exchanges.png" alt="Description" loading="lazy">
+<p><img src="https://www.rabbitmq.com/img/tutorials/exchanges.png" alt="Description" loading="lazy"><br>
 流程如下：</p>
 <ul>
 <li>有多个消费者</li>
@@ -479,7 +479,7 @@
 
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="延迟队列" tabindex="-1"><a class="header-anchor" href="#延迟队列" aria-hidden="true">#</a> 延迟队列</h2>
-<p><a href="https://blog.csdn.net/coderyjz/article/details/107378451" target="_blank" rel="noopener noreferrer">安装插件以及使用<ExternalLinkIcon/></a>
+<p><a href="https://blog.csdn.net/coderyjz/article/details/107378451" target="_blank" rel="noopener noreferrer">安装插件以及使用<ExternalLinkIcon/></a><br>
 config</p>
 <div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token annotation punctuation">@Configuration</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestDelayQueueConfig</span> <span class="token punctuation">{</span>

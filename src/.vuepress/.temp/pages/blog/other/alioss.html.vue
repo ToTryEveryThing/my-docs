@@ -1,5 +1,5 @@
 <template><div><h1 id="java-上传-aliyun-oss" tabindex="-1"><a class="header-anchor" href="#java-上传-aliyun-oss" aria-hidden="true">#</a> Java 上传 aliyun OSS</h1>
-<h2 id="阿里官方文档java上传文件概述和文件下载" tabindex="-1"><a class="header-anchor" href="#阿里官方文档java上传文件概述和文件下载" aria-hidden="true">#</a> <a href="https://help.aliyun.com/document_detail/32008.html" target="_blank" rel="noopener noreferrer">阿里官方文档<ExternalLinkIcon/></a>
+<h2 id="阿里官方文档java上传文件概述和文件下载" tabindex="-1"><a class="header-anchor" href="#阿里官方文档java上传文件概述和文件下载" aria-hidden="true">#</a> <a href="https://help.aliyun.com/document_detail/32008.html" target="_blank" rel="noopener noreferrer">阿里官方文档<ExternalLinkIcon/></a><br>
 <a href="https://help.aliyun.com/document_detail/32013.html?spm=a2c4g.84796.0.0.65b05266v925WX" target="_blank" rel="noopener noreferrer">Java上传文件概述和文件下载<ExternalLinkIcon/></a></h2>
 <h4 id="使用ram访问-更安全" tabindex="-1"><a class="header-anchor" href="#使用ram访问-更安全" aria-hidden="true">#</a> 使用RAM访问 更安全</h4>
 <div class="hint-container danger">
@@ -7,12 +7,12 @@
 <p>主账号AccessKey泄露会威胁您所有资源的安全。建议使用子账号（RAM用户）AccessKey进行操作，可以有效降低AccessKey泄露的风险。</p>
 </div>
 <blockquote>
-<p>① <a href="https://help.aliyun.com/document_detail/375246.html" target="_blank" rel="noopener noreferrer">使用RAM用户访问密钥发起请求<ExternalLinkIcon/></a>
-② &quot;Action&quot;: [
-&quot;oss:PutObject&quot;,
-&quot;oss:ListObjects&quot;,
-&quot;oss:DeleteObject&quot;
-],放行权限 上传/目录/删除 权限
+<p>① <a href="https://help.aliyun.com/document_detail/375246.html" target="_blank" rel="noopener noreferrer">使用RAM用户访问密钥发起请求<ExternalLinkIcon/></a><br>
+② &quot;Action&quot;: [<br>
+&quot;oss:PutObject&quot;,<br>
+&quot;oss:ListObjects&quot;,<br>
+&quot;oss:DeleteObject&quot;<br>
+],放行权限 上传/目录/删除 权限<br>
 ③ 跨域放行</p>
 </blockquote>
 <h4 id="上传图片" tabindex="-1"><a class="header-anchor" href="#上传图片" aria-hidden="true">#</a> 上传图片</h4>
