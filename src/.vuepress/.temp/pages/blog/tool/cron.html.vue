@@ -3,6 +3,50 @@
 <p>Cron适用于周期性执行、日常维护、在某时刻需要完成的单次任务等场景。Cron表达式是一个具有时间含义的字符串，字符串以5个空格隔开，分为6个域，格式为<code v-pre>X X X X X X</code>。其中<code v-pre>X</code>是一个域的占位符。单个域有多个取值时，使用半角逗号<code v-pre>,</code>隔开取值。每个域可以是确定的取值，也可以是具有逻辑意义的特殊字符。</p>
 </blockquote>
 <h2 id="组成" tabindex="-1"><a class="header-anchor" href="#组成" aria-hidden="true">#</a> 组成</h2>
+<p>正则表达式主要依赖于元字符。
+元字符不代表他们本身的字面意思，他们都有特殊的含义。一些元字符写在方括号中的时候有一些特殊的意思。以下是一些元字符的介绍：</p>
+<table>
+<thead>
+<tr>
+<th>元字符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.</td>
+<td>句号匹配任意单个字符除了换行符。</td>
+</tr>
+<tr>
+<td>[ ]</td>
+<td>字符种类。匹配方括号内的任意字符。</td>
+</tr>
+<tr>
+<td>[^ ]</td>
+<td>否定的字符种类。匹配除了方括号里的任意字符</td>
+</tr>
+<tr>
+<td>*</td>
+<td>匹配&gt;=0个重复的在*号之前的字符。</td>
+</tr>
+<tr>
+<td>+</td>
+<td>匹配&gt;=1个重复的+号前的字符。</td>
+</tr>
+<tr>
+<td>?</td>
+<td>标记?之前的字符为可选.</td>
+</tr>
+<tr>
+<td>(xyz)</td>
+<td>字符集，匹配与 xyz 完全相等的字符串.</td>
+</tr>
+<tr>
+<td>..</td>
+<td>或运算符，匹配符号前或后的字符.</td>
+</tr>
+</tbody>
+</table>
 <p>秒 分 时 日 月 周</p>
 <h2 id="取值范围" tabindex="-1"><a class="header-anchor" href="#取值范围" aria-hidden="true">#</a> 取值范围</h2>
 <table>
