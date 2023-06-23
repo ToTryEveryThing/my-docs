@@ -1,6 +1,6 @@
 <template><div><h2 id="安装" tabindex="-1"><a class="header-anchor" href="#安装" aria-hidden="true">#</a> 安装</h2>
-<p><a href="https://maven.apache.org/docs/history.html" target="_blank" rel="noopener noreferrer">下载地址<ExternalLinkIcon/></a>
-<a href="https://mvnrepository.com/" target="_blank" rel="noopener noreferrer">中央仓库<ExternalLinkIcon/></a>
+<p><a href="https://maven.apache.org/docs/history.html" target="_blank" rel="noopener noreferrer">下载地址<ExternalLinkIcon/></a><br>
+<a href="https://mvnrepository.com/" target="_blank" rel="noopener noreferrer">中央仓库<ExternalLinkIcon/></a><br>
 <a href="https://www.bilibili.com/video/BV1Ah411S7ZE/?p=5&amp;share_source=copy_web&amp;vd_source=022da6ab90330725b8894f9c2e9a8cb0" target="_blank" rel="noopener noreferrer">配置本地仓库<ExternalLinkIcon/></a></p>
 <h3 id="阿里镜像" tabindex="-1"><a class="header-anchor" href="#阿里镜像" aria-hidden="true">#</a> 阿里镜像</h3>
 <div class="language-xml line-numbers-mode" data-ext="xml"><pre v-pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mirror</span><span class="token punctuation">></span></span>

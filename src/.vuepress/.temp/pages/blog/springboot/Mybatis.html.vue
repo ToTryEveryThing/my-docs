@@ -1,5 +1,5 @@
 <template><div><h1 id="mybatis" tabindex="-1"><a class="header-anchor" href="#mybatis" aria-hidden="true">#</a> Mybatis</h1>
-<p><a href="https://mybatis.org/mybatis-3/zh/getting-started.html" target="_blank" rel="noopener noreferrer">官网<ExternalLinkIcon/></a>
+<p><a href="https://mybatis.org/mybatis-3/zh/getting-started.html" target="_blank" rel="noopener noreferrer">官网<ExternalLinkIcon/></a><br>
 <a href="https://www.bilibili.com/video/BV1MT4y1k7wZ?p=7&amp;vd_source=f8821730ff8a13ec89104c8629e6d42b" target="_blank" rel="noopener noreferrer">学习地址<ExternalLinkIcon/></a></p>
 <p>依赖</p>
 <div class="language-xml line-numbers-mode" data-ext="xml"><pre v-pre class="language-xml"><code><span class="token comment">&lt;!-- https://mvnrepository.com/artifact/org.mybatis/mybatis --></span>
@@ -8,7 +8,7 @@
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>mybatis<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>3.5.5<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>xml配置详解
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>xml配置详解<br>
 <img src="https://images.beink.cn/study/UL4ng9jJ1Vpg86bUFMn8K.png" alt="study" loading="lazy"></p>
 <h3 id="添加-主键返回" tabindex="-1"><a class="header-anchor" href="#添加-主键返回" aria-hidden="true">#</a> 添加-主键返回</h3>
 <div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token keyword">int</span> i <span class="token operator">=</span> mapper<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>test1<span class="token punctuation">)</span><span class="token punctuation">;</span>
