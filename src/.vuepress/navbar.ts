@@ -10,6 +10,11 @@ export default navbar([
         link:"/blog/tool/cron.md",
         icon:"clock",
       },
+      {
+        text:"regex",
+        link:"/blog/tool/regex.md",
+        icon:"wand-magic-sparkles",
+      }
     ]
   },
   {
