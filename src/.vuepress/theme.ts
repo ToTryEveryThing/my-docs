@@ -23,6 +23,7 @@ export default hopeTheme({
   navbar,
 
 
+
   // sidebar
   sidebar,
 
@@ -49,22 +50,23 @@ export default hopeTheme({
     //   categoryId: "DIC_kwDOG_Pt2M4COD69",
     // },
     // All features are enabled for demo, only preserve features you need here
+    // markdown  用不到的false
     mdEnhance: {
-      align: true,
-      attrs: true,
-      chart: true,
+      align: false,
+      attrs: false,
+      chart: false,
       codetabs: true,
-      demo: true,
-      echarts: true,
+      demo: false,
+      echarts: false,
       figure: true,
-      flowchart: true,
+      flowchart: false,
       gfm: true,
       imgLazyload: true,
       imgSize: true,
       include: true,
-      katex: true,
-      mark: true,
-      mermaid: true,
+      katex: false,
+      mark: false,
+      mermaid: false,
       playground: {
         presets: ["ts", "vue"],
       },
@@ -84,11 +86,11 @@ export default hopeTheme({
           },
         },
       ],
-      sub: true,
-      sup: true,
-      tabs: true,
-      vPre: true,
-      vuePlayground: true,
+      sub: false,
+      sup: false,
+      tabs: false,
+      vPre: false,
+      vuePlayground: false,
     },
 
     // uncomment these if you want a pwa
