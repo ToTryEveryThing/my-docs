@@ -1,5 +1,3 @@
-import "./chunk-TFWDKVI3.js";
-
 // node_modules/slimsearch/dist/index.mjs
 var mt = "ENTRIES";
 var R = "KEYS";
