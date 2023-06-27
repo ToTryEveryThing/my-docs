@@ -37,6 +37,8 @@ export const pagesComponents = {
   "v-3eed5af0": defineAsyncComponent(() => import(/* webpackChunkName: "v-3eed5af0" */"E:/my-docs/src/.vuepress/.temp/pages/blog/springboot/ssm.html.vue")),
   // path: /blog/tool/cron.html
   "v-095629c8": defineAsyncComponent(() => import(/* webpackChunkName: "v-095629c8" */"E:/my-docs/src/.vuepress/.temp/pages/blog/tool/cron.html.vue")),
+  // path: /blog/tool/Puppeteer.html
+  "v-befb9404": defineAsyncComponent(() => import(/* webpackChunkName: "v-befb9404" */"E:/my-docs/src/.vuepress/.temp/pages/blog/tool/Puppeteer.html.vue")),
   // path: /blog/tool/regex.html
   "v-4a3181d5": defineAsyncComponent(() => import(/* webpackChunkName: "v-4a3181d5" */"E:/my-docs/src/.vuepress/.temp/pages/blog/tool/regex.html.vue")),
   // path: /404.html

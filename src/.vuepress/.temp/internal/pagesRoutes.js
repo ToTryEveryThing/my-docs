@@ -17,6 +17,7 @@ export const pagesRoutes = [
   ["v-6c8528da","/blog/springboot/redis.html",{"y":"a","t":"Redis","i":"chart-pie","O":2},["/blog/springboot/redis","/blog/springboot/redis.md"]],
   ["v-3eed5af0","/blog/springboot/ssm.html",{"y":"a","t":"Spring SpringMVC","i":"link","O":1},["/blog/springboot/ssm","/blog/springboot/ssm.md"]],
   ["v-095629c8","/blog/tool/cron.html",{"y":"a","t":"cron","i":"clock"},["/blog/tool/cron","/blog/tool/cron.md"]],
+  ["v-befb9404","/blog/tool/Puppeteer.html",{"y":"a","t":"Puppeteer","i":"image"},["/blog/tool/Puppeteer","/blog/tool/Puppeteer.md"]],
   ["v-4a3181d5","/blog/tool/regex.html",{"y":"a","t":"regex","i":"wand-magic-sparkles"},["/blog/tool/regex","/blog/tool/regex.md"]],
   ["v-3706649a","/404.html",{"y":"p","t":""},["/404"]],
   ["v-3fc7045a","/blog/oother/",{"y":"p","t":"Oother"},["/blog/oother/index.html"]],
