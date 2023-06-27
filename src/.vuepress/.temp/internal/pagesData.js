@@ -35,6 +35,8 @@ export const pagesData = {
   "v-3eed5af0": () => import(/* webpackChunkName: "v-3eed5af0" */"E:/my-docs/src/.vuepress/.temp/pages/blog/springboot/ssm.html.js").then(({ data }) => data),
   // path: /blog/tool/cron.html
   "v-095629c8": () => import(/* webpackChunkName: "v-095629c8" */"E:/my-docs/src/.vuepress/.temp/pages/blog/tool/cron.html.js").then(({ data }) => data),
+  // path: /blog/tool/Puppeteer.html
+  "v-befb9404": () => import(/* webpackChunkName: "v-befb9404" */"E:/my-docs/src/.vuepress/.temp/pages/blog/tool/Puppeteer.html.js").then(({ data }) => data),
   // path: /blog/tool/regex.html
   "v-4a3181d5": () => import(/* webpackChunkName: "v-4a3181d5" */"E:/my-docs/src/.vuepress/.temp/pages/blog/tool/regex.html.js").then(({ data }) => data),
   // path: /404.html

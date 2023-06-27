@@ -14,6 +14,11 @@ export default navbar([
         text:"regex",
         link:"/blog/tool/regex.md",
         icon:"wand-magic-sparkles",
+      },
+      {
+        text:"Puppeteer",
+        link:"/blog/tool/Puppeteer.md",
+        icon:"image",
       }
     ]
   },
