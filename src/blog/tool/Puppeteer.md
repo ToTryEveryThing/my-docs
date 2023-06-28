@@ -254,6 +254,55 @@ captureScreenshot();
 - crontab -e
 - 0 0 12 * * ? cd /www/shot && node shot.js
 
+## Github action
+```
+name: main
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 */6 * * *'  # 每6小时执行一次，可根据需要调整时间
+
+jobs:
+  run-coupons:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+           
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18.16.0'
+          
+      - name: Install Dependencies
+        run: |
+          sudo apt-get install fonts-wqy-zenhei
+          npm install
+          npm install puppeteer
+          
+      - name: Run Script
+        run: node shot.js
+
+      - name: Create Image Branch
+        run: |
+          git stash
+          git fetch origin
+          git checkout image
+          mkdir -p image
+          mv *.png image/
+          git pull origin image
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Add downloaded images"
+          git push origin image
+```
+
+
+
 ## 问题
 
 ### Puppeteer没有自动安装Chromium的解决办法
