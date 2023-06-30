@@ -85,7 +85,7 @@ tag:
 ```
 
 xml配置详解
-![image-20230605163139204](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230605163139204.png)
+![image-20230605163139204](https://images.beink.cn/study/UL4ng9jJ1Vpg86bUFMn8K.png)
 
 ### 属性
 
