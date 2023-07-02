@@ -8,13 +8,17 @@ tag:
   - Markdown
 ---
 [Redis详细解释](https://www.bilibili.com/video/BV1Fd4y1T7pD/?spm_id_from=333.880.my_history.page.click&vd_source=f8821730ff8a13ec89104c8629e6d42b)
+
 ## 安装
+
 ```
 sudo apt update
 sudo apt install redis-server
 redis-cli 启动命令
 ```
+
 ## 基本命令
+
 ```
 bdsize 当前数据库大小
 select 数据库切换
@@ -22,8 +26,11 @@ flushdb 清空当前数据库
 flushall 清空所有数据库
 type name  查看key的类型
 ```
+
 ## 五大数据类型
-### Redsi-Key
+
+- Redsi-Key
+
 ```
 keys *     打印所有的key
 set name hhh   设置k-v("name","hh")
@@ -33,7 +40,9 @@ move name  1  将name移入到数据库1中
 expire name 5  设置name 5s 过期
 ttl name 查看name剩余过期时间
 ```
-### String
+
+- String
+
 ```
 append name  "world"     #value后面增加world
 strlen name   #value的长度
@@ -46,7 +55,9 @@ mget mset  #批量set或get
 setnx  #如果存在则不创建
 getset  #找不到就创建 找到就设置
 ```
-### List
+
+- List
+
 ```
 lpush list hello   #往list中加入hello
 lrange list 0 -1   #打印所有
@@ -57,7 +68,9 @@ lrem list 1 hello      # 删除一个hello
 ltrim list 2 4       # 截取 剩余2-4
 lset list 0 hello    # 指定下标值替换为hello
 ```
-### set
+
+- set
+
 ```
 sadd: 向集合中添加元素。例如：sadd myset "element1" "element2"
 
@@ -79,7 +92,9 @@ sinter: 返回多个集合的交集。例如：sinter set1 set2 set3
 
 srandmember: 随机返回集合中的一个元素。例如：srandmember myset
 ```
-### Hash
+
+- Hash
+
 ```
 hset key field value : 在key对应的hash中设置field对应的value。如果key不存在，则新建一个。
 例如:hset user:1 name "tom"
@@ -99,7 +114,9 @@ hvals key : 获取key对应的hash中所有的value。
 例如: hvals user:1
 这里是一些基本的Redis Hash命令。实际上还有许多其他的命令可供使用，如hincrby、hmset、hmget等。
 ```
-### Sorted sets
+
+- Sorted sets
+
 ```
 zadd: 向有序集合中添加元素，支持指定分数。例如：zadd mysortedset 1 "element1" 2 "element2"
 
@@ -121,18 +138,25 @@ zunionstore: 计算多个有序集合的并集，并将结果存储到新的有�
 
 zinterstore: 计算多个有序集合的交集，并将结果存储到新的有序集合中。例如：zinterstore new_sortedset 2 sortedset1 sortedset2
 ```
+
 ## 序列化
+
 - Redis是一种内存数据库，为了更有效地使用内存，它需要对存储的数据进行序列化，使数据占用的空间更小。序列化是指将数据结构转换为字节流的过程。
 - Redis支持多种序列化格式，如二进制协议（Redis默认使用的序列化格式）、JSON、MessagePack等。二进制协议是Redis自定义的序列化格式，它可以最大程度地减少数据占用的空间。JSON和MessagePack是常用的序列化格式，它们可以方便地与其他语言和系统进行交互。
+
 ### 实现
+
 stu.java
+
 ```java
 public class stu implements Serializable {
     private Integer id;
     private String name;
 }
 ```
+
 RedisConfig.java
+
 ```java
 @Configuration
 public class RedisConfig{
@@ -166,7 +190,9 @@ public class RedisConfig{
     }
 }
 ```
+
 ### 测试
+
 ```java
     @Autowired
     private RedisTemplate redisTemplate;
@@ -179,19 +205,42 @@ public class RedisConfig{
     }
 
 ```
+
 ## 持久化
+
 ### RDB
+
 > RDB 是 Redis Database 文件的缩写，它是 Redis 的默认数据持久化方式。RDB 文件是在指定的时间间隔内（通常是每几秒或几分钟）自动生成的快照文件。这种方式可以在损失一定数据的情况下更快地恢复数据库。
-#### 触发
+
+##### 触发
+
 - 保存配置：
-   -- save：只管保存，其他不管，全部阻塞。
-   -- bgsave：Redis 会在后台异步进行快照操作，快照同时还可以响应客户端请求。
-   -- lastsave：获取最后一次成功执行快照的时间。
+
+  - save：只管保存，其他不管，全部阻塞。
+
+  > 内部触发机制
+  >
+  > 900s 内有一条数据被修改 则执行bgsave
+  >
+  > save 900 1
+  > save 300 10
+  > save 60 10000
+  >
+  > save ""  # 禁用RDB
+
+  - bgsave：Redis 会在后台异步进行快照操作，快照同时还可以响应客户端请求。
+  - lastsave：获取最后一次成功执行快照的时间。
+
 - 执行 flushall 命令，也会产生 dump.rdb 文件，但里面是空的，无意义 。
+
 - 退出的时候也会产生 dump.rdb 文件。
+
 ### AOF
+
 <font color="gray">很少使用</font>
+
 > AOF 是 Append-Only File 的缩写，它是 Redis 的另一种数据持久化方式。AOF 文件是将 Redis 所有写操作命令追加到文件的过程，因此可以保证数据的完整性。
+
 ```
 # 是否以append only模式作为持久化方式，默认使用的是rdb方式持久化，这种方式在许多应用中已经足够用了
 appendonly no 
@@ -204,18 +253,88 @@ appendfilename "appendonly.aof"
 appendfsync everysec 
 # 重写时是否可以运用Appendfsync，用默认no即可，保证数据安全性
 No-appendfsync-on-rewrite 
+
+## 触发阈值自动重写aof
 # 设置重写的基准值
-Auto-aof-rewrite-min-size 
+Auto-aof-rewrite-min-size  100
 # 设置重写的基准值
-Auto-aof-rewrite-percentage
+Auto-aof-rewrite-percentage 64mb
 ```
 
+::: info
 
+由于记录中的很多操作没有意义， 可以执行 bgrewriteaof
 
+可以让aof文件执行重写功能，用最少的命令达到相同的效果
 
+:::
 
+## 主从
 
+[高级篇-分布式缓存-06-Redis主从-主从集群结构_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1cr4y1671t?p=101&spm_id_from=pageDriver&vd_source=f8821730ff8a13ec89104c8629e6d42b)
 
+### 开启
+
+> 先配置 三个不同的redis.conf  用来启动不同的端口
+>
+> 默认 从机只读
+
+- 修改配置文件（永久生效）
+
+  - 下redis.conf 添加一行配置 slaveof  ip port
+
+- 使用redis-cli 客户端连接到redis服务，执行slaveof(重启后失效)
+
+  `slaveof ip port `
+
+### 哨兵
+
+>  用来实现主从集群的自动故障恢复
+>
+>  采用心跳机制 每个1s就会向每个实例发送ping命令
+>
+>  - 主观下线 如果某实例未在规定时间内 返回相应 ，则主观认为该实例下线。
+>  - 客观下线 好多个哨兵都认为该实例下线，则该实例客观下线
+
+- 搭建sentinel集群
+
+需要多个sentinel
+
+```
+# Redis Sentinel configuration file
+port 27003
+# 设置 Sentinel 进程的ID，默认为 sentinel，默认情况下无需修改
+#sentinel myid 1
+
+# 配置监控的主节点信息
+# 指定主节点的名称、IP地址和端口
+sentinel monitor mymaster 127.0.0.1 7001 2
+
+# 设置 Sentinel 进程和主节点失去联系后，判断主节点下线的时间阈值（单位：毫秒）
+sentinel down-after-milliseconds mymaster 5000
+
+# 设置 Sentinel 进行故障转移的超时时间（单位：毫秒）
+sentinel failover-timeout mymaster 10000
+
+# 配置日志文件路径和级别
+# 默认情况下，日志将输出到控制台
+# 可以将日志输出到指定的文件，配置 log-file 参数
+# 可以设置日志级别，配置 loglevel 参数，可选值：debug、verbose、notice、warning
+#sentinel loglevel notice
+# sentinel logfile "sentinel.log"
+
+# 设置 Sentinel 进程的认证密码（如果有密码）
+# 如果 Redis 主节点设置了密码，则需要配置 sentinel auth-pass 指令来提供密码
+# sentinel auth-pass mymaster password
+
+# 配置其他 Sentinel 进程信息
+# 可以添加更多的 Sentinel 进程信息，用于构建 Sentinel 的多节点部署
+# sentinel monitor othermaster 127.0.0.1 6380 2
+```
+
+- 启动
+
+  > redis-sentinel s1/sentinel.conf
 
 
 
