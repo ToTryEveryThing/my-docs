@@ -299,6 +299,38 @@ select * from s where age < 50 union select * from s where sex = '男' ;    去�
 
 `当对某一字段增加索引后,会减少查询耗时，空间换时间。`
 
+## 锁
+### 全局锁
+> 只可读 不可写。
+```mysql
+mysql> flush tables with read lock; # 加全局锁
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delete from chat where id  = 10;
+1223 - Can't execute the query because you have a conflicting read lock
+mysql> unlock tables; # 释放锁
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delete from chat where id  = 10;
+Query OK, 1 row affected (0.01 sec)
+ 
+```
+### 表级锁
+#### 表锁
+> 加锁 `lock tables 表名 read/write`
+
+> 解锁 `unlock tables`
+- 表共享读锁 read lock    # 都能读只有自己能写
+- 表独占写锁 write lock   #只有自己能读写
+#### 元数据锁
+> 锁定表结构
+####  意向锁
+### 行级锁
+- 行锁
+> 锁定单个行记录的锁 防止对其进行update,delete
+- 间隙锁
+> 防止进行insert
+
 ## 其他
 
 ### 查看curd执行频率
