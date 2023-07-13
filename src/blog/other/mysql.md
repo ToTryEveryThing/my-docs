@@ -225,10 +225,10 @@ alter table s add constraint fk_s_b_id foreign key (b_id) references b(id);
 ```
 
 - 删除/更新行为
-  - RESTRICT：父表数据被删除，会阻止删除。默认就是这一项。
+  - RESTRICT：父表数据被`删除/更新`，会阻止`删除/更新`。默认就是这一项。
   - NO ACTION：在MySQL中，同RESTRICT。
-  - CASCADE：级联删除。
-  - SET NULL：父表数据被删除，子表数据会设置为NULL。
+  - CASCADE：级联`删除/更新`。
+  - SET NULL：父表数据被`删除/更新`，子表数据会设置为NULL。
 
 ---------
 
