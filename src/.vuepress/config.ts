@@ -2,8 +2,8 @@ import path from "path";
 import { defineUserConfig } from "vuepress";
 import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
 import { searchProPlugin } from "vuepress-plugin-search-pro";
+import { hopeTheme } from "vuepress-theme-hope";
 import theme from "./theme.js";
-import { blog } from "vuepress-theme-hope";
 
 export default defineUserConfig({
   base: '/my-docs/',
@@ -19,6 +19,8 @@ export default defineUserConfig({
       // 为分类和标签添加索引
     }),
   ],
+
+
 
   theme,
 

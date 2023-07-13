@@ -10,7 +10,9 @@ flushdb 清空当前数据库
 flushall 清空所有数据库
 type name  查看key的类型
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="五大数据类型" tabindex="-1"><a class="header-anchor" href="#五大数据类型" aria-hidden="true">#</a> 五大数据类型</h2>
-<h3 id="redsi-key" tabindex="-1"><a class="header-anchor" href="#redsi-key" aria-hidden="true">#</a> Redsi-Key</h3>
+<ul>
+<li>Redsi-Key</li>
+</ul>
 <div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>keys *     打印所有的key
 set name hhh   设置k-v("name","hh")
 get name   打印name的value
@@ -18,7 +20,9 @@ exists name  判断key是否存在
 move name  1  将name移入到数据库1中
 expire name 5  设置name 5s 过期
 ttl name 查看name剩余过期时间
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="string" tabindex="-1"><a class="header-anchor" href="#string" aria-hidden="true">#</a> String</h3>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
+<li>String</li>
+</ul>
 <div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>append name  "world"     #value后面增加world
 strlen name   #value的长度
 incr  age    #实现自增
@@ -29,7 +33,9 @@ getrange name 0 3   #串的截取
 mget mset  #批量set或get
 setnx  #如果存在则不创建
 getset  #找不到就创建 找到就设置
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="list" tabindex="-1"><a class="header-anchor" href="#list" aria-hidden="true">#</a> List</h3>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
+<li>List</li>
+</ul>
 <div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>lpush list hello   #往list中加入hello
 lrange list 0 -1   #打印所有
 lpop/rpop list     #删除左右头部
@@ -38,7 +44,9 @@ llen list          # 长度
 lrem list 1 hello      # 删除一个hello
 ltrim list 2 4       # 截取 剩余2-4
 lset list 0 hello    # 指定下标值替换为hello
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="set" tabindex="-1"><a class="header-anchor" href="#set" aria-hidden="true">#</a> set</h3>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
+<li>set</li>
+</ul>
 <div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>sadd: 向集合中添加元素。例如：sadd myset "element1" "element2"
 
 smembers: 返回集合中所有元素。例如：smembers myset
@@ -58,7 +66,9 @@ sdiff: 返回多个集合的差集。例如：sdiff set1 set2 set3
 sinter: 返回多个集合的交集。例如：sinter set1 set2 set3
 
 srandmember: 随机返回集合中的一个元素。例如：srandmember myset
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="hash" tabindex="-1"><a class="header-anchor" href="#hash" aria-hidden="true">#</a> Hash</h3>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
+<li>Hash</li>
+</ul>
 <div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>hset key field value : 在key对应的hash中设置field对应的value。如果key不存在，则新建一个。
 例如:hset user:1 name "tom"
 hget key field : 获取key对应的hash中field对应的value。
@@ -76,7 +86,9 @@ hkeys key : 获取key对应的hash中所有的field。
 hvals key : 获取key对应的hash中所有的value。
 例如: hvals user:1
 这里是一些基本的Redis Hash命令。实际上还有许多其他的命令可供使用，如hincrby、hmset、hmget等。
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="sorted-sets" tabindex="-1"><a class="header-anchor" href="#sorted-sets" aria-hidden="true">#</a> Sorted sets</h3>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
+<li>Sorted sets</li>
+</ul>
 <div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>zadd: 向有序集合中添加元素，支持指定分数。例如：zadd mysortedset 1 "element1" 2 "element2"
 
 zrange: 返回有序集合中指定范围的元素。例如：zrange mysortedset 0 -1
@@ -155,14 +167,32 @@ zinterstore: 计算多个有序集合的交集，并将结果存储到新的有�
 <blockquote>
 <p>RDB 是 Redis Database 文件的缩写，它是 Redis 的默认数据持久化方式。RDB 文件是在指定的时间间隔内（通常是每几秒或几分钟）自动生成的快照文件。这种方式可以在损失一定数据的情况下更快地恢复数据库。</p>
 </blockquote>
-<h4 id="触发" tabindex="-1"><a class="header-anchor" href="#触发" aria-hidden="true">#</a> 触发</h4>
+<h5 id="触发" tabindex="-1"><a class="header-anchor" href="#触发" aria-hidden="true">#</a> 触发</h5>
 <ul>
-<li>保存配置：
--- save：只管保存，其他不管，全部阻塞。
--- bgsave：Redis 会在后台异步进行快照操作，快照同时还可以响应客户端请求。
--- lastsave：获取最后一次成功执行快照的时间。</li>
-<li>执行 flushall 命令，也会产生 dump.rdb 文件，但里面是空的，无意义 。</li>
-<li>退出的时候也会产生 dump.rdb 文件。</li>
+<li>
+<p>保存配置：</p>
+<ul>
+<li>save：只管保存，其他不管，全部阻塞。</li>
+</ul>
+<blockquote>
+<p>内部触发机制</p>
+<p>900s 内有一条数据被修改 则执行bgsave</p>
+<p>save 900 1
+save 300 10
+save 60 10000</p>
+<p>save &quot;&quot;  # 禁用RDB</p>
+</blockquote>
+<ul>
+<li>bgsave：Redis 会在后台异步进行快照操作，快照同时还可以响应客户端请求。</li>
+<li>lastsave：获取最后一次成功执行快照的时间。</li>
+</ul>
+</li>
+<li>
+<p>执行 flushall 命令，也会产生 dump.rdb 文件，但里面是空的，无意义 。</p>
+</li>
+<li>
+<p>退出的时候也会产生 dump.rdb 文件。</p>
+</li>
 </ul>
 <h3 id="aof" tabindex="-1"><a class="header-anchor" href="#aof" aria-hidden="true">#</a> AOF</h3>
 <font color="gray">很少使用</font><blockquote>
@@ -179,10 +209,86 @@ appendfilename "appendonly.aof"
 appendfsync everysec 
 # 重写时是否可以运用Appendfsync，用默认no即可，保证数据安全性
 No-appendfsync-on-rewrite 
+
+## 触发阈值自动重写aof
 # 设置重写的基准值
-Auto-aof-rewrite-min-size 
+Auto-aof-rewrite-min-size  100
 # 设置重写的基准值
-Auto-aof-rewrite-percentage
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div></template>
+Auto-aof-rewrite-percentage 64mb
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container info">
+<p class="hint-container-title">相关信息</p>
+<p>由于记录中的很多操作没有意义， 可以执行 bgrewriteaof</p>
+<p>可以让aof文件执行重写功能，用最少的命令达到相同的效果</p>
+</div>
+<h2 id="主从" tabindex="-1"><a class="header-anchor" href="#主从" aria-hidden="true">#</a> 主从</h2>
+<p><a href="https://www.bilibili.com/video/BV1cr4y1671t?p=101&amp;spm_id_from=pageDriver&amp;vd_source=f8821730ff8a13ec89104c8629e6d42b" target="_blank" rel="noopener noreferrer">高级篇-分布式缓存-06-Redis主从-主从集群结构_哔哩哔哩_bilibili<ExternalLinkIcon/></a></p>
+<h3 id="开启" tabindex="-1"><a class="header-anchor" href="#开启" aria-hidden="true">#</a> 开启</h3>
+<blockquote>
+<p>先配置 三个不同的redis.conf  用来启动不同的端口</p>
+<p>默认 从机只读</p>
+</blockquote>
+<ul>
+<li>
+<p>修改配置文件（永久生效）</p>
+<ul>
+<li>下redis.conf 添加一行配置 slaveof  ip port</li>
+</ul>
+</li>
+<li>
+<p>使用redis-cli 客户端连接到redis服务，执行slaveof(重启后失效)</p>
+<p><code v-pre>slaveof ip port </code></p>
+</li>
+</ul>
+<h3 id="哨兵" tabindex="-1"><a class="header-anchor" href="#哨兵" aria-hidden="true">#</a> 哨兵</h3>
+<blockquote>
+<p>用来实现主从集群的自动故障恢复</p>
+<p>采用心跳机制 每个1s就会向每个实例发送ping命令</p>
+<ul>
+<li>主观下线 如果某实例未在规定时间内 返回相应 ，则主观认为该实例下线。</li>
+<li>客观下线 好多个哨兵都认为该实例下线，则该实例客观下线</li>
+</ul>
+</blockquote>
+<ul>
+<li>搭建sentinel集群</li>
+</ul>
+<p>需要多个sentinel</p>
+<div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code># Redis Sentinel configuration file
+port 27003
+# 设置 Sentinel 进程的ID，默认为 sentinel，默认情况下无需修改
+#sentinel myid 1
+
+# 配置监控的主节点信息
+# 指定主节点的名称、IP地址和端口
+sentinel monitor mymaster 127.0.0.1 7001 2
+
+# 设置 Sentinel 进程和主节点失去联系后，判断主节点下线的时间阈值（单位：毫秒）
+sentinel down-after-milliseconds mymaster 5000
+
+# 设置 Sentinel 进行故障转移的超时时间（单位：毫秒）
+sentinel failover-timeout mymaster 10000
+
+# 配置日志文件路径和级别
+# 默认情况下，日志将输出到控制台
+# 可以将日志输出到指定的文件，配置 log-file 参数
+# 可以设置日志级别，配置 loglevel 参数，可选值：debug、verbose、notice、warning
+#sentinel loglevel notice
+# sentinel logfile "sentinel.log"
+
+# 设置 Sentinel 进程的认证密码（如果有密码）
+# 如果 Redis 主节点设置了密码，则需要配置 sentinel auth-pass 指令来提供密码
+# sentinel auth-pass mymaster password
+
+# 配置其他 Sentinel 进程信息
+# 可以添加更多的 Sentinel 进程信息，用于构建 Sentinel 的多节点部署
+# sentinel monitor othermaster 127.0.0.1 6380 2
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
+<li>
+<p>启动</p>
+<blockquote>
+<p>redis-sentinel s1/sentinel.conf</p>
+</blockquote>
+</li>
+</ul>
+</div></template>
 
 

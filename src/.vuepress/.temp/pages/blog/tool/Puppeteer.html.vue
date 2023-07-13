@@ -159,7 +159,51 @@
 <li>crontab -e</li>
 <li>0 0 12 * * ? cd /www/shot &amp;&amp; node shot.js</li>
 </ul>
-<h2 id="问题" tabindex="-1"><a class="header-anchor" href="#问题" aria-hidden="true">#</a> 问题</h2>
+<h2 id="github-action" tabindex="-1"><a class="header-anchor" href="#github-action" aria-hidden="true">#</a> Github action</h2>
+<div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>name: main
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 */6 * * *'  # 每6小时执行一次，可根据需要调整时间
+
+jobs:
+  run-coupons:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+           
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18.16.0'
+          
+      - name: Install Dependencies
+        run: |
+          sudo apt-get install fonts-wqy-zenhei
+          npm install
+          npm install puppeteer
+          
+      - name: Run Script
+        run: node shot.js
+
+      - name: Create Image Branch
+        run: |
+          git stash
+          git fetch origin
+          git checkout image
+          mkdir -p image
+          mv *.png image/
+          git pull origin image
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Add downloaded images"
+          git push origin image
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="问题" tabindex="-1"><a class="header-anchor" href="#问题" aria-hidden="true">#</a> 问题</h2>
 <h3 id="puppeteer没有自动安装chromium的解决办法" tabindex="-1"><a class="header-anchor" href="#puppeteer没有自动安装chromium的解决办法" aria-hidden="true">#</a> Puppeteer没有自动安装Chromium的解决办法</h3>
 <p><a href="https://blog.csdn.net/henryhu712/article/details/115588221" target="_blank" rel="noopener noreferrer">Puppeteer没有自动安装Chromium的解决办法_亮子AI的博客-CSDN博客<ExternalLinkIcon/></a>
 <a href="https://blog.csdn.net/qq_42414062/article/details/114539378" target="_blank" rel="noopener noreferrer">安装后再看这<ExternalLinkIcon/></a></p>
