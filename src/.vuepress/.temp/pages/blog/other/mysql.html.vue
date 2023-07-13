@@ -191,10 +191,10 @@ alter table s add constraint fk_s_b_id foreign key (b_id) references b(id);
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><ul>
 <li>删除/更新行为
 <ul>
-<li>RESTRICT：父表数据被删除，会阻止删除。默认就是这一项。</li>
+<li>RESTRICT：父表数据被<code v-pre>删除/更新</code>，会阻止<code v-pre>删除/更新</code>。默认就是这一项。</li>
 <li>NO ACTION：在MySQL中，同RESTRICT。</li>
-<li>CASCADE：级联删除。</li>
-<li>SET NULL：父表数据被删除，子表数据会设置为NULL。</li>
+<li>CASCADE：级联<code v-pre>删除/更新</code>。</li>
+<li>SET NULL：父表数据被<code v-pre>删除/更新</code>，子表数据会设置为NULL。</li>
 </ul>
 </li>
 </ul>
@@ -248,6 +248,52 @@ select * from s where age &lt; 50 union select * from s where sex = '男' ;    �
 <li>UNIQUE索引：用于强制保证某列或某组列的唯一性。它确保索引列的值在表中是唯一的，不允许重复值。UNIQUE索引适用于需要唯一性约束的列，比如用户名或身份证号。它可以应用于大多数的数据类型和存储引擎。</li>
 </ol>
 <p><code v-pre>当对某一字段增加索引后,会减少查询耗时，空间换时间。</code></p>
+<h2 id="锁" tabindex="-1"><a class="header-anchor" href="#锁" aria-hidden="true">#</a> 锁</h2>
+<h3 id="全局锁" tabindex="-1"><a class="header-anchor" href="#全局锁" aria-hidden="true">#</a> 全局锁</h3>
+<blockquote>
+<p>只可读 不可写。</p>
+</blockquote>
+<div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>mysql&gt; flush tables with read lock; # 加全局锁
+Query OK, 0 rows affected (0.00 sec)
+
+mysql&gt; delete from chat where id  = 10;
+1223 - Can't execute the query because you have a conflicting read lock
+mysql&gt; unlock tables; # 释放锁
+Query OK, 0 rows affected (0.00 sec)
+
+mysql&gt; delete from chat where id  = 10;
+Query OK, 1 row affected (0.01 sec)
+ 
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="表级锁" tabindex="-1"><a class="header-anchor" href="#表级锁" aria-hidden="true">#</a> 表级锁</h3>
+<h4 id="表锁" tabindex="-1"><a class="header-anchor" href="#表锁" aria-hidden="true">#</a> 表锁</h4>
+<blockquote>
+<p>加锁 <code v-pre>lock tables 表名 read/write</code></p>
+</blockquote>
+<blockquote>
+<p>解锁 <code v-pre>unlock tables</code></p>
+</blockquote>
+<ul>
+<li>表共享读锁 read lock    # 都能读只有自己能写</li>
+<li>表独占写锁 write lock   #只有自己能读写</li>
+</ul>
+<h4 id="元数据锁" tabindex="-1"><a class="header-anchor" href="#元数据锁" aria-hidden="true">#</a> 元数据锁</h4>
+<blockquote>
+<p>锁定表结构</p>
+</blockquote>
+<h4 id="意向锁" tabindex="-1"><a class="header-anchor" href="#意向锁" aria-hidden="true">#</a> 意向锁</h4>
+<h3 id="行级锁" tabindex="-1"><a class="header-anchor" href="#行级锁" aria-hidden="true">#</a> 行级锁</h3>
+<ul>
+<li>行锁</li>
+</ul>
+<blockquote>
+<p>锁定单个行记录的锁 防止对其进行update,delete</p>
+</blockquote>
+<ul>
+<li>间隙锁</li>
+</ul>
+<blockquote>
+<p>防止进行insert</p>
+</blockquote>
 <h2 id="其他" tabindex="-1"><a class="header-anchor" href="#其他" aria-hidden="true">#</a> 其他</h2>
 <h3 id="查看curd执行频率" tabindex="-1"><a class="header-anchor" href="#查看curd执行频率" aria-hidden="true">#</a> 查看curd执行频率</h3>
 <blockquote>

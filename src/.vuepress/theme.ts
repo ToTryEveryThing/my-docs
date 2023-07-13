@@ -4,9 +4,11 @@ import sidebar from "./sidebar.js";
 
 export default hopeTheme({
   hostname: "https://beink.cn/ink.png",
-
+  repoLabel: "GitHub",
+  repo: "ToTryEveryThing/my-docs",
+  repoDisplay: true,
   author: {
-    name: "睡醒继续做梦",
+    name: "米叔",
     url: "https://beink.cn/",
   },
 
