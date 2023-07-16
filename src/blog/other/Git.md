@@ -1,5 +1,5 @@
 ---
-title: 版本控制
+title: Git
 icon: route
 order: 2
 category:
@@ -10,12 +10,16 @@ tag:
 ### 一、git安装后-指定名称和邮箱
 
 ```git
-$ git config --global user.name "Your Name"
- 
-$ git config --global user.email "email@example.com"
+# 全局配置
+git config --global user.name "Your Name"
+git config --global user.email "email@example.com"
+
+# 某个项目配置
+git config  user.name "Your Name"
+git config  user.email "email@example.com"
 ```
 
-### 二.一分支管理
+### 二、分支管理
 ```git
 git branch    #查看分支
 git chenkout xxx  #切换为分支xxx 

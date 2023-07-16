@@ -77,6 +77,41 @@ public class FileUploadController {
 
 }
 ```
+::: info
+打包使用
+:::
+```java
+@PostMapping("/localhost")
+    public String uploadFile(MultipartFile file) {
+        String directoryPath = "static/images/";
+        String fileName = file.getOriginalFilename();
+
+        try {
+            // 获取当前应用程序的根目录
+            String rootPath = System.getProperty("user.dir");
+
+            // 拼接完整的目录路径
+            String filePath = rootPath + "/" + directoryPath;
+            // 创建目录
+            File directory = new File(filePath);
+            if (!directory.exists()) {
+                directory.mkdirs();
+            }
+            // 创建文件对象
+            File destFile = new File(directory, fileName);
+            // 保存文件
+            file.transferTo(destFile);
+
+            return "上传成功";
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return "上传失败";
+    }
+```
+
+
 ```yml
 spring:
   servlet:
