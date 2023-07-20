@@ -3,7 +3,7 @@ import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
 
 export default hopeTheme({
-  hostname: "https://beink.cn/ink.png",
+  hostname: "totryeverything.github.io",
   repoLabel: "GitHub",
   repo: "ToTryEveryThing/my-docs",
   repoDisplay: true,
@@ -24,7 +24,7 @@ export default hopeTheme({
   // navbar
   navbar,
 
-
+  lastUpdated: true,
 
   // sidebar
   sidebar,
@@ -43,6 +43,7 @@ export default hopeTheme({
       end: ["Outlook", "Search","Links"],
     },
   plugins: {
+    git:true,
     // You should generate and use your own comment service
     // comment: {
     //   provider: "Giscus",
