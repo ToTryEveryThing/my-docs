@@ -232,5 +232,265 @@ PUT /shopping/_mapping
 }
 ```
 
-## JAVA操作
+## springboot
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+    <version>2.7.9</version>
+</dependency>
+```
+```yml
+spring:
+  elasticsearch:
+    uris: 127.0.0.1:9200
+```
+实体类
+```java
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Document(indexName = "mytest")
+public class mytest {
 
+    @Id
+    private Long id;
+    @Field
+    private String name;
+    //不可被索引 不可被分开的词查询
+    @Field(index = false,type = FieldType.Keyword)
+    private String address;
+    @Field
+    private Integer age;
+
+}
+```
+### 索引
+```java
+    @Test
+    void indexops(){
+        // 创建索引
+        es.indexOps(mytest.class).create();
+        // 删除索引
+        es.indexOps(mytest.class).delete();
+    }
+```
+### 文档
+```java
+    @Test
+    void contextLoads() {
+        mytest mytest = new mytest(102L,"ggg","gasd",12);
+
+        // 删除文档
+        String delete = es.delete("102", mytest.class);
+        // 添加文档
+        es.save(mytest);
+        //添加多个
+//      es.save(List<mytest>)
+        //查询文档
+        es.get("101",mytest.getClass());
+
+    }
+```
+### 高级查询
+
+::: code-tabs#shell
+
+@tab 匹配查询
+
+```java
+    @Test
+    public void search(){
+        NativeSearchQueryBuilder query = new NativeSearchQueryBuilder();
+        query.withQuery(QueryBuilders.matchQuery("name","tmo"));
+        SearchHits<mytest> search = es.search(query.build(), mytest.class);
+        search.forEach(System.out::println);
+    }
+```
+
+@tab 查询多个值
+
+```java
+    @Test
+    public void sss(){
+        NativeSearchQueryBuilder query = new NativeSearchQueryBuilder();
+        List<String> list = Arrays.asList("tom","ggg");
+        query.withQuery(QueryBuilders.termQuery("name", list));
+        SearchHits<mytest> search = es.search(query.build(), mytest.class);
+        search.forEach(System.out::println);
+    }
+```
+
+@tab 布尔查询
+
+```java
+    @Test
+    public void fsdf(){
+        NativeSearchQueryBuilder query = new NativeSearchQueryBuilder();
+        //must
+        query.withQuery(
+                QueryBuilders.boolQuery()
+                        .must(QueryBuilders.matchQuery("name","tom"))
+                        .must(QueryBuilders.matchQuery("address","sSH"))
+        );
+        //should
+//        QueryBuilders.boolQuery()
+//                .should(QueryBuilders.matchQuery("title", searchTerm1))
+//                .should(QueryBuilders.matchQuery("content", searchTerm2))
+//                .minimumShouldMatch(1) // 设置至少满足一个should条件
+//        );
+        SearchHits<mytest> search = es.search(query.build(), mytest.class);
+        search.forEach(System.out::println);
+    }
+```
+@tab 分页
+```java
+    @Test
+    public void hasdf(){
+        NativeSearchQueryBuilder query = new NativeSearchQueryBuilder();
+        PageRequest of = PageRequest.of(0, 10);//分页设置
+        query.withPageable(of);
+        SearchHits<mytest> search = es.search(query.build(), mytest.class);
+        search.forEach(System.out::println);
+    }
+```
+
+@tab 排序
+```java
+    @Test
+    public void hhfsh(){
+        NativeSearchQueryBuilder query = new NativeSearchQueryBuilder();
+        query.withSort(Sort.by("age").ascending());
+        SearchHits<mytest> search = es.search(query.build(), mytest.class);
+        search.forEach(System.out::println);
+    }
+```
+@tab 过滤
+```java
+    @Test
+    public void hhhhhh(){
+        NativeSearchQueryBuilder query = new NativeSearchQueryBuilder();
+        // 添加过滤条件
+        query.withFilter(
+            FilterBuilders.boolFilter()
+                .must(FilterBuilders.termFilter("category", "电子产品"))
+                .must(FilterBuilders.rangeFilter("price").gte(1000).lte(5000))
+        );
+        SearchHits<mytest> search = es.search(query.build(), mytest.class);
+        search.forEach(System.out::println);
+    }
+```
+
+@tab 高亮
+```java
+    @Test
+    public void  gasdg(){
+        NativeSearchQueryBuilder query = new NativeSearchQueryBuilder();
+        query.withQuery(QueryBuilders.matchQuery("name","tom"));
+        // 添加高亮信息到查询
+        HighlightBuilder highlightBuilder = new HighlightBuilder();
+        highlightBuilder.field("name"); // 指定需要高亮的字段
+        highlightBuilder.preTags("<em>"); // 设置高亮前缀
+        highlightBuilder.postTags("</em>"); // 设置高亮后缀
+        query.withHighlightBuilder(highlightBuilder);
+        SearchHits<mytest> search = es.search(query.build(), mytest.class);
+        search.forEach(System.out::println);
+
+        // 处理高亮结果
+        List<mytest> blogs = new ArrayList<>();
+        for (SearchHit<mytest> searchHit : search) {
+            mytest blog = searchHit.getContent();
+            // 从高亮结果中获取需要高亮的字段内容
+            Map<String, List<String>> highlightFields = searchHit.getHighlightFields();
+            if (highlightFields.containsKey("name")) {
+                List<String> titleHighlights = highlightFields.get("name");
+                // 获取高亮的标题内容
+                String highlightedTitle = titleHighlights.get(0); // 假设只有一个高亮片段
+                blog.setName(highlightedTitle);
+            }
+            blogs.add(blog);
+        }
+
+    }
+```
+@tab 大杂烩
+> 
+```java
+import org.elasticsearch.index.query.BoolQueryBuilder;
+import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.index.query.FilterBuilders;
+import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
+import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
+import org.springframework.data.elasticsearch.core.query.SearchHits;
+
+// 定义分页信息
+int pageNumber = 0; // 第一页，页码从0开始
+int pageSize = 10;  // 每页显示10条数据
+Pageable pageable = PageRequest.of(pageNumber, pageSize, Sort.by("price").ascending());
+
+// 创建NativeSearchQueryBuilder对象
+NativeSearchQueryBuilder queryBuilder = new NativeSearchQueryBuilder();
+
+// 添加查询条件，使用should操作
+String searchTerm = "手机";
+queryBuilder.withQuery(QueryBuilders.boolQuery()
+        .should(QueryBuilders.matchQuery("name", searchTerm))
+        .should(QueryBuilders.matchQuery("category", searchTerm))
+);
+
+// 添加过滤条件
+queryBuilder.withFilter(
+    FilterBuilders.boolFilter()
+        .must(FilterBuilders.termFilter("category", "电子产品"))
+        .must(FilterBuilders.rangeFilter("price").gte(1000).lte(5000))
+);
+
+// 添加高亮信息到查询
+HighlightBuilder highlightBuilder = new HighlightBuilder();
+highlightBuilder.field("name"); // 指定需要高亮的字段
+highlightBuilder.preTags("<em>"); // 设置高亮前缀
+highlightBuilder.postTags("</em>"); // 设置高亮后缀
+queryBuilder.withHighlightBuilder(highlightBuilder);
+
+// 添加分页信息到查询
+queryBuilder.withPageable(pageable);
+
+// 添加排序信息到查询
+queryBuilder.withSort(Sort.by("price").ascending());
+
+// 执行查询并获取分页结果
+SearchHits<Product> searchHits = elasticsearchRestTemplate.search(queryBuilder.build(), Product.class);
+
+// 处理高亮结果和排序结果
+List<Product> products = new ArrayList<>();
+for (SearchHit<Product> searchHit : searchHits) {
+    Product product = searchHit.getContent();
+    // 从高亮结果中获取需要高亮的字段内容
+    Map<String, List<String>> highlightFields = searchHit.getHighlightFields();
+    if (highlightFields.containsKey("name")) {
+        List<String> nameHighlights = highlightFields.get("name");
+        // 获取高亮的名称内容
+        String highlightedName = nameHighlights.get(0); // 假设只有一个高亮片段
+        product.setName(highlightedName);
+    }
+    products.add(product);
+}
+
+// 返回分页结果
+return new PageImpl<>(products, pageable, searchHits.getTotalHits());
+
+```
+:::
+
+:::tip 大杂烩
+在上述例子中，
+我们结合使用查询、过滤、分页、高亮、排序和should操作。
+我们使用`QueryBuilders.boolQuery`来创建一个布尔查询，使用should操作指定至少满足一个条件的情况：name字段包含搜索词"手机"，或category字段包含搜索词"手机"。
+然后，我们使用`FilterBuilders.boolFilter`来创建一个布尔过滤器，使用must操作添加category字段必须等于"电子产品"，price字段必须在1000到5000之间的过滤条件。
+接着，我们按照前述分页方式和排序方式添加分页和排序信息到查询。通过`elasticsearchRestTemplate.search()`执行查询，并获取查询结果的SearchHits对象。接着，我们从SearchHits中获取查询结果列表，并遍历每个结果，从高亮结果中获取需要高亮的字段内容，并设置到对应的实体对象中。
+最后，我们使用PageImpl将结果封装成Page<`Product`>对象，其中包含了分页信息、查询结果列表和总记录数。
+:::
