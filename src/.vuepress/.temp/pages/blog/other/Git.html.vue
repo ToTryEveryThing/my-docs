@@ -1,8 +1,12 @@
 <template><div><h3 id="一、git安装后-指定名称和邮箱" tabindex="-1"><a class="header-anchor" href="#一、git安装后-指定名称和邮箱" aria-hidden="true">#</a> 一、git安装后-指定名称和邮箱</h3>
-<div class="language-git line-numbers-mode" data-ext="git"><pre v-pre class="language-git"><code><span class="token command">$ git config<span class="token parameter"> --global</span> user.name </span><span class="token string">"Your Name"</span>
- 
-<span class="token command">$ git config<span class="token parameter"> --global</span> user.email </span><span class="token string">"email@example.com"</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="二-一分支管理" tabindex="-1"><a class="header-anchor" href="#二-一分支管理" aria-hidden="true">#</a> 二.一分支管理</h3>
+<div class="language-git line-numbers-mode" data-ext="git"><pre v-pre class="language-git"><code><span class="token comment"># 全局配置</span>
+git config --global user.name <span class="token string">"Your Name"</span>
+git config --global user.email <span class="token string">"email@example.com"</span>
+
+<span class="token comment"># 某个项目配置</span>
+git config  user.name <span class="token string">"Your Name"</span>
+git config  user.email <span class="token string">"email@example.com"</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="二、分支管理" tabindex="-1"><a class="header-anchor" href="#二、分支管理" aria-hidden="true">#</a> 二、分支管理</h3>
 <div class="language-git line-numbers-mode" data-ext="git"><pre v-pre class="language-git"><code>git branch    #查看分支
 git chenkout xxx  #切换为分支xxx 
 git checkout -b xxx  #新建分支xxx 并且切换过去
