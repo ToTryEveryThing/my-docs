@@ -23,6 +23,12 @@ Elasticsearch 是一个分布式的、开源的搜索分析引擎，支持各种
 可以很好地存储和查询文档，用于应用程序搜索、企业搜索和网站搜索。
 :::
 
+安装
+> 限制内存大小 `ES_JAVA_OPTS="-Xms64m -Xmx512m"`
+```sh 
+docker pull elasticsearch:7.6.2
+docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" -e ES_JAVA_OPTS="-Xms64m -Xmx512m" elasticsearch:7.6.2
+```
 
 > 对比数据库
 
