@@ -19,6 +19,11 @@ export default navbar([
         text:"Puppeteer",
         link:"/blog/tool/Puppeteer.md",
         icon:"image",
+      },
+      {
+        text:"Action",
+        link:'/blog/tool/action.md',
+        icon:'network-wired'
       }
     ]
   },
