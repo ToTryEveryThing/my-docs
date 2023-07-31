@@ -8,7 +8,13 @@
 <p>Elasticsearch 是一个分布式的、开源的搜索分析引擎，支持各种数据类型，包括文本、数字、地理、结构化、非结构化。</p>
 <p>可以很好地存储和查询文档，用于应用程序搜索、企业搜索和网站搜索。</p>
 </div>
+<p>安装</p>
 <blockquote>
+<p>限制内存大小 <code v-pre>ES_JAVA_OPTS=&quot;-Xms64m -Xmx512m&quot;</code></p>
+</blockquote>
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token function">docker</span> pull elasticsearch:7.6.2
+<span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token parameter variable">--name</span> elasticsearch <span class="token parameter variable">-p</span> <span class="token number">9200</span>:9200 <span class="token parameter variable">-p</span> <span class="token number">9300</span>:9300 <span class="token parameter variable">-e</span> <span class="token string">"discovery.type=single-node"</span> <span class="token parameter variable">-e</span> <span class="token assign-left variable">ES_JAVA_OPTS</span><span class="token operator">=</span><span class="token string">"-Xms64m -Xmx512m"</span> elasticsearch:7.6.2
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><blockquote>
 <p>对比数据库</p>
 </blockquote>
 <table>
@@ -258,7 +264,7 @@ POST  /myindex/_doc
 
     <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="高级查询-1" tabindex="-1"><a class="header-anchor" href="#高级查询-1" aria-hidden="true">#</a> 高级查询</h3>
-<CodeTabs id="262" :data='[{"id":"匹配查询"},{"id":"查询多个值"},{"id":"布尔查询"},{"id":"分页"},{"id":"排序"},{"id":"过滤"},{"id":"高亮"},{"id":"大杂烩"}]' tab-id="shell">
+<CodeTabs id="271" :data='[{"id":"匹配查询"},{"id":"查询多个值"},{"id":"布尔查询"},{"id":"分页"},{"id":"排序"},{"id":"过滤"},{"id":"高亮"},{"id":"大杂烩"}]' tab-id="shell">
 <template #title0="{ value, isActive }">匹配查询</template>
 <template #title1="{ value, isActive }">查询多个值</template>
 <template #title2="{ value, isActive }">布尔查询</template>
