@@ -63,9 +63,14 @@ $ git checkout -- test.txt	//丢弃工作区的修改，即撤销修改
 $ git reset HEAD test.txt	//丢弃暂存区的修改（若已提交，则回退）
 ```
 
-### 五、删除文件
+### 五、删除文件/缓存
 
 ```
+清空git缓存
+git rm -r --cached .
+git add .
+git commit -m 'update .gitignore'
+
 $ rm test.txt
 //直接删除
 $ git rm test.txt
