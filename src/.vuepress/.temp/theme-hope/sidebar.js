@@ -1,1 +1,1 @@
-export const sidebarData = {"/blog/other/":["alioss","book","Git","linux","Maven","mysql"],"/blog/springboot/":["ssm","ElasticSearch","Mybatis","MybatisPlus","rabbitmq","redis"]};
+export const sidebarData = {"/blog/other/":["book","alioss","Git","linux","Maven"],"/blog/SSM/":["ssm","Mybatis","MybatisPlus","mysql"],"/blog/Microservices/":["ElasticSearch","rabbitmq","redis"],"/blog/tool/":["action","cron","Jenkins","Puppeteer","regex"]};
