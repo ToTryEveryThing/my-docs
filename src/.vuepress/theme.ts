@@ -12,6 +12,14 @@ export default hopeTheme({
     url: "https://beink.cn/",
   },
 
+  plugins: {
+    prismjs: {
+      light: "atom-dark",
+      dark: "atom-dark",
+    },
+  },
+
+
   darkmode: "toggle",
 
   iconAssets: "fontawesome-with-brands",
@@ -29,7 +37,6 @@ export default hopeTheme({
   // sidebar
   sidebar,
 
-  footer: "默认页脚",
 
   displayFooter: true,
 
