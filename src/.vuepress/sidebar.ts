@@ -5,16 +5,31 @@ export default sidebar({
     "", 
     {
       text: "文档",
-      icon: "splotch",
+      icon: "lightbulb",
+      collapsible: true,
       prefix: "blog/other/",
       children: "structure",
     },
     {
-      text: "SpringBoot",
-      icon: "book",
-      prefix: "blog/springboot/",
+      text: "SSM",
+      icon: "leaf",
+      collapsible: true,
+      prefix: "blog/SSM/",
       children: "structure"
     },
-    "slides",
+    {
+      text: "微服务",
+      icon: "network-wired",
+      collapsible: true,
+      prefix: "blog/Microservices/",
+      children: "structure"
+    },
+    {
+      text: "工具",
+      icon: "puzzle-piece",
+      collapsible: true,
+      prefix: "blog/tool/",
+      children: "structure"
+    },
   ],
 });
