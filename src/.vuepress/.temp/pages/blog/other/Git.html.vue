@@ -33,14 +33,19 @@ $ git status	//查看工作区中文件当前状态
 $ git reset --hard HEAD^（HEAD~100）（commit id）	//回退版本
 $ git checkout -- test.txt	//丢弃工作区的修改，即撤销修改
 $ git reset HEAD test.txt	//丢弃暂存区的修改（若已提交，则回退）
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="五、删除文件" tabindex="-1"><a class="header-anchor" href="#五、删除文件" aria-hidden="true">#</a> 五、删除文件</h3>
-<div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>$ rm test.txt
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="五、删除文件-缓存" tabindex="-1"><a class="header-anchor" href="#五、删除文件-缓存" aria-hidden="true">#</a> 五、删除文件/缓存</h3>
+<div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>清空git缓存
+git rm -r --cached .
+git add .
+git commit -m 'update .gitignore'
+
+$ rm test.txt
 //直接删除
 $ git rm test.txt
 $ git commit -m "remove test.txt"
 //删错了，恢复
 $ git checkout -- test.txt
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="六、远程仓库" tabindex="-1"><a class="header-anchor" href="#六、远程仓库" aria-hidden="true">#</a> 六、远程仓库</h3>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="六、远程仓库" tabindex="-1"><a class="header-anchor" href="#六、远程仓库" aria-hidden="true">#</a> 六、远程仓库</h3>
 <div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>$ ssh-keygen -t rsa -C "youremail@example.com"	//创建SSH Key
 $ git remote add origin git@github.com:Daisy/AKgit.git	//关联
 $ git push -u origin master	//将本地内容推送到远程仓库（第一次）
