@@ -3,17 +3,12 @@ import { defineUserConfig } from "vuepress";
 import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
 import { searchProPlugin } from "vuepress-plugin-search-pro";
 import { hopeTheme } from "vuepress-theme-hope";
-import { gitPlugin } from "@vuepress/plugin-git";
 import theme from "./theme.js";
 
-export default ({
+export default defineUserConfig({
   base: '/my-docs/',
   lang: "zh-CN",
   plugins: [
-    gitPlugin({
-      // 配置项
-      contributors:true
-    }),
     registerComponentsPlugin({
       // 配置项
       componentsDir: path.resolve(__dirname, './components')

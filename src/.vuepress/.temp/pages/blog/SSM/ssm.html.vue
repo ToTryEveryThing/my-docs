@@ -325,7 +325,7 @@ springMVCConfig<span class="token punctuation">.</span>java
 <h2 id="其他" tabindex="-1"><a class="header-anchor" href="#其他" aria-hidden="true">#</a> <font color=orange>其他</font></h2>
 <h3 id="自定义注解为属性赋值" tabindex="-1"><a class="header-anchor" href="#自定义注解为属性赋值" aria-hidden="true">#</a> 自定义注解为属性赋值</h3>
 <blockquote>
-<p>使用场景：
+<p>使用场景：<br>
 把用户传过来的<code v-pre>token</code>，解析出来用户信息， 为属性赋值。</p>
 </blockquote>
 <h4 id="_1-创建自定义注解" tabindex="-1"><a class="header-anchor" href="#_1-创建自定义注解" aria-hidden="true">#</a> 1.创建自定义注解</h4>
@@ -384,7 +384,7 @@ springMVCConfig<span class="token punctuation">.</span>java
     <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="拦截器" tabindex="-1"><a class="header-anchor" href="#拦截器" aria-hidden="true">#</a> 拦截器</h3>
 <blockquote>
-<p>HttpServletRequest request  发送过来的信息
+<p>HttpServletRequest request  发送过来的信息<br>
 HttpServletResponse response  发送走的信息</p>
 </blockquote>
 <h4 id="_1-先实现一个拦截对象" tabindex="-1"><a class="header-anchor" href="#_1-先实现一个拦截对象" aria-hidden="true">#</a> 1.先实现一个拦截对象</h4>
