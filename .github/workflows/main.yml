@@ -7,7 +7,19 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v3 # 将代码拷贝到虚机中
-      
+
+    # 缓存 node_modules 以避免重复安装
+    - uses: actions/cache@v3
+      id: node-modules
+      with:
+        # 需要缓存的路径
+        path: node_modules/
+        # 缓存的 key
+        key: ${{ runner.os }}-node-modules-${{ hashFiles('yarn.lock') }}
+        # 恢复 key
+        restore-keys: |
+          ${{ runner.os }}-node-modules-
+            
     - name: install and build
       run: |
           npm install
