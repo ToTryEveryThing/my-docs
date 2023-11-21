@@ -42,7 +42,7 @@ import {
   toHandlerKey,
   toNumber,
   toRawType
-} from "./chunk-L5US7VSA.js";
+} from "./chunk-45D2CHRV.js";
 
 // node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js
 function warn(msg, ...args) {
@@ -9626,15 +9626,12 @@ function defineCustomElement(options, hydrate2) {
   VueCustomElement.def = Comp;
   return VueCustomElement;
 }
-var defineSSRCustomElement = (
-  /* @__NO_SIDE_EFFECTS__ */
-  (options) => {
-    return defineCustomElement(options, hydrate);
-  }
-);
+var defineSSRCustomElement = (options) => {
+  return defineCustomElement(options, hydrate);
+};
 var BaseClass = typeof HTMLElement !== "undefined" ? HTMLElement : class {
 };
-var VueElement = class extends BaseClass {
+var VueElement = class _VueElement extends BaseClass {
   constructor(_def, _props = {}, hydrate2) {
     super();
     this._def = _def;
@@ -9811,7 +9808,7 @@ var VueElement = class extends BaseClass {
         };
         let parent = this;
         while (parent = parent && (parent.parentNode || parent.host)) {
-          if (parent instanceof VueElement) {
+          if (parent instanceof _VueElement) {
             instance.parent = parent._instance;
             instance.provides = parent._instance.provides;
             break;
@@ -10640,4 +10637,4 @@ export {
 @vue/runtime-dom/dist/runtime-dom.esm-bundler.js:
   (*! #__NO_SIDE_EFFECTS__ *)
 */
-//# sourceMappingURL=chunk-J5OFNKJ4.js.map
+//# sourceMappingURL=chunk-YZ75PQTR.js.map
