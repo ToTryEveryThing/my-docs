@@ -8,17 +8,9 @@ export default hopeTheme({
   repo: "ToTryEveryThing/my-docs",
   repoDisplay: true,
   author: {
-    name: "米叔",
+    name: "ToTryEveryThing",
     url: "https://beink.cn/",
   },
-
-  plugins: {
-    prismjs: {
-      light: "atom-dark",
-      dark: "atom-dark",
-    },
-  },
-
 
   darkmode: "toggle",
 
@@ -50,6 +42,11 @@ export default hopeTheme({
       end: ["Outlook", "Search","Links"],
     },
   plugins: {
+    prismjs: {
+      light: "one-dark",
+      dark: "one-dark",
+    },
+    blog:false,
     git:true,
     // You should generate and use your own comment service
     // comment: {

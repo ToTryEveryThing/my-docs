@@ -1,4 +1,7 @@
 import {
+  setupDevtoolsPlugin
+} from "./chunk-RFQTXRIF.js";
+import {
   computed,
   defineComponent,
   getCurrentInstance,
@@ -18,9 +21,6 @@ import {
   watchEffect
 } from "./chunk-J5OFNKJ4.js";
 import "./chunk-L5US7VSA.js";
-import {
-  setupDevtoolsPlugin
-} from "./chunk-RFQTXRIF.js";
 
 // node_modules/vue-router/dist/vue-router.mjs
 var isBrowser = typeof window !== "undefined";
