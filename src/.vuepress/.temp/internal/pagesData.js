@@ -21,16 +21,6 @@ export const pagesData = {
   "v-00404208": () => import(/* webpackChunkName: "v-00404208" */"D:/study/my-docs/src/.vuepress/.temp/pages/blog/SSM/quartz.html.js").then(({ data }) => data),
   // path: /blog/SSM/ssm.html
   "v-3325177c": () => import(/* webpackChunkName: "v-3325177c" */"D:/study/my-docs/src/.vuepress/.temp/pages/blog/SSM/ssm.html.js").then(({ data }) => data),
-  // path: /blog/other/alioss.html
-  "v-e7d29956": () => import(/* webpackChunkName: "v-e7d29956" */"D:/study/my-docs/src/.vuepress/.temp/pages/blog/other/alioss.html.js").then(({ data }) => data),
-  // path: /blog/other/book.html
-  "v-870b7946": () => import(/* webpackChunkName: "v-870b7946" */"D:/study/my-docs/src/.vuepress/.temp/pages/blog/other/book.html.js").then(({ data }) => data),
-  // path: /blog/other/Git.html
-  "v-2bcb26fa": () => import(/* webpackChunkName: "v-2bcb26fa" */"D:/study/my-docs/src/.vuepress/.temp/pages/blog/other/Git.html.js").then(({ data }) => data),
-  // path: /blog/other/linux.html
-  "v-083f0e38": () => import(/* webpackChunkName: "v-083f0e38" */"D:/study/my-docs/src/.vuepress/.temp/pages/blog/other/linux.html.js").then(({ data }) => data),
-  // path: /blog/other/Maven.html
-  "v-9e67bfbe": () => import(/* webpackChunkName: "v-9e67bfbe" */"D:/study/my-docs/src/.vuepress/.temp/pages/blog/other/Maven.html.js").then(({ data }) => data),
   // path: /blog/tool/action.html
   "v-35bc9840": () => import(/* webpackChunkName: "v-35bc9840" */"D:/study/my-docs/src/.vuepress/.temp/pages/blog/tool/action.html.js").then(({ data }) => data),
   // path: /blog/tool/cron.html
@@ -41,14 +31,24 @@ export const pagesData = {
   "v-befb9404": () => import(/* webpackChunkName: "v-befb9404" */"D:/study/my-docs/src/.vuepress/.temp/pages/blog/tool/Puppeteer.html.js").then(({ data }) => data),
   // path: /blog/tool/regex.html
   "v-4a3181d5": () => import(/* webpackChunkName: "v-4a3181d5" */"D:/study/my-docs/src/.vuepress/.temp/pages/blog/tool/regex.html.js").then(({ data }) => data),
+  // path: /blog/other/alioss.html
+  "v-e7d29956": () => import(/* webpackChunkName: "v-e7d29956" */"D:/study/my-docs/src/.vuepress/.temp/pages/blog/other/alioss.html.js").then(({ data }) => data),
+  // path: /blog/other/book.html
+  "v-870b7946": () => import(/* webpackChunkName: "v-870b7946" */"D:/study/my-docs/src/.vuepress/.temp/pages/blog/other/book.html.js").then(({ data }) => data),
+  // path: /blog/other/Git.html
+  "v-2bcb26fa": () => import(/* webpackChunkName: "v-2bcb26fa" */"D:/study/my-docs/src/.vuepress/.temp/pages/blog/other/Git.html.js").then(({ data }) => data),
+  // path: /blog/other/linux.html
+  "v-083f0e38": () => import(/* webpackChunkName: "v-083f0e38" */"D:/study/my-docs/src/.vuepress/.temp/pages/blog/other/linux.html.js").then(({ data }) => data),
+  // path: /blog/other/Maven.html
+  "v-9e67bfbe": () => import(/* webpackChunkName: "v-9e67bfbe" */"D:/study/my-docs/src/.vuepress/.temp/pages/blog/other/Maven.html.js").then(({ data }) => data),
   // path: /404.html
   "v-3706649a": () => import(/* webpackChunkName: "v-3706649a" */"D:/study/my-docs/src/.vuepress/.temp/pages/404.html.js").then(({ data }) => data),
   // path: /blog/Microservices/
   "v-2b65e03e": () => import(/* webpackChunkName: "v-2b65e03e" */"D:/study/my-docs/src/.vuepress/.temp/pages/blog/Microservices/index.html.js").then(({ data }) => data),
   // path: /blog/SSM/
   "v-35f9e756": () => import(/* webpackChunkName: "v-35f9e756" */"D:/study/my-docs/src/.vuepress/.temp/pages/blog/SSM/index.html.js").then(({ data }) => data),
-  // path: /blog/other/
-  "v-5e797cda": () => import(/* webpackChunkName: "v-5e797cda" */"D:/study/my-docs/src/.vuepress/.temp/pages/blog/other/index.html.js").then(({ data }) => data),
   // path: /blog/tool/
   "v-e9bd66ba": () => import(/* webpackChunkName: "v-e9bd66ba" */"D:/study/my-docs/src/.vuepress/.temp/pages/blog/tool/index.html.js").then(({ data }) => data),
+  // path: /blog/other/
+  "v-5e797cda": () => import(/* webpackChunkName: "v-5e797cda" */"D:/study/my-docs/src/.vuepress/.temp/pages/blog/other/index.html.js").then(({ data }) => data),
 }

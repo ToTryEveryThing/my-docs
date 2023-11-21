@@ -47,7 +47,7 @@ mysqldump -u用户名 -p 数据库名 > 数据库名.sql
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><p>例如</p>
 <div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>/usr/local/mysql/bin
 mysqldump -uroot -p aaa > aaa.sql
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><p>2、只导出表结构
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><p>2、只导出表结构<br>
 如果只需要导出表结构</p>
 <div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>mysqldump -u用户名 -p -d 数据库名 > 数据库名.sql
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>例如</p>
@@ -55,11 +55,11 @@ mysqldump -uroot -p aaa > aaa.sql
 可以使用以下命令找到导出的数据库
 find / -name 数据库名.sql
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="导入数据库" tabindex="-1"><a class="header-anchor" href="#导入数据库" aria-hidden="true">#</a> 导入数据库</h3>
-<p>1、使用mysql命令导入
-mysql -u用户名 -p 数据库名 &lt; 数据库名.sql
+<p>1、使用mysql命令导入<br>
+mysql -u用户名 -p 数据库名 &lt; 数据库名.sql<br>
 例如</p>
 <div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>mysql -uroot -p aaa &lt; aaa.sql
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>2、使用sources命令导入
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>2、使用sources命令导入<br>
 先进入到mysql中</p>
 <div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>mysql> create databases aaa;      #创建新的数据库
 mysql> use aaa;                   #使用已创建的数据库

@@ -1,5 +1,5 @@
 <template><div><h1 id="elasticsearch" tabindex="-1"><a class="header-anchor" href="#elasticsearch" aria-hidden="true">#</a> ElasticSearch</h1>
-<p><a href="https://www.bilibili.com/video/BV1np4y1C7Yf?p=102&amp;vd_source=f8821730ff8a13ec89104c8629e6d42b" target="_blank" rel="noopener noreferrer">old-ElasticSearchbilibili<ExternalLinkIcon/></a>
+<p><a href="https://www.bilibili.com/video/BV1np4y1C7Yf?p=102&amp;vd_source=f8821730ff8a13ec89104c8629e6d42b" target="_blank" rel="noopener noreferrer">old-ElasticSearchbilibili<ExternalLinkIcon/></a><br>
 <a href="https://www.bilibili.com/video/BV1hh411D7sb/?p=20&amp;spm_id_from=pageDriver&amp;vd_source=f8821730ff8a13ec89104c8629e6d42b" target="_blank" rel="noopener noreferrer">new-ElasticSearchbilibili<ExternalLinkIcon/></a></p>
 <p><a href="https://www.cnblogs.com/hualess/p/11540477.html" target="_blank" rel="noopener noreferrer">安装<ExternalLinkIcon/></a>      <a href="https://blog.csdn.net/qq_17229141/article/details/123106584" target="_blank" rel="noopener noreferrer">报错<ExternalLinkIcon/></a>      <a href="https://elasticsearch.bookhub.tech/getting_started/esindex.html#%E6%89%B9%E9%87%8F%E7%B4%A2%E5%BC%95%E6%96%87%E6%A1%A3" target="_blank" rel="noopener noreferrer">官方文档<ExternalLinkIcon/></a>    <a href="https://blog.csdn.net/qq_41879343/article/details/107376190" target="_blank" rel="noopener noreferrer">基本查询，结果过滤，高级查询，过滤，排序<ExternalLinkIcon/></a></p>
 <p><a href="https://apifox.com/apidoc/shared-f3e304ee-a95c-4dd0-b6a7-5a83abb6ff2c" target="_blank" rel="noopener noreferrer">创建索引 - ElasticSearch (apifox.com)<ExternalLinkIcon/></a></p>
@@ -448,11 +448,11 @@ queryBuilder<span class="token punctuation">.</span><span class="token function"
 </CodeTabs>
 <div class="hint-container tip">
 <p class="hint-container-title">大杂烩</p>
-<p>在上述例子中，
-我们结合使用查询、过滤、分页、高亮、排序和should操作。
-我们使用<code v-pre>QueryBuilders.boolQuery</code>来创建一个布尔查询，使用should操作指定至少满足一个条件的情况：name字段包含搜索词&quot;手机&quot;，或category字段包含搜索词&quot;手机&quot;。
-然后，我们使用<code v-pre>FilterBuilders.boolFilter</code>来创建一个布尔过滤器，使用must操作添加category字段必须等于&quot;电子产品&quot;，price字段必须在1000到5000之间的过滤条件。
-接着，我们按照前述分页方式和排序方式添加分页和排序信息到查询。通过<code v-pre>elasticsearchRestTemplate.search()</code>执行查询，并获取查询结果的SearchHits对象。接着，我们从SearchHits中获取查询结果列表，并遍历每个结果，从高亮结果中获取需要高亮的字段内容，并设置到对应的实体对象中。
+<p>在上述例子中，<br>
+我们结合使用查询、过滤、分页、高亮、排序和should操作。<br>
+我们使用<code v-pre>QueryBuilders.boolQuery</code>来创建一个布尔查询，使用should操作指定至少满足一个条件的情况：name字段包含搜索词&quot;手机&quot;，或category字段包含搜索词&quot;手机&quot;。<br>
+然后，我们使用<code v-pre>FilterBuilders.boolFilter</code>来创建一个布尔过滤器，使用must操作添加category字段必须等于&quot;电子产品&quot;，price字段必须在1000到5000之间的过滤条件。<br>
+接着，我们按照前述分页方式和排序方式添加分页和排序信息到查询。通过<code v-pre>elasticsearchRestTemplate.search()</code>执行查询，并获取查询结果的SearchHits对象。接着，我们从SearchHits中获取查询结果列表，并遍历每个结果，从高亮结果中获取需要高亮的字段内容，并设置到对应的实体对象中。<br>
 最后，我们使用PageImpl将结果封装成Page&lt;<code v-pre>Product</code>&gt;对象，其中包含了分页信息、查询结果列表和总记录数。</p>
 </div>
 </div></template>
