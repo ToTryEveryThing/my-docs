@@ -31,5 +31,12 @@ export default sidebar({
       prefix: "blog/tool/",
       children: "structure"
     },
+    {
+      text: "xmind",
+      icon: "link",
+      collapsible: true,
+      prefix: "blog/markmap/",
+      children: "structure"
+    },
   ],
 });
