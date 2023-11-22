@@ -13,6 +13,8 @@ export default hopeTheme({
   },
 
   darkmode: "toggle",
+  
+  breadcrumb: false,
 
   iconAssets: "fontawesome-with-brands",
 
