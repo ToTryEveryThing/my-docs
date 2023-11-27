@@ -281,7 +281,7 @@ mvn install        ##安装到本地仓库
   <artifactId>spring-boot-maven-plugin</artifactId>
   <version>${spring-boot.version}</version>
 ```
-- 找到不含<font color="red">父模块</font>添加依赖
+- 找到<font color="red">非启动模块</font>添加依赖
 ```xml
 <build>
     <plugins>
@@ -298,7 +298,7 @@ mvn install        ##安装到本地仓库
     </plugins>
 </build>
 ```
-- 找到启动模块添加打包依赖
+- 找到<font color="red">启动模块</font>添加打包依赖
 ```xml
 <build>
     <plugins>
