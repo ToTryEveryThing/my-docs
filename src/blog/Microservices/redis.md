@@ -3,7 +3,7 @@ title: Redis
 icon: chart-pie
 order: 2
 category:
-  - 使用指南
+  - 微服务
 tag:
   - Markdown
 ---
