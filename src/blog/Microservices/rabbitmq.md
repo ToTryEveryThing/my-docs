@@ -1,9 +1,9 @@
 ---
 title: RabbitMQ
 icon: sitemap
-order: 2
+order: 3
 category:
-  - 使用指南
+  - 微服务
 tag:
   - Markdown
 ---
