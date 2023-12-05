@@ -121,10 +121,9 @@ spring:
 
         );
 ```
-
 ## OpenFeign
 
-### 基础使用[🚪](https://www.bilibili.com/video/BV1kH4y1S7wz?p=16&vd_source=f8821730ff8a13ec89104c8629e6d42b)
+#### [基础使用](https://www.bilibili.com/video/BV1kH4y1S7wz?p=16&vd_source=f8821730ff8a13ec89104c8629e6d42b)
 
 > 上面的代码 太多了，想简单点。。。
 >
@@ -177,7 +176,7 @@ public interface ItemClient {
     List<ItemDTO> items = itemClient.query(itemIds);
 ```
 
-### 连接池[🚪](https://www.bilibili.com/video/BV1kH4y1S7wz?p=17&spm_id_from=pageDriver&vd_source=f8821730ff8a13ec89104c8629e6d42b)
+#### [连接池](https://www.bilibili.com/video/BV1kH4y1S7wz?p=17&spm_id_from=pageDriver&vd_source=f8821730ff8a13ec89104c8629e6d42b)
 
 > 默认每次发送，会重新创建请求，加一个连接池，减少创建次数
 
@@ -199,11 +198,11 @@ feign:
     enabled: true
 ```
 
-### 最佳实践（优化）[🚪](https://www.bilibili.com/video/BV1kH4y1S7wz?p=18&spm_id_from=pageDriver&vd_source=f8821730ff8a13ec89104c8629e6d42b)
+#### [最佳实践（优化）](https://www.bilibili.com/video/BV1kH4y1S7wz?p=18&spm_id_from=pageDriver&vd_source=f8821730ff8a13ec89104c8629e6d42b)
 
 > 额外创建模块 用来写公用的`OpenFeign`
 
-### 日志[🚪](https://www.bilibili.com/video/BV1kH4y1S7wz?p=19&spm_id_from=pageDriver&vd_source=f8821730ff8a13ec89104c8629e6d42b)
+#### [日志](https://www.bilibili.com/video/BV1kH4y1S7wz?p=19&spm_id_from=pageDriver&vd_source=f8821730ff8a13ec89104c8629e6d42b)
 
 ## 网关
 
@@ -496,11 +495,107 @@ public class TradeApplication {
 }
 ```
 
+## 共享配置
 
+> - 网关路由在配置文件中写死了，如果变更必须重启微服务
+> - 某些业务配置在配置文件中写死了，每次修改都要重启服务
+> - 每个微服务都有很多重复的配置，维护成本高
 
+### 共享配置
 
+1. 把每个服务中的公共配置抽取出来
+2. 在nacos`配置管理`-`配置列表`中添加公共配置
 
+```yaml
+spring:
+  datasource:
+    url: jdbc:mysql://${hm.db.host:192.168.150.101}:${hm.db.port:3306}/${hm.db.database}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ${hm.db.un:root} #没有配置则使用 root
+    password: ${hm.db.pw:123} #没有配置则使用 123
+mybatis-plus:
+  configuration:
+    default-enum-type-handler: com.baomidou.mybatisplus.core.handlers.MybatisEnumTypeHandler
+  global-config:
+    db-config:
+      update-strategy: not_null
+      id-type: auto
+```
 
+3. 不同的地方还是读取原来服务的`application.yaml`
+4. 引入依赖
 
+```xml
+  <!--nacos配置管理-->
+  <dependency>
+      <groupId>com.alibaba.cloud</groupId>
+      <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+  </dependency>
+  <!--读取bootstrap文件-->
+  <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-bootstrap</artifactId>
+  </dependency>
+```
 
+5. 在相应服务中新建`bootstrap.yaml`
 
+```yaml
+spring:
+  application:
+    name: cart-service # 服务名称
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848 # nacos地址
+      config:
+        file-extension: yaml # 文件后缀名
+        shared-configs: # 共享配置
+          - dataId: shared-jdbc.yaml # 共享mybatis配置
+          - dataId: shared-log.yaml # 共享日志配置
+          - dataId: shared-swagger.yaml # 共享日志配置
+```
+
+6. 重启
+
+### 配置热跟新
+
+> 具体的业务可能需要 随时调整，即不写死
+
+1. 在nacos中添加配置文件
+
+   - ```yaml
+     hm: 
+      cart:
+      	maxItems: 4
+     ```
+
+   - ```Plain
+     [服务名]-[spring.active.profile].[后缀名]
+     ```
+
+     - **`服务名`**：我们是购物车服务，所以是`cart-service`
+     - **`spring.active.profile`**：就是spring boot中的`spring.active.profile`，可以省略，则所有profile共享该配置
+     - **`后缀名`**：例如yaml
+     
+
+2. 在服务中添加配置 读取即可
+
+```java
+package com.hmall.cart.config;
+
+import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+
+@Data
+@Component
+@ConfigurationProperties(prefix = "hm.cart")
+public class CartProperties {
+    private Integer maxAmount;
+}
+
+```
+
+3. 使用

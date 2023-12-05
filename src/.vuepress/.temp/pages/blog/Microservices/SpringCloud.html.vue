@@ -89,7 +89,7 @@ nacos/nacos-server:v2.1.0-slim
 
         <span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="openfeign" tabindex="-1"><a class="header-anchor" href="#openfeign" aria-hidden="true">#</a> OpenFeign</h2>
-<h3 id="基础使用🚪" tabindex="-1"><a class="header-anchor" href="#基础使用🚪" aria-hidden="true">#</a> 基础使用<a href="https://www.bilibili.com/video/BV1kH4y1S7wz?p=16&amp;vd_source=f8821730ff8a13ec89104c8629e6d42b" target="_blank" rel="noopener noreferrer">🚪<ExternalLinkIcon/></a></h3>
+<h4 id="基础使用" tabindex="-1"><a class="header-anchor" href="#基础使用" aria-hidden="true">#</a> <a href="https://www.bilibili.com/video/BV1kH4y1S7wz?p=16&amp;vd_source=f8821730ff8a13ec89104c8629e6d42b" target="_blank" rel="noopener noreferrer">基础使用<ExternalLinkIcon/></a></h4>
 <blockquote>
 <p>上面的代码 太多了，想简单点。。。</p>
 <p>帮助我们优雅的发送请求</p>
@@ -133,7 +133,7 @@ nacos/nacos-server:v2.1.0-slim
 <div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code>    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">ItemClient</span> itemClient<span class="token punctuation">;</span>
     <span class="token comment">// 查询商品</span>
     <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">ItemDTO</span><span class="token punctuation">></span></span> items <span class="token operator">=</span> itemClient<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span>itemIds<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="连接池🚪" tabindex="-1"><a class="header-anchor" href="#连接池🚪" aria-hidden="true">#</a> 连接池<a href="https://www.bilibili.com/video/BV1kH4y1S7wz?p=17&amp;spm_id_from=pageDriver&amp;vd_source=f8821730ff8a13ec89104c8629e6d42b" target="_blank" rel="noopener noreferrer">🚪<ExternalLinkIcon/></a></h3>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="连接池" tabindex="-1"><a class="header-anchor" href="#连接池" aria-hidden="true">#</a> <a href="https://www.bilibili.com/video/BV1kH4y1S7wz?p=17&amp;spm_id_from=pageDriver&amp;vd_source=f8821730ff8a13ec89104c8629e6d42b" target="_blank" rel="noopener noreferrer">连接池<ExternalLinkIcon/></a></h4>
 <blockquote>
 <p>默认每次发送，会重新创建请求，加一个连接池，减少创建次数</p>
 </blockquote>
@@ -151,11 +151,11 @@ nacos/nacos-server:v2.1.0-slim
 <div class="language-yaml line-numbers-mode" data-ext="yml"><pre v-pre class="language-yaml"><code><span class="token key atrule">feign</span><span class="token punctuation">:</span>
   <span class="token key atrule">okhttp</span><span class="token punctuation">:</span>
     <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="最佳实践-优化-🚪" tabindex="-1"><a class="header-anchor" href="#最佳实践-优化-🚪" aria-hidden="true">#</a> 最佳实践（优化）<a href="https://www.bilibili.com/video/BV1kH4y1S7wz?p=18&amp;spm_id_from=pageDriver&amp;vd_source=f8821730ff8a13ec89104c8629e6d42b" target="_blank" rel="noopener noreferrer">🚪<ExternalLinkIcon/></a></h3>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="最佳实践-优化" tabindex="-1"><a class="header-anchor" href="#最佳实践-优化" aria-hidden="true">#</a> <a href="https://www.bilibili.com/video/BV1kH4y1S7wz?p=18&amp;spm_id_from=pageDriver&amp;vd_source=f8821730ff8a13ec89104c8629e6d42b" target="_blank" rel="noopener noreferrer">最佳实践（优化）<ExternalLinkIcon/></a></h4>
 <blockquote>
 <p>额外创建模块 用来写公用的<code v-pre>OpenFeign</code></p>
 </blockquote>
-<h3 id="日志🚪" tabindex="-1"><a class="header-anchor" href="#日志🚪" aria-hidden="true">#</a> 日志<a href="https://www.bilibili.com/video/BV1kH4y1S7wz?p=19&amp;spm_id_from=pageDriver&amp;vd_source=f8821730ff8a13ec89104c8629e6d42b" target="_blank" rel="noopener noreferrer">🚪<ExternalLinkIcon/></a></h3>
+<h4 id="日志" tabindex="-1"><a class="header-anchor" href="#日志" aria-hidden="true">#</a> <a href="https://www.bilibili.com/video/BV1kH4y1S7wz?p=19&amp;spm_id_from=pageDriver&amp;vd_source=f8821730ff8a13ec89104c8629e6d42b" target="_blank" rel="noopener noreferrer">日志<ExternalLinkIcon/></a></h4>
 <h2 id="网关" tabindex="-1"><a class="header-anchor" href="#网关" aria-hidden="true">#</a> 网关</h2>
 <blockquote>
 <p>请求转发，身份校验。</p>
@@ -415,6 +415,109 @@ nacos/nacos-server:v2.1.0-slim
         <span class="token class-name">SpringApplication</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">TradeApplication</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div></template>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="共享配置" tabindex="-1"><a class="header-anchor" href="#共享配置" aria-hidden="true">#</a> 共享配置</h2>
+<blockquote>
+<ul>
+<li>网关路由在配置文件中写死了，如果变更必须重启微服务</li>
+<li>某些业务配置在配置文件中写死了，每次修改都要重启服务</li>
+<li>每个微服务都有很多重复的配置，维护成本高</li>
+</ul>
+</blockquote>
+<h3 id="共享配置-1" tabindex="-1"><a class="header-anchor" href="#共享配置-1" aria-hidden="true">#</a> 共享配置</h3>
+<ol>
+<li>把每个服务中的公共配置抽取出来</li>
+<li>在nacos<code v-pre>配置管理</code>-<code v-pre>配置列表</code>中添加公共配置</li>
+</ol>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><pre v-pre class="language-yaml"><code><span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">datasource</span><span class="token punctuation">:</span>
+    <span class="token key atrule">url</span><span class="token punctuation">:</span> jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span>//$<span class="token punctuation">{</span>hm.db.host<span class="token punctuation">:</span>192.168.150.101<span class="token punctuation">}</span><span class="token punctuation">:</span>$<span class="token punctuation">{</span>hm.db.port<span class="token punctuation">:</span><span class="token number">3306</span><span class="token punctuation">}</span>/$<span class="token punctuation">{</span>hm.db.database<span class="token punctuation">}</span>
+    <span class="token key atrule">driver-class-name</span><span class="token punctuation">:</span> com.mysql.cj.jdbc.Driver
+    <span class="token key atrule">username</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span>hm.db.un<span class="token punctuation">:</span>root<span class="token punctuation">}</span> <span class="token comment">#没有配置则使用 root</span>
+    <span class="token key atrule">password</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span>hm.db.pw<span class="token punctuation">:</span><span class="token number">123</span><span class="token punctuation">}</span> <span class="token comment">#没有配置则使用 123</span>
+<span class="token key atrule">mybatis-plus</span><span class="token punctuation">:</span>
+  <span class="token key atrule">configuration</span><span class="token punctuation">:</span>
+    <span class="token key atrule">default-enum-type-handler</span><span class="token punctuation">:</span> com.baomidou.mybatisplus.core.handlers.MybatisEnumTypeHandler
+  <span class="token key atrule">global-config</span><span class="token punctuation">:</span>
+    <span class="token key atrule">db-config</span><span class="token punctuation">:</span>
+      <span class="token key atrule">update-strategy</span><span class="token punctuation">:</span> not_null
+      <span class="token key atrule">id-type</span><span class="token punctuation">:</span> auto
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ol start="3">
+<li>不同的地方还是读取原来服务的<code v-pre>application.yaml</code></li>
+<li>引入依赖</li>
+</ol>
+<div class="language-xml line-numbers-mode" data-ext="xml"><pre v-pre class="language-xml"><code>  <span class="token comment">&lt;!--nacos配置管理--></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.alibaba.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-alibaba-nacos-config<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+  <span class="token comment">&lt;!--读取bootstrap文件--></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-bootstrap<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ol start="5">
+<li>在相应服务中新建<code v-pre>bootstrap.yaml</code></li>
+</ol>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><pre v-pre class="language-yaml"><code><span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">application</span><span class="token punctuation">:</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> cart<span class="token punctuation">-</span>service <span class="token comment"># 服务名称</span>
+  <span class="token key atrule">profiles</span><span class="token punctuation">:</span>
+    <span class="token key atrule">active</span><span class="token punctuation">:</span> dev
+  <span class="token key atrule">cloud</span><span class="token punctuation">:</span>
+    <span class="token key atrule">nacos</span><span class="token punctuation">:</span>
+      <span class="token key atrule">server-addr</span><span class="token punctuation">:</span> 127.0.0.1<span class="token punctuation">:</span><span class="token number">8848</span> <span class="token comment"># nacos地址</span>
+      <span class="token key atrule">config</span><span class="token punctuation">:</span>
+        <span class="token key atrule">file-extension</span><span class="token punctuation">:</span> yaml <span class="token comment"># 文件后缀名</span>
+        <span class="token key atrule">shared-configs</span><span class="token punctuation">:</span> <span class="token comment"># 共享配置</span>
+          <span class="token punctuation">-</span> <span class="token key atrule">dataId</span><span class="token punctuation">:</span> shared<span class="token punctuation">-</span>jdbc.yaml <span class="token comment"># 共享mybatis配置</span>
+          <span class="token punctuation">-</span> <span class="token key atrule">dataId</span><span class="token punctuation">:</span> shared<span class="token punctuation">-</span>log.yaml <span class="token comment"># 共享日志配置</span>
+          <span class="token punctuation">-</span> <span class="token key atrule">dataId</span><span class="token punctuation">:</span> shared<span class="token punctuation">-</span>swagger.yaml <span class="token comment"># 共享日志配置</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ol start="6">
+<li>重启</li>
+</ol>
+<h3 id="配置热跟新" tabindex="-1"><a class="header-anchor" href="#配置热跟新" aria-hidden="true">#</a> 配置热跟新</h3>
+<blockquote>
+<p>具体的业务可能需要 随时调整，即不写死</p>
+</blockquote>
+<ol>
+<li>
+<p>在nacos中添加配置文件</p>
+<ul>
+<li>
+<div class="language-yaml line-numbers-mode" data-ext="yml"><pre v-pre class="language-yaml"><code><span class="token key atrule">hm</span><span class="token punctuation">:</span> 
+ <span class="token key atrule">cart</span><span class="token punctuation">:</span>
+ 	<span class="token key atrule">maxItems</span><span class="token punctuation">:</span> <span class="token number">4</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li>
+<li>
+<div class="language-Plain line-numbers-mode" data-ext="Plain"><pre v-pre class="language-Plain"><code>[服务名]-[spring.active.profile].[后缀名]
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><ul>
+<li><strong><code v-pre>服务名</code></strong>：我们是购物车服务，所以是<code v-pre>cart-service</code></li>
+<li><strong><code v-pre>spring.active.profile</code></strong>：就是spring boot中的<code v-pre>spring.active.profile</code>，可以省略，则所有profile共享该配置</li>
+<li><strong><code v-pre>后缀名</code></strong>：例如yaml</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>在服务中添加配置 读取即可</p>
+</li>
+</ol>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>hmall<span class="token punctuation">.</span>cart<span class="token punctuation">.</span>config</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">lombok<span class="token punctuation">.</span></span><span class="token class-name">Data</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>context<span class="token punctuation">.</span>properties<span class="token punctuation">.</span></span><span class="token class-name">ConfigurationProperties</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span></span><span class="token class-name">Component</span></span><span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@Data</span>
+<span class="token annotation punctuation">@Component</span>
+<span class="token annotation punctuation">@ConfigurationProperties</span><span class="token punctuation">(</span>prefix <span class="token operator">=</span> <span class="token string">"hm.cart"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CartProperties</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token class-name">Integer</span> maxAmount<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ol start="3">
+<li>使用</li>
+</ol>
+</div></template>
 
 
