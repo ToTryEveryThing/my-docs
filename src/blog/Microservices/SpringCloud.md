@@ -599,3 +599,43 @@ public class CartProperties {
 ```
 
 3. 使用
+
+## 服务保护
+
+### Sentinel
+
+- 依赖
+
+```xml
+<!--sentinel-->
+<dependency>
+    <groupId>com.alibaba.cloud</groupId> 
+    <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+</dependency>
+```
+
+- 配置
+
+```yml
+spring:
+  cloud: 
+    sentinel:
+      transport:
+        dashboard: localhost:8090
+      http-method-specify: true # 开启请求方式前缀
+```
+
+#### 请求限流
+
+> 限制访问次数
+
+#### 线程隔断
+
+> 当一个业务接口响应时间长，而且并发高时，就可能耗尽服务器的线程资源，导致服务内的其它接口受到影响。所以我们必须把这种影响降低，或者缩减影响的范围。线程隔离正是解决这个问题的好办法。
+
+#### 服务熔断
+
+> 当下游服务因访问压力过大而响应变慢或失败，上游服务为了保护系统整体的可用性，可以暂时切断对下游服务的调用。
+
+## 分布式事务
+
