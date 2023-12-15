@@ -1,6 +1,7 @@
-<template><div><h1 id="java-上传-aliyun-oss" tabindex="-1"><a class="header-anchor" href="#java-上传-aliyun-oss" aria-hidden="true">#</a> Java 上传 aliyun OSS</h1>
-<h2 id="阿里官方文档java上传文件概述和文件下载" tabindex="-1"><a class="header-anchor" href="#阿里官方文档java上传文件概述和文件下载" aria-hidden="true">#</a> <a href="https://help.aliyun.com/document_detail/32008.html" target="_blank" rel="noopener noreferrer">阿里官方文档<ExternalLinkIcon/></a><br>
-<a href="https://help.aliyun.com/document_detail/32013.html?spm=a2c4g.84796.0.0.65b05266v925WX" target="_blank" rel="noopener noreferrer">Java上传文件概述和文件下载<ExternalLinkIcon/></a></h2>
+<template><div><h2 id="java-上传-aliyun-oss" tabindex="-1"><a class="header-anchor" href="#java-上传-aliyun-oss" aria-hidden="true">#</a> Java 上传 aliyun OSS</h2>
+<p><a href="https://help.aliyun.com/document_detail/32008.html" target="_blank" rel="noopener noreferrer">阿里官方文档<ExternalLinkIcon/></a><br>
+<a href="https://help.aliyun.com/document_detail/32013.html?spm=a2c4g.84796.0.0.65b05266v925WX" target="_blank" rel="noopener noreferrer">Java上传文件概述和文件下载<ExternalLinkIcon/></a></p>
+<hr>
 <h4 id="使用ram访问-更安全" tabindex="-1"><a class="header-anchor" href="#使用ram访问-更安全" aria-hidden="true">#</a> 使用RAM访问 更安全</h4>
 <div class="hint-container danger">
 <p class="hint-container-title">警告</p>
@@ -95,6 +96,353 @@
         <span class="token punctuation">}</span>
         <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div></template>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="自定义-starter" tabindex="-1"><a class="header-anchor" href="#自定义-starter" aria-hidden="true">#</a> 自定义 Starter <sup class="footnote-ref"><a href="#footnote1">[1]</a><a class="footnote-anchor" id="footnote-ref1" /></sup></h2>
+<h3 id="介绍" tabindex="-1"><a class="header-anchor" href="#介绍" aria-hidden="true">#</a> 介绍</h3>
+<p>大家在开发的过程中应该经常会看到各种各样的<code v-pre>Starter</code></p>
+<p>当我们需要集成某个功能的时候，<code v-pre>Spring</code>或是第三方都会提供一个<code v-pre>Starter</code>来帮助我们更简单的集成对应的功能到我们的<code v-pre>Spring Boot</code>项目中</p>
+<h3 id="准备" tabindex="-1"><a class="header-anchor" href="#准备" aria-hidden="true">#</a> 准备</h3>
+<p>现在我们假定，我们实现了一个<code v-pre>A</code>类用于提供我们封装好的功能</p>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code>java复制代码<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token punctuation">{</span> 
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>一般情况下我们会使用<code v-pre>@Component</code>往<code v-pre>Spring</code>容器中注入实例，如下：</p>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code>java复制代码<span class="token annotation punctuation">@Component</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token punctuation">{</span> 
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>现在当我们要把<code v-pre>A</code>单独抽出来做成一个<code v-pre>Starter</code>时<code v-pre>@Component</code>就不太合适了，那么我们应该怎么实现呢，让我们先给我们的<code v-pre>Starter</code>取个名字吧哈哈哈</p>
+<h3 id="取名" tabindex="-1"><a class="header-anchor" href="#取名" aria-hidden="true">#</a> 取名</h3>
+<p>首先我们要先确定我们的<code v-pre>Starter</code>的名字</p>
+<p><code v-pre>Spring</code>本身就有很多自带的<code v-pre>Starter</code>，比如：</p>
+<ul>
+<li><code v-pre>spring-boot-starter-web</code></li>
+<li><code v-pre>spring-boot-starter-data-redis</code></li>
+<li><code v-pre>spring-boot-starter-websocket</code></li>
+<li><code v-pre>spring-cloud-starter-netflix-eureka-client</code></li>
+<li><code v-pre>spring-cloud-starter-openfeign</code></li>
+<li><code v-pre>spring-cloud-starter-gateway</code></li>
+</ul>
+<p>可以发现这些自带的<code v-pre>Starter</code>的名称格式都是<code v-pre>spring-boot-starter-xxx</code>或是<code v-pre>spring-cloud-starter-xxx</code></p>
+<p>另外我们也可以看到很多第三方库的<code v-pre>Starter</code>，比如：</p>
+<ul>
+<li><code v-pre>redisson-spring-boot-starter</code></li>
+<li><code v-pre>mybatis-plus-boot-starter</code></li>
+</ul>
+<p>一般来说，第三方的<code v-pre>Starter</code>会把<code v-pre>starter</code>放后面，<code v-pre>xxx-spring-boot-starter</code>或是<code v-pre>xxx-boot-starter</code>或是<code v-pre>xxx-starter</code></p>
+<p>不过我个人习惯还是<code v-pre>xxx-spring-boot-starter</code>感觉更标准一点</p>
+<p>所以现在就把我们要实现的<code v-pre>Starter</code>取名为<code v-pre>a-spring-boot-starter</code></p>
+<h2 id="配置类" tabindex="-1"><a class="header-anchor" href="#配置类" aria-hidden="true">#</a> 配置类</h2>
+<p>之前说<code v-pre>@Component</code>已经不太合适了，那么要怎么把<code v-pre>A</code>注入到<code v-pre>Spring</code>的容器中呢</p>
+<p>答案是：<code v-pre>@Configuration</code>+<code v-pre>@Bean</code>，如下</p>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code>java复制代码<span class="token annotation punctuation">@Configuration</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AConfiguration</span> <span class="token punctuation">{</span> 
+    
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> <span class="token class-name">A</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>这个用法大家应该也是比较熟悉，一般在一个项目中也会有一些标记了<code v-pre>@Configuration</code>的配置类</p>
+<p>只要<code v-pre>Spring</code>能够扫描到这个类，<code v-pre>A</code>实例就能被注入</p>
+<p>如果这个配置类是写在我们自己的包下，那么<code v-pre>Spring</code>默认的扫描路径就能扫到</p>
+<p>但是现在我们如果做成一个<code v-pre>Starter</code>，对应的包名可能就扫不到了</p>
+<p>所以我们需要用另外的方式来导入这个配置类</p>
+<h3 id="导入方式" tabindex="-1"><a class="header-anchor" href="#导入方式" aria-hidden="true">#</a> 导入方式</h3>
+<p>接下来就可以决定我们的<code v-pre>Starter</code>的导入方式了</p>
+<p>常用的导入方式有两种：使用<code v-pre>@EnableXXX</code>或是<code v-pre>spring.factories</code></p>
+<p>我们经常能看到有些组件的会需要你添加<code v-pre>@EnableXXX</code>的注解来启用某个功能，比如：</p>
+<ul>
+<li><code v-pre>@EnableDiscoveryClient</code></li>
+<li><code v-pre>@EnableFeignClients</code></li>
+</ul>
+<p>这种方式光引入包还不够，需要手动添加注解来启用</p>
+<p>而使用<code v-pre>spring.factories</code>就只要引入包就可以直接生效了</p>
+<p>这两种方式其实用哪种都一样，主要是看有没有必要额外配置一个注解</p>
+<p>比如<code v-pre>@EnableFeignClients</code>这个注解是可以配置扫描路径的，所以额外添加一个注解更加合适（这里使用配置文件是不合适的，因为我们的包结构是确定的，如果配置在配置文件里面反而多余又容易写错）</p>
+<h5 id="注解导入" tabindex="-1"><a class="header-anchor" href="#注解导入" aria-hidden="true">#</a> 注解导入</h5>
+<p>我们先使用注解的方式来导入，定义一个<code v-pre>@EnableA</code></p>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code>java复制代码<span class="token annotation punctuation">@Target</span><span class="token punctuation">(</span><span class="token class-name">ElementType</span><span class="token punctuation">.</span><span class="token constant">TYPE</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Retention</span><span class="token punctuation">(</span><span class="token class-name">RetentionPolicy</span><span class="token punctuation">.</span><span class="token constant">RUNTIME</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Import</span><span class="token punctuation">(</span><span class="token class-name">AConfiguration</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token annotation punctuation">@interface</span> <span class="token class-name">EnableA</span> <span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>使用<code v-pre>@Import</code>注解导入<code v-pre>AConfiguration.class</code>就可以了</p>
+<p>当我们需要集成这个功能的时候只要添加这个注解就行了</p>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code>java复制代码<span class="token annotation punctuation">@EnableA</span>
+<span class="token annotation punctuation">@SpringBootApplication</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SampleApplication</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">SpringApplication</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">SampleApplication</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="注解参数" tabindex="-1"><a class="header-anchor" href="#注解参数" aria-hidden="true">#</a> 注解参数</h4>
+<p>这个时候可能就有同学要问了，如果我的注解上有参数呢，上面的写法好像没办法拿到参数啊</p>
+<p>接下来我们来解决这个问题</p>
+<p>现在我们给<code v-pre>@EnableA</code>注解添加一个参数<code v-pre>enabled</code>，当<code v-pre>enabled</code>为<code v-pre>true</code>时导入<code v-pre>AConfiguration.class</code>，当<code v-pre>enabled</code>为<code v-pre>false</code>时不导入<code v-pre>AConfiguration.class</code></p>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code>java复制代码<span class="token annotation punctuation">@Target</span><span class="token punctuation">(</span><span class="token class-name">ElementType</span><span class="token punctuation">.</span><span class="token constant">TYPE</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Retention</span><span class="token punctuation">(</span><span class="token class-name">RetentionPolicy</span><span class="token punctuation">.</span><span class="token constant">RUNTIME</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Import</span><span class="token punctuation">(</span><span class="token class-name">AConfiguration</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token annotation punctuation">@interface</span> <span class="token class-name">EnableA</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">boolean</span> <span class="token function">enabled</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">default</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>接着我们实现一个<code v-pre>ImportSelector</code></p>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code>java复制代码<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AImportSelector</span> <span class="token keyword">implements</span> <span class="token class-name">ImportSelector</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">selectImports</span><span class="token punctuation">(</span><span class="token class-name">AnnotationMetadata</span> metadata<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> attributes <span class="token operator">=</span> metadata
+            <span class="token punctuation">.</span><span class="token function">getAnnotationAttributes</span><span class="token punctuation">(</span><span class="token class-name">EnableA</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">boolean</span> enabled <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">boolean</span><span class="token punctuation">)</span> attributes<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"enabled"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>enabled<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token class-name">AConfiguration</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>我们可以通过<code v-pre>ImportSelector</code>中提供给我们的<code v-pre>AnnotationMetadata</code>来获得<code v-pre>EnableA</code>中的属性<code v-pre>enabled</code></p>
+<p>当<code v-pre>enabled</code>为<code v-pre>true</code>时，我们返回<code v-pre>AConfiguration.class</code>的全限定名；当<code v-pre>enabled</code>为<code v-pre>false</code>时，返回空数组即可</p>
+<p>最后我们将<code v-pre>@Import(AConfiguration.class)</code>改为<code v-pre>@Import(AImportSelector.class)</code>就行了</p>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code>java复制代码<span class="token annotation punctuation">@Target</span><span class="token punctuation">(</span><span class="token class-name">ElementType</span><span class="token punctuation">.</span><span class="token constant">TYPE</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Retention</span><span class="token punctuation">(</span><span class="token class-name">RetentionPolicy</span><span class="token punctuation">.</span><span class="token constant">RUNTIME</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Import</span><span class="token punctuation">(</span><span class="token class-name">AImportSelector</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token annotation punctuation">@interface</span> <span class="token class-name">EnableA</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">boolean</span> <span class="token function">enabled</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">default</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>当我们将<code v-pre>enabled</code>设置为<code v-pre>false</code>时，就不会配置<code v-pre>AConfiguration.class</code>了</p>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code>java复制代码<span class="token annotation punctuation">@EnableA</span><span class="token punctuation">(</span>enabled <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@SpringBootApplication</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SampleApplication</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">SpringApplication</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">SampleApplication</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>其实还有另一种方式也可以拿到注解的属性，那就是<code v-pre>ImportBeanDefinitionRegistrar</code></p>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code>java复制代码<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">ImportBeanDefinitionRegistrar</span> <span class="token punctuation">{</span>
+
+   <span class="token keyword">default</span> <span class="token keyword">void</span> <span class="token function">registerBeanDefinitions</span><span class="token punctuation">(</span><span class="token class-name">AnnotationMetadata</span> importingClassMetadata<span class="token punctuation">,</span> <span class="token class-name">BeanDefinitionRegistry</span> registry<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>和<code v-pre>ImportSelector</code>不同的是，<code v-pre>ImportBeanDefinitionRegistrar</code>可以直接注册<code v-pre>BeanDefinition</code></p>
+<p>如果我们用<code v-pre>ImportBeanDefinitionRegistrar</code>来实现上面的功能大概就是这个样子</p>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code>java复制代码<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AImportBeanDefinitionRegistrar</span> <span class="token keyword">implements</span> <span class="token class-name">ImportBeanDefinitionRegistrar</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">registerBeanDefinitions</span><span class="token punctuation">(</span><span class="token class-name">AnnotationMetadata</span> metadata<span class="token punctuation">,</span> <span class="token class-name">BeanDefinitionRegistry</span> registry<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> attributes <span class="token operator">=</span> metadata
+            <span class="token punctuation">.</span><span class="token function">getAnnotationAttributes</span><span class="token punctuation">(</span><span class="token class-name">EnableA</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">boolean</span> enabled <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">boolean</span><span class="token punctuation">)</span> attributes<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"enabled"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>enabled<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            registry<span class="token punctuation">.</span><span class="token function">registerBeanDefinition</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">RootBeanDefinition</span><span class="token punctuation">(</span><span class="token class-name">A</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>然后同样的把<code v-pre>@Import(AConfiguration.class)</code>改为<code v-pre>@Import(AImportBeanDefinitionRegistrar.class)</code>就行了</p>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code>java复制代码<span class="token annotation punctuation">@Target</span><span class="token punctuation">(</span><span class="token class-name">ElementType</span><span class="token punctuation">.</span><span class="token constant">TYPE</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Retention</span><span class="token punctuation">(</span><span class="token class-name">RetentionPolicy</span><span class="token punctuation">.</span><span class="token constant">RUNTIME</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Import</span><span class="token punctuation">(</span><span class="token class-name">AImportBeanDefinitionRegistrar</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token annotation punctuation">@interface</span> <span class="token class-name">EnableA</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">boolean</span> <span class="token function">enabled</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">default</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="spring-factories导入" tabindex="-1"><a class="header-anchor" href="#spring-factories导入" aria-hidden="true">#</a> spring.factories导入</h4>
+<p>接下来我们使用<code v-pre>spring.factories</code>来导入配置（注解和<code v-pre>spring.factories</code>选择一种就可以啦）</p>
+<p>我们需要在<code v-pre>resources</code>目录下新建一个<code v-pre>META-INF</code>目录，然后在<code v-pre>META-INF</code>目录下创建<code v-pre>spring.factories</code>文件</p>
+<p>接着我们需要在<code v-pre>spring.factories</code>中将<code v-pre>AConfiguration.class</code>配置上去</p>
+<div class="language-properties line-numbers-mode" data-ext="properties"><pre v-pre class="language-properties"><code><span class="token key attr-name">properties复制代码org.springframework.boot.autoconfigure.EnableAutoConfiguration</span><span class="token punctuation">=</span><span class="token value attr-value">\
+com.xxx.xxx.AConfiguration</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><p>一般情况下，如果是配置在<code v-pre>spring.factories</code>中的配置类都会取名<code v-pre>xxxAutoConfiguration</code>，所以我们在这里修改名称为<code v-pre>AAutoConfiguration</code></p>
+<p>最后在<code v-pre>spring.factories</code>中的配置</p>
+<div class="language-properties line-numbers-mode" data-ext="properties"><pre v-pre class="language-properties"><code><span class="token key attr-name">properties复制代码org.springframework.boot.autoconfigure.EnableAutoConfiguration</span><span class="token punctuation">=</span><span class="token value attr-value">\
+com.xxx.xxx.AAutoConfiguration</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><p>这样当你的项目启动后，<code v-pre>Spring</code>就会自动读取<code v-pre>spring.factories</code>将<code v-pre>AAutoConfiguration(AConfiguration)</code>扫描进去了</p>
+<h3 id="配置文件" tabindex="-1"><a class="header-anchor" href="#配置文件" aria-hidden="true">#</a> 配置文件</h3>
+<p>正常情况下，我们很有可能需要在<code v-pre>application.yml</code>或<code v-pre>application.properties</code>中配置一些参数</p>
+<p>所以我们现在需要一个属性<code v-pre>a.enabled</code>来控制是否注入<code v-pre>A</code></p>
+<p>还需要一个属性<code v-pre>a.b.type</code>来配置<code v-pre>A</code>的某个字段</p>
+<p>那么怎么在我们的<code v-pre>AAutoConfiguration</code>中获得这两个属性呢</p>
+<p>大家可能会想，简单啊，用<code v-pre>@Value</code>不就好了？</p>
+<p>虽然<code v-pre>@Value</code>确实能拿到配置文件中的值，但是有更好的方式</p>
+<p>那就是用<code v-pre>@ConfigurationProperties</code>+<code v-pre>@EnableConfigurationProperties</code></p>
+<p>我们需要先定义一个<code v-pre>AProperties</code></p>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code>java复制代码<span class="token annotation punctuation">@Data</span>
+<span class="token annotation punctuation">@ConfigurationProperties</span><span class="token punctuation">(</span>prefix <span class="token operator">=</span> <span class="token string">"a"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AProperties</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">//映射 a.enabled;</span>
+    <span class="token keyword">private</span> <span class="token keyword">boolean</span> enabled <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    
+    <span class="token keyword">private</span> <span class="token class-name">B</span> b <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token annotation punctuation">@Data</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">B</span> <span class="token punctuation">{</span>
+        
+        <span class="token comment">//映射 a.b.type;</span>
+        <span class="token keyword">private</span> <span class="token class-name">String</span> type<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>同时给<code v-pre>AProperties</code>添加<code v-pre>ConfigurationProperties</code>注解并标记前缀为<code v-pre>a</code></p>
+<p>接着我们在<code v-pre>AAutoConfiguration</code>上添加<code v-pre>@EnableConfigurationProperties</code>就行了</p>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code>java复制代码<span class="token annotation punctuation">@Configuration</span>
+<span class="token annotation punctuation">@EnableConfigurationProperties</span><span class="token punctuation">(</span><span class="token class-name">AProperties</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AConfiguration</span> <span class="token punctuation">{</span> 
+    
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token annotation punctuation">@ConditionalOnProperty</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"a.enabled"</span><span class="token punctuation">,</span> havingValue <span class="token operator">=</span> <span class="token string">"true"</span><span class="token punctuation">,</span> matchIfMissing <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">A</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token class-name">AProperties</span> properties<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">String</span> type <span class="token operator">=</span> properties<span class="token punctuation">.</span><span class="token function">getB</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>我们可以通过<code v-pre>@ConditionalOnProperty</code>来根据<code v-pre>a.enabled</code>控制是否注入<code v-pre>A</code></p>
+<p>在方法参数中也可以直接注入<code v-pre>AProperties</code>对象，并且里面的属性已经根据配置文件绑定好了</p>
+<h3 id="自动提示" tabindex="-1"><a class="header-anchor" href="#自动提示" aria-hidden="true">#</a> 自动提示</h3>
+<p>不知道大家有没有发现，<code v-pre>Spring</code>自带的配置是会有提示的，但是我们自定义的配置就没有</p>
+<p>有没有什么办法让我们的<code v-pre>AProperties</code>也能自动提示呢</p>
+<p>只要引入下面这个包就行啦</p>
+<div class="language-gradle line-numbers-mode" data-ext="gradle"><pre v-pre class="language-gradle"><code>gradle
+复制代码annotationProcessor <span class="token string">'org.springframework.boot:spring-boot-configuration-processor'</span>
+xml复制代码<span class="token operator">&lt;</span>dependency<span class="token operator">></span>
+  <span class="token operator">&lt;</span>groupId<span class="token operator">></span>org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token operator">&lt;</span><span class="token operator">/</span>groupId<span class="token operator">></span>
+  <span class="token operator">&lt;</span>artifactId<span class="token operator">></span>spring<span class="token operator">-</span>boot<span class="token operator">-</span>configuration<span class="token operator">-</span>processor<span class="token operator">&lt;</span><span class="token operator">/</span>artifactId<span class="token operator">></span>
+  <span class="token operator">&lt;</span>optional<span class="token operator">></span><span class="token boolean">true</span><span class="token operator">&lt;</span><span class="token operator">/</span>optional<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>dependency<span class="token operator">></span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>如果<code v-pre>AProperties</code>有改动需要重新编译才会生效哦</p>
+<h3 id="配置代理" tabindex="-1"><a class="header-anchor" href="#配置代理" aria-hidden="true">#</a> 配置代理</h3>
+<p><code v-pre>@Configuration</code>的<code v-pre>proxyBeanMethods</code>可以指定该配置中的方法是否进行代理，具体有什么作用呢</p>
+<p>假设现在我们的<code v-pre>A</code>需要依赖<code v-pre>B</code>实例，那我们的配置可以这样写</p>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code>java复制代码<span class="token annotation punctuation">@Configuration</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AConfiguration</span> <span class="token punctuation">{</span> 
+    
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> <span class="token class-name">B</span> <span class="token function">b</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> <span class="token class-name">A</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token function">b</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>@Configuration</code>的<code v-pre>proxyBeanMethods</code>默认是<code v-pre>true</code>，所以在<code v-pre>a()</code>中调用<code v-pre>b()</code>是会从<code v-pre>Spring</code>的容器中获得<code v-pre>B</code>实例</p>
+<p>如果我们不启用方法代理可以这样写</p>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code>java复制代码<span class="token annotation punctuation">@Configuration</span><span class="token punctuation">(</span>proxyBeanMethods <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AConfiguration</span> <span class="token punctuation">{</span> 
+    
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> <span class="token class-name">B</span> <span class="token function">b</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">B</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> <span class="token class-name">A</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token class-name">B</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>直接在方法参数中注入即可</p>
+<p>不启用方法代理的情况下，如果直接调用方法，就是普通的方法调用，每调用一次就会新建一个<code v-pre>B</code>实例</p>
+<h3 id="配置依赖" tabindex="-1"><a class="header-anchor" href="#配置依赖" aria-hidden="true">#</a> 配置依赖</h3>
+<p>接着之前的假设，<code v-pre>A</code>需要依赖<code v-pre>B</code>实例，但是现在<code v-pre>B</code>允许为<code v-pre>null</code></p>
+<p>那么之前的配置方式就不行了</p>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code>java复制代码<span class="token annotation punctuation">@Configuration</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AConfiguration</span> <span class="token punctuation">{</span> 
+    
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> <span class="token class-name">A</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token class-name">B</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>如果直接在方法上注入<code v-pre>B</code>实例，就会报错找不到对应的<code v-pre>Bean</code></p>
+<p>这种情况下，我们可以使用<code v-pre>ObjectProvider</code>，如下：</p>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code>java复制代码<span class="token annotation punctuation">@Configuration</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AConfiguration</span> <span class="token punctuation">{</span> 
+    
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> <span class="token class-name">A</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token class-name">ObjectProvider</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">B</span><span class="token punctuation">></span></span> bProvider<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span>bProvider<span class="token punctuation">.</span><span class="token function">getIfUnique</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="条件装配" tabindex="-1"><a class="header-anchor" href="#条件装配" aria-hidden="true">#</a> 条件装配</h3>
+<p>在我们写<code v-pre>Starter</code>的过程中，条件装配也是经常用到的功能</p>
+<p>最常用的其实就是<code v-pre>@ConditionalOnMissingBean</code>了</p>
+<p>我们可以这样用</p>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code>java复制代码<span class="token annotation punctuation">@Configuration</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AConfiguration</span> <span class="token punctuation">{</span> 
+    
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token annotation punctuation">@ConditionalOnMissingBean</span>
+    <span class="token keyword">public</span> <span class="token class-name">A</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>当<code v-pre>Spring</code>发现当前已经存在<code v-pre>A</code>对应的实例时，就不会再注入这个配置中的<code v-pre>A</code>实例了</p>
+<p>一般当我们重写了某个库中的某个组件后，该库中该组件的默认实现就不会生效了，便于我们扩展一些自定义的功能来替换默认实现</p>
+<p>但是这个注解如果用不好也可能出现问题</p>
+<p>假设现在我们的<code v-pre>A</code>有一个扩展类<code v-pre>A1</code></p>
+<p>我们来看下面的配置1</p>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code>java复制代码<span class="token annotation punctuation">@Configuration</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AConfiguration</span> <span class="token punctuation">{</span> 
+    
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token annotation punctuation">@ConditionalOnMissingBean</span>
+    <span class="token keyword">public</span> <span class="token class-name">A1</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">A1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>@ConditionalOnMissingBean</code>的判断逻辑是：当容器中存在<code v-pre>A1</code>类型的对象就不会再注入这个配置中的<code v-pre>A1</code>实例</p>
+<p>接着我们再看下面的配置2</p>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code>java复制代码<span class="token annotation punctuation">@Configuration</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AConfiguration</span> <span class="token punctuation">{</span> 
+    
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token annotation punctuation">@ConditionalOnMissingBean</span>
+    <span class="token keyword">public</span> <span class="token class-name">A</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">A1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>@ConditionalOnMissingBean</code>的判断逻辑是：当容器中存在<code v-pre>A</code>类型的对象就不会再注入这个配置中的<code v-pre>A1</code>实例</p>
+<p>如果在这个时候，容器中存在<code v-pre>A2(A的另一个扩展类)</code>实例，配置1中的<code v-pre>A1</code>还是会被注入，配置2中<code v-pre>A1</code>不会被注入</p>
+<p>因为<code v-pre>@ConditionalOnMissingBean</code>的缺省值是方法的返回类型，所以大家在使用时需要多加注意，保险起见可以指定<code v-pre>@ConditionalOnMissingBean</code>中的值，例如：</p>
+<div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code>java复制代码<span class="token annotation punctuation">@Configuration</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AConfiguration</span> <span class="token punctuation">{</span> 
+    
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token annotation punctuation">@ConditionalOnMissingBean</span><span class="token punctuation">(</span><span class="token class-name">A</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">A1</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">A1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="其他常用的条件注解" tabindex="-1"><a class="header-anchor" href="#其他常用的条件注解" aria-hidden="true">#</a> 其他常用的条件注解</h3>
+<ul>
+<li><code v-pre>@ConditionalOnBean</code> 当对应的<code v-pre>Bean</code>存在时生效</li>
+<li><code v-pre>@ConditionalOnClass</code> 当对应的<code v-pre>Class</code>存在时生效</li>
+<li><code v-pre>@ConditionalOnMissingClass</code> 当对应的<code v-pre>Class</code>不存在时生效</li>
+<li><code v-pre>@ConditionalOnProperty</code> 当对应的配置匹配时生效</li>
+<li><code v-pre>@ConditionalOnWebApplication</code> 可以指定在<code v-pre>Servlet</code>或<code v-pre>Reactive</code>环境中生效</li>
+</ul>
+<h3 id="配置顺序" tabindex="-1"><a class="header-anchor" href="#配置顺序" aria-hidden="true">#</a> 配置顺序</h3>
+<p>在某些情况下，我们可能会发现一些条件注解不生效</p>
+<p>这个时候我们可以尝试指定配置顺序（并不保证能够解决所有的失效问题）</p>
+<ul>
+<li><code v-pre>@AutoConfigureBefore</code> 在某个配置之前进行配置</li>
+<li><code v-pre>@AutoConfigureAfter</code> 在某个配置之后进行配置</li>
+<li><code v-pre>@AutoConfigureOrder</code> 指定配置顺序</li>
+</ul>
+<p>不过这里需要注意这几个注解只能对自动配置生效，也就是需要定义在<code v-pre>spring.factories</code>中的配置</p>
+<p>添加注解的类的可以是任意的配置类，但是注解中指定的类需要是<code v-pre>spring.factories</code>中的配置的类</p>
+<hr>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="footnote1" class="footnote-item"><p>来自：<a href="https://juejin.cn/post/7124603507025379365" target="_blank" rel="noopener noreferrer">https://juejin.cn/post/7124603507025379365<ExternalLinkIcon/></a> <a href="#footnote-ref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+</div></template>
 
 
