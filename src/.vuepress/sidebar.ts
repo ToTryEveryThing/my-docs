@@ -28,7 +28,7 @@ export default sidebar({
       text: "工具",
       icon: "puzzle-piece",
       collapsible: true,
-      prefix: "blog/tool/",
+      prefix: "blog/tools/",
       children: "structure"
     },
     {
