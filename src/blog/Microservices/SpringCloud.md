@@ -604,6 +604,16 @@ public class CartProperties {
 
 ### Sentinel
 
+[Github](https://github.com/alibaba/Sentinel)
+
+```
+java -Dserver.port=8090 -Dcsp.sentinel.dashboard.server=localhost:8090 -Dproject.name=sentinel-dashboard -jar sentinel-dashboard.jar
+```
+
+```
+java '-Dserver.port=8090' '-Dcsp.sentinel.dashboard.server=localhost:8090' '-Dproject.name=sentinel-dashboard' '-jar' sentinel-dashboard-X.X.X.jar
+```
+
 - 依赖
 
 ```xml
@@ -638,4 +648,3 @@ spring:
 > 当下游服务因访问压力过大而响应变慢或失败，上游服务为了保护系统整体的可用性，可以暂时切断对下游服务的调用。
 
 ## 分布式事务
-
