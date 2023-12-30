@@ -8,9 +8,64 @@ tag:
   - Markdown
 ---
 
+## 查找命令
+#### find
+
+作用: 在指定目录下查找文件
+语法: `find dirName -option fileName`
+举例:
+   -  `find  .  –name "*.java"`			在当前目录及其子目录下查找.java结尾文件
+   -  `find  /itcast  -name "*.java"`	在/itcast目录及其子目录下查找.java结尾的文
+
+#### grep
+
+作用: 从指定文件中查找指定的文本内容
+语法: `grep word fileName`
+举例: 
+   -  `grep Hello HelloWorld.java`	查找HelloWorld.java文件中出现的Hello字符串的位置
+   -  `grep hello *.java`			查找当前目录中所有.java结尾的文件中包含hello字符串的位置
+
+
+
 ## docker
-### 将当前用户添加到docker用户组
-为了避免每次使用docker命令都需要加上sudo权限，可以将当前用户加入安装中自动创建的docker用户组
+### 数据卷
+
+`数据卷（volume）`是一个虚拟目录，是容器内目录与宿主机目录之间映射的桥梁。
+以Nginx为例，我们知道Nginx中有两个关键的目录：
+
+
+- html：放置一些静态资源
+- conf：放置配置文件
+
+:::tip
+如果我们要让Nginx代理我们的静态资源，最好是放到html目录；如果我们要修改Nginx的配置，最好是找到conf下的nginx.conf文件。
+但遗憾的是，容器运行的Nginx所有的文件都在容器内部，读写都非常不方便。所以我们通常会利用数据卷将两个目录与宿主机目录关联，
+:::
+#### 基本命令
+
+| 命令                  | 说明                 |
+| --------------------- | -------------------- |
+| docker volume create  | 创建数据卷           |
+| docker volume ls      | 查看所有的数据卷     |
+| docker volume rm      | 删除指定的数据卷     |
+| docker volume inspect | 查看某个数据卷的详情 |
+| docker volume prune   | 清除数据卷           |
+
+`-v html:/usr/share/nignx/html` 挂载目录
+
+`-v /home/test/mysql/mysql:/usr/mysql/mysql`  映射宿主机上
+
+#### 示例
+
+![](./../../.vuepress/public/assets/image/Snipaste_2023-12-30_11-02-02.png)
+![](./../../.vuepress/public/assets/image/Snipaste_2023-12-30_11-04-37.png)
+之后就可以随意修改了
+
+### 自定义镜像
+
+### DockerCompose
+
+> 为了避免每次使用docker命令都需要加上sudo权限，可以将当前用户加入安装中自动创建的docker用户组
 > [如何在 Ubuntu 22.04 LTS 中安装 Docker 和 Docker Compose](https://linux.cn/article-14871-1.html#:~:text=%E5%9C%A8%20Ubuntu%2022.04%20LTS%20%E4%B8%AD%E5%AE%89%E8%A3%85%20Docker%201%201%E3%80%81%E6%9B%B4%E6%96%B0,%EF%BC%88%E9%80%89%E5%81%9A%EF%BC%89%20%E9%BB%98%E8%AE%A4%E6%83%85%E5%86%B5%E4%B8%8B%EF%BC%8CDocker%20%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B%E7%BB%91%E5%AE%9A%E5%88%B0%20Unix%20%E5%A5%97%E6%8E%A5%E5%AD%97%E8%80%8C%E4%B8%8D%E6%98%AF%20TCP%20%E7%AB%AF%E5%8F%A3%E3%80%82%20)
 ```
 sudo usermod -aG docker $USER
@@ -18,7 +73,8 @@ sudo usermod -aG docker $USER
 
 > 执行完此操作后，需要退出服务器，再重新登录回来，才可以省去sudo权限。
 
-### 镜像（images）
+### 基操
+#### 镜像（images）
 ```
 docker pull ubuntu:20.04：拉取一个镜像
 docker images：列出本地所有镜像
@@ -27,7 +83,7 @@ docker [container] commit CONTAINER IMAGE_NAME:TAG：创建某个container的镜
 docker save -o ubuntu_20_04.tar ubuntu:20.04：将镜像ubuntu:20.04导出到本地文件ubuntu_20_04.tar中
 docker load -i ubuntu_20_04.tar：将镜像ubuntu:20.04从本地文件ubuntu_20_04.tar中加载出来
 ```
-### 容器(container)
+#### 容器(container)
 ```
 docker [container] create -it ubuntu:20.04：利用镜像ubuntu:20.04创建一个容器。
 docker ps -a：查看本地的所有容器
@@ -51,7 +107,7 @@ docker cp xxx CONTAINER:xxx 或 docker cp CONTAINER:xxx xxx：在本地和容器
 docker rename CONTAINER1 CONTAINER2：重命名容器
 docker update CONTAINER --memory 500MB：修改容器限制
 ```
-### 例子
+#### 例子
 ```
 创建 运行镜像
 docker run -p 20000:22 --name my_docker_server -itd docker_lesson:1.0 
