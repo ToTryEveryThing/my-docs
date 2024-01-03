@@ -59,11 +59,44 @@ tag:
 
 ![](./../../.vuepress/public/assets/image/Snipaste_2023-12-30_11-02-02.png)
 ![](./../../.vuepress/public/assets/image/Snipaste_2023-12-30_11-04-37.png)
+
 之后就可以随意修改了
 
 ### 自定义镜像
-
+```
+docker build -t docker-demo:1.0 .
+```
+命令说明：
+- `docker build` : 就是构建一个docker镜像
+- `-t docker-demo:1.0 `：-t参数是指定镜像的名称（repository和tag）
+- `.` : 最后的点是指构建时Dockerfile所在路径，由于我们进入了demo目录，所以指定的是.代表当前目录，也可以直接指定Dockerfile目录：
+  ```
+  docker build -t docker-demo:1.0 /root/demo
+  ```
 ### DockerCompose
+xx.yml
+```ym
+version: "3.8"
+ services:
+  mysql:
+    image: mysql:5.7.25
+    environment:
+     MYSQL_ROOT_PASSWORD: 123 
+    volumes:
+     - "/tmp/mysql/data:/var/lib/mysql"
+     - "/tmp/mysql/conf/hmy.cnf:/etc/mysql/conf.d/hmy.cnf"
+  web:
+    build: .
+    ports:
+     - "8090:8090"
+```
+基本语法：
+```
+docker compose [OPTIONS] [COMMAND]
+
+docker compose up -d # 跑起来
+```
+
 
 > 为了避免每次使用docker命令都需要加上sudo权限，可以将当前用户加入安装中自动创建的docker用户组
 > [如何在 Ubuntu 22.04 LTS 中安装 Docker 和 Docker Compose](https://linux.cn/article-14871-1.html#:~:text=%E5%9C%A8%20Ubuntu%2022.04%20LTS%20%E4%B8%AD%E5%AE%89%E8%A3%85%20Docker%201%201%E3%80%81%E6%9B%B4%E6%96%B0,%EF%BC%88%E9%80%89%E5%81%9A%EF%BC%89%20%E9%BB%98%E8%AE%A4%E6%83%85%E5%86%B5%E4%B8%8B%EF%BC%8CDocker%20%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B%E7%BB%91%E5%AE%9A%E5%88%B0%20Unix%20%E5%A5%97%E6%8E%A5%E5%AD%97%E8%80%8C%E4%B8%8D%E6%98%AF%20TCP%20%E7%AB%AF%E5%8F%A3%E3%80%82%20)
