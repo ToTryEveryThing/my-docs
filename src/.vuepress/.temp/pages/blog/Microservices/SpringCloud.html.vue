@@ -520,7 +520,10 @@ nacos/nacos-server:v2.1.0-slim
 </ol>
 <h2 id="服务保护" tabindex="-1"><a class="header-anchor" href="#服务保护" aria-hidden="true">#</a> 服务保护</h2>
 <h3 id="sentinel" tabindex="-1"><a class="header-anchor" href="#sentinel" aria-hidden="true">#</a> Sentinel</h3>
-<ul>
+<p><a href="https://github.com/alibaba/Sentinel" target="_blank" rel="noopener noreferrer">Github<ExternalLinkIcon/></a></p>
+<div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>java -Dserver.port=8090 -Dcsp.sentinel.dashboard.server=localhost:8090 -Dproject.name=sentinel-dashboard -jar sentinel-dashboard.jar
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>java '-Dserver.port=8090' '-Dcsp.sentinel.dashboard.server=localhost:8090' '-Dproject.name=sentinel-dashboard' '-jar' sentinel-dashboard-X.X.X.jar
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><ul>
 <li>依赖</li>
 </ul>
 <div class="language-xml line-numbers-mode" data-ext="xml"><pre v-pre class="language-xml"><code><span class="token comment">&lt;!--sentinel--></span>
