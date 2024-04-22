@@ -38,5 +38,12 @@ export default sidebar({
       prefix: "blog/markmap/",
       children: "structure"
     },
+    {
+      text: "开发日志",
+      icon: "link",
+      collapsible: true,
+      prefix: "blog/logs/",
+      children: "structure"
+    },
   ],
 });
