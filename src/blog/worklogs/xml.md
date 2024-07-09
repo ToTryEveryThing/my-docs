@@ -74,3 +74,13 @@ public static void main(String[] args) throws ParserConfigurationException, IOEx
 	}
 }
 ```
+修改原数据
+```java
+	// 将修改后的Document写回到新的XML文件中
+	TransformerFactory transformerFactory = TransformerFactory.newInstance();
+	Transformer transformer = transformerFactory.newTransformer();
+	DOMSource source = new DOMSource(document);
+	StreamResult result = new StreamResult(
+			Files.newOutputStream(new File("pom.xml").toPath()));
+	transformer.transform(source, result);
+```
