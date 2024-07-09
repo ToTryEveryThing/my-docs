@@ -8,6 +8,24 @@ tag:
 ---
 # Regex
 
+## 插件
+
+::: code-tabs
+
+@tab vscode
+```
+[正则大全](https://any-rule.vercel.app/)
+```
+@tab idea
+
+```
+[Regexp Tester](https://plugins.jetbrains.com/plugin/2917-regexp-tester)
+```
+
+:::
+
+
+
 ## java
 
 ::: code-tabs#shell
