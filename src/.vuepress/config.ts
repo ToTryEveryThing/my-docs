@@ -6,7 +6,8 @@ import { hopeTheme } from "vuepress-theme-hope";
 import theme from "./theme.js";
 
 export default defineUserConfig({
-  base: '/my-docs/',
+    // base: '/my-docs/',
+  base: '/',
   lang: "zh-CN",
   plugins: [
     registerComponentsPlugin({
