@@ -31,18 +31,18 @@ export default sidebar({
       prefix: "blog/tools/",
       children: "structure"
     },
+    // {
+    //   text: "xmind",
+    //   icon: "link",
+    //   collapsible: true,
+    //   prefix: "blog/markmap/",
+    //   children: "structure"
+    // },
     {
-      text: "xmind",
-      icon: "link",
+      text: "开发",
+      icon: "flag",
       collapsible: true,
-      prefix: "blog/markmap/",
-      children: "structure"
-    },
-    {
-      text: "开发日志",
-      icon: "link",
-      collapsible: true,
-      prefix: "blog/logs/",
+      prefix: "blog/worklogs/",
       children: "structure"
     },
   ],
