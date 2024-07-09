@@ -63,11 +63,37 @@
 <p><code v-pre>-v /home/test/mysql/mysql:/usr/mysql/mysql</code>  映射宿主机上</p>
 <h4 id="示例" tabindex="-1"><a class="header-anchor" href="#示例" aria-hidden="true">#</a> 示例</h4>
 <p><img src="@source/.vuepress/public/assets/image/Snipaste_2023-12-30_11-02-02.png" alt="" loading="lazy"><br>
-<img src="@source/.vuepress/public/assets/image/Snipaste_2023-12-30_11-04-37.png" alt="" loading="lazy"><br>
-之后就可以随意修改了</p>
+<img src="@source/.vuepress/public/assets/image/Snipaste_2023-12-30_11-04-37.png" alt="" loading="lazy"></p>
+<p>之后就可以随意修改了</p>
 <h3 id="自定义镜像" tabindex="-1"><a class="header-anchor" href="#自定义镜像" aria-hidden="true">#</a> 自定义镜像</h3>
+<div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>docker build -t docker-demo:1.0 .
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>命令说明：</p>
+<ul>
+<li><code v-pre>docker build</code> : 就是构建一个docker镜像</li>
+<li><code v-pre>-t docker-demo:1.0 </code>：-t参数是指定镜像的名称（repository和tag）</li>
+<li><code v-pre>.</code> : 最后的点是指构建时Dockerfile所在路径，由于我们进入了demo目录，所以指定的是.代表当前目录，也可以直接指定Dockerfile目录：<div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>docker build -t docker-demo:1.0 /root/demo
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div></li>
+</ul>
 <h3 id="dockercompose" tabindex="-1"><a class="header-anchor" href="#dockercompose" aria-hidden="true">#</a> DockerCompose</h3>
-<blockquote>
+<p>xx.yml</p>
+<div class="language-ym line-numbers-mode" data-ext="ym"><pre v-pre class="language-ym"><code>version: &quot;3.8&quot;
+ services:
+  mysql:
+    image: mysql:5.7.25
+    environment:
+     MYSQL_ROOT_PASSWORD: 123 
+    volumes:
+     - &quot;/tmp/mysql/data:/var/lib/mysql&quot;
+     - &quot;/tmp/mysql/conf/hmy.cnf:/etc/mysql/conf.d/hmy.cnf&quot;
+  web:
+    build: .
+    ports:
+     - &quot;8090:8090&quot;
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>基本语法：</p>
+<div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>docker compose [OPTIONS] [COMMAND]
+
+docker compose up -d # 跑起来
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><blockquote>
 <p>为了避免每次使用docker命令都需要加上sudo权限，可以将当前用户加入安装中自动创建的docker用户组<br>
 <a href="https://linux.cn/article-14871-1.html#:~:text=%E5%9C%A8%20Ubuntu%2022.04%20LTS%20%E4%B8%AD%E5%AE%89%E8%A3%85%20Docker%201%201%E3%80%81%E6%9B%B4%E6%96%B0,%EF%BC%88%E9%80%89%E5%81%9A%EF%BC%89%20%E9%BB%98%E8%AE%A4%E6%83%85%E5%86%B5%E4%B8%8B%EF%BC%8CDocker%20%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B%E7%BB%91%E5%AE%9A%E5%88%B0%20Unix%20%E5%A5%97%E6%8E%A5%E5%AD%97%E8%80%8C%E4%B8%8D%E6%98%AF%20TCP%20%E7%AB%AF%E5%8F%A3%E3%80%82%20" target="_blank" rel="noopener noreferrer">如何在 Ubuntu 22.04 LTS 中安装 Docker 和 Docker Compose<ExternalLinkIcon/></a></p>
 </blockquote>

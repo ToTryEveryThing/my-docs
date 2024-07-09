@@ -3,9 +3,9 @@ title: Mysql
 icon: download
 order: 2
 category:
-  - 使用指南
+  - ssm
 tag:
-  - Markdown
+  - mysql
 ---
 
 # Mysql

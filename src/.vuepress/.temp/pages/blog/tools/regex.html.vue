@@ -1,6 +1,17 @@
 <template><div><h1 id="regex" tabindex="-1"><a class="header-anchor" href="#regex" aria-hidden="true">#</a> Regex</h1>
+<h2 id="插件" tabindex="-1"><a class="header-anchor" href="#插件" aria-hidden="true">#</a> 插件</h2>
+<CodeTabs id="6" :data='[{"id":"vscode"},{"id":"idea"}]'>
+<template #title0="{ value, isActive }">vscode</template>
+<template #title1="{ value, isActive }">idea</template>
+<template #tab0="{ value, isActive }">
+<div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>[正则大全](https://any-rule.vercel.app/)
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div></template>
+<template #tab1="{ value, isActive }">
+<div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>[Regexp Tester](https://plugins.jetbrains.com/plugin/2917-regexp-tester)
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div></template>
+</CodeTabs>
 <h2 id="java" tabindex="-1"><a class="header-anchor" href="#java" aria-hidden="true">#</a> java</h2>
-<CodeTabs id="6" :data='[{"id":"使用<code v-pre>Pattern</code>和<code v-pre>Matcher</code>类"},{"id":"使用<code v-pre>String</code>类的<code v-pre>matches</code>方法"},{"id":"使用<code v-pre>String</code>类的<code v-pre>replaceAll</code>方法"}]' tab-id="shell">
+<CodeTabs id="17" :data='[{"id":"使用<code v-pre>Pattern</code>和<code v-pre>Matcher</code>类"},{"id":"使用<code v-pre>String</code>类的<code v-pre>matches</code>方法"},{"id":"使用<code v-pre>String</code>类的<code v-pre>replaceAll</code>方法"}]' tab-id="shell">
 <template #title0="{ value, isActive }">使用<code v-pre>Pattern</code>和<code v-pre>Matcher</code>类</template>
 <template #title1="{ value, isActive }">使用<code v-pre>String</code>类的<code v-pre>matches</code>方法</template>
 <template #title2="{ value, isActive }">使用<code v-pre>String</code>类的<code v-pre>replaceAll</code>方法</template>
@@ -54,7 +65,7 @@
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></template>
 </CodeTabs>
 <h2 id="元字符" tabindex="-1"><a class="header-anchor" href="#元字符" aria-hidden="true">#</a> 元字符</h2>
-<CodeTabs id="23" :data='[{"id":"."},{"id":"[]"},{"id":"^"},{"id":"*"},{"id":"+"},{"id":"?"},{"id":"{}"},{"id":"|"}]' tab-id="shell">
+<CodeTabs id="34" :data='[{"id":"."},{"id":"[]"},{"id":"^"},{"id":"*"},{"id":"+"},{"id":"?"},{"id":"{}"},{"id":"|"}]' tab-id="shell">
 <template #title0="{ value, isActive }">.</template>
 <template #title1="{ value, isActive }">[]</template>
 <template #title2="{ value, isActive }">^</template>
