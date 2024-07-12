@@ -1,6 +1,6 @@
 ---
 title: Mysql
-icon: download
+icon: Mysql
 order: 2
 category:
   - ssm

@@ -1,6 +1,6 @@
 ---
 title: Spring SpringMVC
-icon: link
+icon: spring
 order: 1
 category:
   - 使用指南

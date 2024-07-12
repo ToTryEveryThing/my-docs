@@ -1,6 +1,6 @@
 ---
 title: Maven
-icon: clone
+icon: pluginIcon
 order: 2
 category:
   - 使用指南

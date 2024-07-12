@@ -1,6 +1,6 @@
 ---
 title: Jasypt
-icon: lock
+icon: jiami
 category:
   - Tool
 tag:

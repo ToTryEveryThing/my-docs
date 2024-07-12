@@ -1,6 +1,6 @@
 ---
 title: Redis
-icon: chart-pie
+icon: Redis
 order: 2
 category:
   - 微服务

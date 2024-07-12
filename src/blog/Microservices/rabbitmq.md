@@ -1,6 +1,6 @@
 ---
 title: RabbitMQ
-icon: sitemap
+icon: rabbitmq
 order: 3
 category:
   - 微服务

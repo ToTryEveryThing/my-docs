@@ -1,6 +1,6 @@
 ---
 title: Jenkins
-icon: route
+icon: jenkins
 category:
   - Tool
 tag:

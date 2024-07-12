@@ -1,6 +1,6 @@
 ---
 title: cron
-icon: clock
+icon: crontab
 category:
   - Tool
 tag:

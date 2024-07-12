@@ -16,9 +16,9 @@ export default hopeTheme({
   
   breadcrumb: false,
 
-  iconAssets: "fontawesome-with-brands",
+  iconAssets: 'https://at.alicdn.com/t/c/font_4618431_tn0sjt628z.css',
 
-  logo: "https://beink.cn/ink.png",
+  logo: "home",
 
 
   docsDir: "src",

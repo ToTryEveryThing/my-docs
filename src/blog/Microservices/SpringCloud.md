@@ -1,6 +1,6 @@
 ---
 title: Spring Cloud
-icon: flag
+icon: springcloud
 order: 1
 category:
   - 微服务

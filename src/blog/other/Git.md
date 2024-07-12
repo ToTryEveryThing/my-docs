@@ -1,6 +1,6 @@
 ---
 title: Git
-icon: route
+icon: git
 order: 2
 category:
   - 使用指南
