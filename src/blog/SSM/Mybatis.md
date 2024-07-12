@@ -1,6 +1,6 @@
 ---
 title: Mybatis
-icon: book
+icon: MYBATIS
 order: 2
 category:
   - 使用指南

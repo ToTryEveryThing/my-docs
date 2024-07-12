@@ -1,6 +1,6 @@
 ---
 title: Puppeteer
-icon: image
+icon: puppeteer
 category:
   - Tool
 tag:

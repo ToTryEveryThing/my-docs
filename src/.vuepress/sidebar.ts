@@ -5,28 +5,28 @@ export default sidebar({
     "", 
     {
       text: "文档",
-      icon: "lightbulb",
+      icon: "gdoc",
       collapsible: true,
       prefix: "blog/other/",
       children: "structure",
     },
     {
       text: "SSM",
-      icon: "leaf",
+      icon: "spring",
       collapsible: true,
       prefix: "blog/SSM/",
       children: "structure"
     },
     {
       text: "微服务",
-      icon: "network-wired",
+      icon: "weifuwu1",
       collapsible: true,
       prefix: "blog/Microservices/",
       children: "structure"
     },
     {
       text: "工具",
-      icon: "puzzle-piece",
+      icon: "guanligongju",
       collapsible: true,
       prefix: "blog/tools/",
       children: "structure"
@@ -40,7 +40,7 @@ export default sidebar({
     // },
     {
       text: "开发",
-      icon: "flag",
+      icon: "wangzhankaifa",
       collapsible: true,
       prefix: "blog/worklogs/",
       children: "structure"

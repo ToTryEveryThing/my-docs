@@ -1,6 +1,6 @@
 ---
 title: Mybatis Plus
-icon: rss
+icon: mybatisplus
 order: 2
 category:
   - 使用指南

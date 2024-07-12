@@ -1,6 +1,6 @@
 ---
 title: regex
-icon: wand-magic-sparkles
+icon: -regexpreplace
 category:
   - Tool
 tag:

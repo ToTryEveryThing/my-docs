@@ -1,6 +1,6 @@
 ---
 title: Quartz
-icon: grip
+icon: time
 order: 1
 category:
   - 使用指南

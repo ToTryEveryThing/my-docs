@@ -1,6 +1,6 @@
 ---
 title: aliyun OSS
-icon: image
+icon: ossduixiangcunchuOSS
 order: 2
 category:
   - 使用指南

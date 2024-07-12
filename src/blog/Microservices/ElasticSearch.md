@@ -1,6 +1,6 @@
 ---
 title: ElasticSearch
-icon: magnifying-glass
+icon: ESpeizhi
 order: 4
 category:
   - 微服务
