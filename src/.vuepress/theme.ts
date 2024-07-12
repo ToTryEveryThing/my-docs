@@ -18,7 +18,7 @@ export default hopeTheme({
 
   iconAssets: 'https://at.alicdn.com/t/c/font_4618431_tn0sjt628z.css',
 
-  logo: "home",
+  logo: "logo.svg",
 
 
   docsDir: "src",
@@ -33,8 +33,12 @@ export default hopeTheme({
 
 
   displayFooter: true,
+ 
+  footer: `<a href="https://beian.miit.gov.cn/#/Integrated/index">豫ICP备2021034834号</a> |
+  <a href="https://theme-hope.vuejs.press/zh/">vuepress-home-theme</a>
 
-  footer: `<a href="https://beian.miit.gov.cn/#/Integrated/index">豫ICP备2021034834号</a>`,
+  `,
+
 
   encrypt: {
     config: {
@@ -43,7 +47,7 @@ export default hopeTheme({
   },
     navbarLayout: {
       start: ["Brand"],
-      end: ["Outlook", "Search","Links"],
+      end: ["Links","Outlook","Repo", "Search"],
     },
   plugins: {
     prismjs: {
