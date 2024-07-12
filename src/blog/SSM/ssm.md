@@ -352,7 +352,7 @@ public class springMVCConfig {
         return "hello world";
     }
 ```
-![](https://images.beink.cn/study/aTotRlU61Nj-1aXSUHaQx.png)
+![](https://cdn.beink.cn/study/aTotRlU61Nj-1aXSUHaQx.png)
 
 ##### **post** 
 
@@ -370,7 +370,7 @@ public class springMVCConfig {
 #### post乱码处理
 
 ![img](
-https://images.beink.cn/study/IrnFxcmuLsBODJvoQMw3M.png)
+https://cdn.beink.cn/study/IrnFxcmuLsBODJvoQMw3M.png)
 
 #### 参数类型
 

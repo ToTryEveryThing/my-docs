@@ -140,7 +140,7 @@
 <li>连接不稳定：由于SockJS在不支持WebSocket的浏览器中使用的是长轮询技术，因此可能会遇到连接不稳定的情况，例如断开连接或网络故障。</li>
 </ul>
 <h2 id="发送邮件" tabindex="-1"><a class="header-anchor" href="#发送邮件" aria-hidden="true">#</a> 发送邮件</h2>
-<figure><img src="https://images.beink.cn/study/UE1u8asx1_ccuu_NWZKiX.png" alt="study" tabindex="0" loading="lazy"><figcaption>study</figcaption></figure>
+<figure><img src="https://cdn.beink.cn/study/UE1u8asx1_ccuu_NWZKiX.png" alt="study" tabindex="0" loading="lazy"><figcaption>study</figcaption></figure>
 <p>application.yml</p>
 <div class="language-xml line-numbers-mode" data-ext="xml"><pre v-pre class="language-xml"><code>spring:
 #  邮件配置

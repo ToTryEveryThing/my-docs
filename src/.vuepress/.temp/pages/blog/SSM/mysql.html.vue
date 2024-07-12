@@ -124,7 +124,7 @@ insert into 表名  values(值1，值2..),(值1，值2..),(值1，值2..);
 <blockquote>
 <p>分组后的列只有待分组的字段和聚合函数</p>
 </blockquote>
-<figure><img src="https://images.beink.cn/study/bwSxT-4sdgkRCKhbCV1hH.png" alt="study" tabindex="0" loading="lazy"><figcaption>study</figcaption></figure>
+<figure><img src="https://cdn.beink.cn/study/bwSxT-4sdgkRCKhbCV1hH.png" alt="study" tabindex="0" loading="lazy"><figcaption>study</figcaption></figure>
 <div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>select sex,count(sex) from s group by sex having avg(age) &gt; 50;
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h3 id="排序查询" tabindex="-1"><a class="header-anchor" href="#排序查询" aria-hidden="true">#</a> 排序查询</h3>
 <ul>

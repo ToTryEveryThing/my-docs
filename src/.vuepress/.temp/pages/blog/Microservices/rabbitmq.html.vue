@@ -4,7 +4,7 @@
 学习地址 <a href="https://www.bilibili.com/video/BV1dE411K7MG?p=7&amp;vd_source=f8821730ff8a13ec89104c8629e6d42b" target="_blank" rel="noopener noreferrer">MQ的引言和不同MQ的特点_哔哩哔哩_bilibili<ExternalLinkIcon/></a></p>
 </blockquote>
 <h2 id="simple简单模式" tabindex="-1"><a class="header-anchor" href="#simple简单模式" aria-hidden="true">#</a> simple简单模式</h2>
-<figure><img src="https://images.beink.cn/study/yXPg2WxAvPSWeEtqSwEX5.png" alt="study" tabindex="0" loading="lazy"><figcaption>study</figcaption></figure>
+<figure><img src="https://cdn.beink.cn/study/yXPg2WxAvPSWeEtqSwEX5.png" alt="study" tabindex="0" loading="lazy"><figcaption>study</figcaption></figure>
 <blockquote>
 <ol>
 <li>消息产生者将消息放入队列</li>
@@ -112,7 +112,7 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="任务模型" tabindex="-1"><a class="header-anchor" href="#任务模型" aria-hidden="true">#</a> 任务模型</h2>
-<figure><img src="https://images.beink.cn/study/WK27DmlxzPPOTI-buJtnM.png" alt="study" tabindex="0" loading="lazy"><figcaption>study</figcaption></figure>
+<figure><img src="https://cdn.beink.cn/study/WK27DmlxzPPOTI-buJtnM.png" alt="study" tabindex="0" loading="lazy"><figcaption>study</figcaption></figure>
 <blockquote>
 <p>两个消费者  消费同一个队列  默认会平均分配内容 叫做循环</p>
 </blockquote>

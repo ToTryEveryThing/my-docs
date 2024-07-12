@@ -5,4 +5,25 @@ code{
 
 blockquote {
     border-color: var(--theme-color);
-};
+}
+.no-sidebar {
+    .vp-navbar{
+        background-color: transparent;
+        backdrop-filter:none;
+        color: black;
+    }
+    .search-pro-button{
+        border: none;
+        background-color: transparent;
+    }
+    .search-pro-key{
+        border: none;
+    }
+    kbd{
+        background-color: transparent;
+    }
+    .vp-hero-mask{
+        height: 100vh;
+        top: -3.75rem;
+    }   
+}
