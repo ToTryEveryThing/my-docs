@@ -14,7 +14,7 @@ tag:
 >  学习地址 [MQ的引言和不同MQ的特点_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1dE411K7MG?p=7&vd_source=f8821730ff8a13ec89104c8629e6d42b)
 
 ## simple简单模式
-![study](https://images.beink.cn/study/yXPg2WxAvPSWeEtqSwEX5.png)
+![study](https://cdn.beink.cn/study/yXPg2WxAvPSWeEtqSwEX5.png)
 
 > 1. 消息产生者将消息放入队列
 > 2. 消息的消费者(consumer) 监听(while) 消息队列,如果队列中有消息,就消费掉,消息被拿走后,自动从队列中删除(隐患 消息可能没有被消费者正确处理,已经从队列中消失了,造成消息的丢失)应用场景:聊天(中间有一个过度的服务器;p端,c端)
@@ -132,7 +132,7 @@ public class RabbitMQConnection {
 ```
 ## 任务模型
 
-![study](https://images.beink.cn/study/WK27DmlxzPPOTI-buJtnM.png)
+![study](https://cdn.beink.cn/study/WK27DmlxzPPOTI-buJtnM.png)
 
 > 两个消费者  消费同一个队列  默认会平均分配内容 叫做循环
 

@@ -85,7 +85,7 @@ tag:
 ```
 
 xml配置详解
-![image-20230605163139204](https://images.beink.cn/study/UL4ng9jJ1Vpg86bUFMn8K.png)
+![image-20230605163139204](https://cdn.beink.cn/study/UL4ng9jJ1Vpg86bUFMn8K.png)
 
 ### 属性
 

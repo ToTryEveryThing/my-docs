@@ -162,7 +162,7 @@ WebSocket 和 SockJS 两者都应用广泛，具体应该根据实际情况来�
 - 头部信息较大：因为SockJS在不支持WebSocket的浏览器中使用的是长轮询技术，因此需要发送大量的头部信息，导致数据传输效率较低。
 - 连接不稳定：由于SockJS在不支持WebSocket的浏览器中使用的是长轮询技术，因此可能会遇到连接不稳定的情况，例如断开连接或网络故障。
 ## 发送邮件
-![study](https://images.beink.cn/study/UE1u8asx1_ccuu_NWZKiX.png)
+![study](https://cdn.beink.cn/study/UE1u8asx1_ccuu_NWZKiX.png)
 
 application.yml
 ```xml

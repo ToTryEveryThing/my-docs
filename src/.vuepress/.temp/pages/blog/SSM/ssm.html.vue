@@ -256,7 +256,7 @@ springMVCConfig<span class="token punctuation">.</span>java
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token string">"hello world"</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><figure><img src="https://images.beink.cn/study/aTotRlU61Nj-1aXSUHaQx.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><figure><img src="https://cdn.beink.cn/study/aTotRlU61Nj-1aXSUHaQx.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <h5 id="post" tabindex="-1"><a class="header-anchor" href="#post" aria-hidden="true">#</a> <strong>post</strong></h5>
 <div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code>    <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/save"</span><span class="token punctuation">)</span>
     <span class="token annotation punctuation">@ResponseBody</span>
@@ -265,7 +265,7 @@ springMVCConfig<span class="token punctuation">.</span>java
         <span class="token keyword">return</span> <span class="token string">"hello world"</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="post乱码处理" tabindex="-1"><a class="header-anchor" href="#post乱码处理" aria-hidden="true">#</a> post乱码处理</h4>
-<figure><img src="https://images.beink.cn/study/IrnFxcmuLsBODJvoQMw3M.png" alt="img" tabindex="0" loading="lazy"><figcaption>img</figcaption></figure>
+<figure><img src="https://cdn.beink.cn/study/IrnFxcmuLsBODJvoQMw3M.png" alt="img" tabindex="0" loading="lazy"><figcaption>img</figcaption></figure>
 <h4 id="参数类型" tabindex="-1"><a class="header-anchor" href="#参数类型" aria-hidden="true">#</a> 参数类型</h4>
 <p><a href="https://www.bilibili.com/video/BV1Fi4y1S7ix?p=51&amp;spm_id_from=pageDriver&amp;vd_source=f8821730ff8a13ec89104c8629e6d42b" target="_blank" rel="noopener noreferrer">SpringMVC-09-json数据传递参数_哔哩哔哩_bilibili<ExternalLinkIcon/></a></p>
 <div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code>    <span class="token annotation punctuation">@ResponseBody</span>

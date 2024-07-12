@@ -120,7 +120,7 @@ select distinct name from 表名;
 
 > 分组后的列只有待分组的字段和聚合函数
 
-![study](https://images.beink.cn/study/bwSxT-4sdgkRCKhbCV1hH.png)
+![study](https://cdn.beink.cn/study/bwSxT-4sdgkRCKhbCV1hH.png)
 
 
 

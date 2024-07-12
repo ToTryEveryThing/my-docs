@@ -127,7 +127,7 @@ public interface BaseMapper<T> extends Mapper<T> {
 ### wapper条件构造器
 
 ![Description](
-https://images.beink.cn/study/sdYcTWfJPI-bnrI7p0Lwm.png)
+https://cdn.beink.cn/study/sdYcTWfJPI-bnrI7p0Lwm.png)
 
 ### 注解说明
 
