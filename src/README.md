@@ -1,6 +1,6 @@
 ---
 home: true
-bgImage: https://cdn.beink.cn/background/wallhaven-rrpp6m.png
+bgImage: https://cdn.beink.cn/background/back.jpg
 heroFullScreen: true
 ---
 
