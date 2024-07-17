@@ -128,7 +128,7 @@ public List deleteObject(String s){
 现在我们假定，我们实现了一个`A`类用于提供我们封装好的功能
 
 ```java
-java复制代码public class A { 
+public class A { 
     ...
 }
 ```
@@ -136,7 +136,7 @@ java复制代码public class A {
 一般情况下我们会使用`@Component`往`Spring`容器中注入实例，如下：
 
 ```java
-java复制代码@Component
+@Component
 public class A { 
     ...
 }
@@ -177,7 +177,7 @@ public class A {
 答案是：`@Configuration`+`@Bean`，如下
 
 ```java
-java复制代码@Configuration
+@Configuration
 public class AConfiguration { 
     
     @Bean
@@ -221,7 +221,7 @@ public class AConfiguration {
 我们先使用注解的方式来导入，定义一个`@EnableA`
 
 ```java
-java复制代码@Target(ElementType.TYPE)
+@Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Import(AConfiguration.class)
 public @interface EnableA {
@@ -234,7 +234,7 @@ public @interface EnableA {
 当我们需要集成这个功能的时候只要添加这个注解就行了
 
 ```java
-java复制代码@EnableA
+@EnableA
 @SpringBootApplication
 public class SampleApplication {
 
@@ -253,7 +253,7 @@ public class SampleApplication {
 现在我们给`@EnableA`注解添加一个参数`enabled`，当`enabled`为`true`时导入`AConfiguration.class`，当`enabled`为`false`时不导入`AConfiguration.class`
 
 ```java
-java复制代码@Target(ElementType.TYPE)
+@Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Import(AConfiguration.class)
 public @interface EnableA {
@@ -265,7 +265,7 @@ public @interface EnableA {
 接着我们实现一个`ImportSelector`
 
 ```java
-java复制代码public class AImportSelector implements ImportSelector {
+public class AImportSelector implements ImportSelector {
 
     @Override
     public String[] selectImports(AnnotationMetadata metadata) {
@@ -288,7 +288,7 @@ java复制代码public class AImportSelector implements ImportSelector {
 最后我们将`@Import(AConfiguration.class)`改为`@Import(AImportSelector.class)`就行了
 
 ```java
-java复制代码@Target(ElementType.TYPE)
+@Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Import(AImportSelector.class)
 public @interface EnableA {
@@ -300,7 +300,7 @@ public @interface EnableA {
 当我们将`enabled`设置为`false`时，就不会配置`AConfiguration.class`了
 
 ```java
-java复制代码@EnableA(enabled = false)
+@EnableA(enabled = false)
 @SpringBootApplication
 public class SampleApplication {
 
@@ -313,7 +313,7 @@ public class SampleApplication {
 其实还有另一种方式也可以拿到注解的属性，那就是`ImportBeanDefinitionRegistrar`
 
 ```java
-java复制代码public interface ImportBeanDefinitionRegistrar {
+public interface ImportBeanDefinitionRegistrar {
 
    default void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
    }
@@ -325,7 +325,7 @@ java复制代码public interface ImportBeanDefinitionRegistrar {
 如果我们用`ImportBeanDefinitionRegistrar`来实现上面的功能大概就是这个样子
 
 ```java
-java复制代码public class AImportBeanDefinitionRegistrar implements ImportBeanDefinitionRegistrar {
+public class AImportBeanDefinitionRegistrar implements ImportBeanDefinitionRegistrar {
 
     @Override
     public void registerBeanDefinitions(AnnotationMetadata metadata, BeanDefinitionRegistry registry) {
@@ -342,7 +342,7 @@ java复制代码public class AImportBeanDefinitionRegistrar implements ImportBea
 然后同样的把`@Import(AConfiguration.class)`改为`@Import(AImportBeanDefinitionRegistrar.class)`就行了
 
 ```java
-java复制代码@Target(ElementType.TYPE)
+@Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Import(AImportBeanDefinitionRegistrar.class)
 public @interface EnableA {
@@ -394,7 +394,7 @@ com.xxx.xxx.AAutoConfiguration
 我们需要先定义一个`AProperties`
 
 ```java
-java复制代码@Data
+@Data
 @ConfigurationProperties(prefix = "a")
 public class AProperties {
 
@@ -417,7 +417,7 @@ public class AProperties {
 接着我们在`AAutoConfiguration`上添加`@EnableConfigurationProperties`就行了
 
 ```java
-java复制代码@Configuration
+@Configuration
 @EnableConfigurationProperties(AProperties.class)
 public class AConfiguration { 
     
@@ -461,7 +461,7 @@ xml复制代码<dependency>
 假设现在我们的`A`需要依赖`B`实例，那我们的配置可以这样写
 
 ```java
-java复制代码@Configuration
+@Configuration
 public class AConfiguration { 
     
     @Bean
@@ -481,7 +481,7 @@ public class AConfiguration {
 如果我们不启用方法代理可以这样写
 
 ```java
-java复制代码@Configuration(proxyBeanMethods = false)
+@Configuration(proxyBeanMethods = false)
 public class AConfiguration { 
     
     @Bean
@@ -507,7 +507,7 @@ public class AConfiguration {
 那么之前的配置方式就不行了
 
 ```java
-java复制代码@Configuration
+@Configuration
 public class AConfiguration { 
     
     @Bean
@@ -522,7 +522,7 @@ public class AConfiguration {
 这种情况下，我们可以使用`ObjectProvider`，如下：
 
 ```java
-java复制代码@Configuration
+@Configuration
 public class AConfiguration { 
     
     @Bean
@@ -541,7 +541,7 @@ public class AConfiguration {
 我们可以这样用
 
 ```java
-java复制代码@Configuration
+@Configuration
 public class AConfiguration { 
     
     @Bean
@@ -563,7 +563,7 @@ public class AConfiguration {
 我们来看下面的配置1
 
 ```java
-java复制代码@Configuration
+@Configuration
 public class AConfiguration { 
     
     @Bean
@@ -579,7 +579,7 @@ public class AConfiguration {
 接着我们再看下面的配置2
 
 ```java
-java复制代码@Configuration
+@Configuration
 public class AConfiguration { 
     
     @Bean
@@ -597,7 +597,7 @@ public class AConfiguration {
 因为`@ConditionalOnMissingBean`的缺省值是方法的返回类型，所以大家在使用时需要多加注意，保险起见可以指定`@ConditionalOnMissingBean`中的值，例如：
 
 ```java
-java复制代码@Configuration
+@Configuration
 public class AConfiguration { 
     
     @Bean
