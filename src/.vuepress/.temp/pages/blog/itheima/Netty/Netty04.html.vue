@@ -1200,7 +1200,7 @@ selectionKey<span class="token punctuation">.</span><span class="token function"
 </ul>
 </blockquote>
 <p>参考下图</p>
-<img src="img/0032.png"  />
+<p>&lt;./../../../.vuepress/public/assets/img src=&quot;./../../../.vuepress/public/assets/img/0032.png&quot;  /&gt;</p>
 <p><code v-pre>io.netty.channel.nio.NioEventLoop#select</code></p>
 <div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">select</span><span class="token punctuation">(</span><span class="token keyword">boolean</span> oldWakenUp<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span> <span class="token punctuation">{</span>
     <span class="token class-name">Selector</span> selector <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>selector<span class="token punctuation">;</span>

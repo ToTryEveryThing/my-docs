@@ -1453,7 +1453,7 @@ protected void run() {
 
 参考下图
 
-<img src="img/0032.png"  />
+<./../../../.vuepress/public/assets/img src="./../../../.vuepress/public/assets/img/0032.png"  />
 
 
 
