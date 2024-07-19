@@ -179,11 +179,11 @@ ctx<span class="token punctuation">.</span><span class="token function">writeAnd
 <ul>
 <li>
 <p>TCP 以一个段（segment）为单位，每发送一个段就需要进行一次确认应答（ack）处理，但如果这么做，缺点是包的往返时间越长性能就越差</p>
-<figure><img src="@source/blog/itheima/Netty/img/0049.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0049.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 </li>
 <li>
 <p>为了解决此问题，引入了窗口概念，窗口大小即决定了无需等待应答而可以继续发送的数据最大值</p>
-<figure><img src="@source/blog/itheima/Netty/img/0051.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0051.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 </li>
 <li>
 <p>窗口实际就起到一个缓冲区的作用，同时也能起到流量控制的作用</p>
@@ -224,7 +224,7 @@ ctx<span class="token punctuation">.</span><span class="token function">writeAnd
 <p>MSS 的值在三次握手时通知对方自己 MSS 的值，然后在两者之间选择一个小值作为 MSS</p>
 </li>
 </ul>
-  <img src="img/0031.jpg" style="zoom:50%;" />
+<p>&lt;./../../../.vuepress/public/assets/img src=&quot;./../../../.vuepress/public/assets/img/0031.jpg&quot; style=&quot;zoom:50%;&quot; /&gt;</p>
 </blockquote>
 <blockquote>
 <p>Nagle 算法</p>
@@ -922,7 +922,7 @@ s1<span class="token punctuation">.</span><span class="token function">retain</s
 channel<span class="token punctuation">.</span><span class="token function">writeInbound</span><span class="token punctuation">(</span>s1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// release 1</span>
 channel<span class="token punctuation">.</span><span class="token function">writeInbound</span><span class="token punctuation">(</span>s2<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>解读</p>
-<figure><img src="@source/blog/itheima/Netty/img/0013.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0013.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <h4 id="💡-什么时候可以加-sharable" tabindex="-1"><a class="header-anchor" href="#💡-什么时候可以加-sharable" aria-hidden="true">#</a> 💡 什么时候可以加 @Sharable</h4>
 <ul>
 <li>当 handler 不保存状态时，就可以安全地在多线程下被共享</li>

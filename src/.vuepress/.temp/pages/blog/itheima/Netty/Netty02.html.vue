@@ -5,7 +5,7 @@
 for rapid development of maintainable high performance protocol servers &amp; clients.
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><p>Netty 是一个异步的、基于事件驱动的网络应用框架，用于快速开发可维护、高性能的网络服务器和客户端</p>
 <h3 id="_1-2-netty-的作者" tabindex="-1"><a class="header-anchor" href="#_1-2-netty-的作者" aria-hidden="true">#</a> 1.2 Netty 的作者</h3>
-<figure><img src="@source/blog/itheima/Netty/img/0005.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0005.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <p>他还是另一个著名网络应用框架 Mina 的重要贡献者</p>
 <h3 id="_1-3-netty-的地位" tabindex="-1"><a class="header-anchor" href="#_1-3-netty-的地位" aria-hidden="true">#</a> 1.3 Netty 的地位</h3>
 <p>Netty 在 Java 网络应用框架中的地位就好比：Spring 框架在 JavaEE 开发中的地位</p>
@@ -81,7 +81,7 @@ for rapid development of maintainable high performance protocol servers &amp; cl
 </li>
 <li>
 <p>2 处，选择服务 Scoket 实现类，其中 NioServerSocketChannel 表示基于 NIO 的服务器端实现，其它实现还有</p>
-<figure><img src="@source/blog/itheima/Netty/img/0006.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0006.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 </li>
 <li>
 <p>3 处，为啥方法叫 childHandler，是接下来添加的处理器都是给 SocketChannel 用的，而不是给 ServerSocketChannel。ChannelInitializer 处理器（仅执行一次），它的作用是待客户端 SocketChannel 建立连接后，执行 initChannel 以便添加更多的处理器</p>
@@ -117,7 +117,7 @@ for rapid development of maintainable high performance protocol servers &amp; cl
 </li>
 <li>
 <p>2 处，选择客户 Socket 实现类，NioSocketChannel 表示基于 NIO 的客户端实现，其它实现还有</p>
-<figure><img src="@source/blog/itheima/Netty/img/0007.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0007.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 </li>
 <li>
 <p>3 处，添加 SocketChannel 的处理器，ChannelInitializer 处理器（仅执行一次），它的作用是待客户端 SocketChannel 建立连接后，执行 initChannel 以便添加更多的处理器</p>
@@ -142,7 +142,7 @@ for rapid development of maintainable high performance protocol servers &amp; cl
 </li>
 </ul>
 <h3 id="_2-4-流程梳理" tabindex="-1"><a class="header-anchor" href="#_2-4-流程梳理" aria-hidden="true">#</a> 2.4 流程梳理</h3>
-<figure><img src="@source/blog/itheima/Netty/img/0040.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0040.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <h4 id="💡-提示" tabindex="-1"><a class="header-anchor" href="#💡-提示" aria-hidden="true">#</a> 💡 提示</h4>
 <blockquote>
 <p>一开始需要树立正确的观念</p>
@@ -255,7 +255,7 @@ io.netty.channel.DefaultEventLoop@35f983a6
 22:06:09 [DEBUG] [nioEventLoopGroup-3-1] c.i.o.EventLoopTest - wangwu        
 22:06:11 [DEBUG] [nioEventLoopGroup-3-1] c.i.o.EventLoopTest - wangwu         
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>可以看到两个工人轮流处理 channel，但工人与 channel 之间进行了绑定</p>
-<figure><img src="@source/blog/itheima/Netty/img/0042.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0042.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <p>再增加两个非 nio 工人</p>
 <div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token class-name">DefaultEventLoopGroup</span> normalWorkers <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DefaultEventLoopGroup</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">new</span> <span class="token class-name">ServerBootstrap</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -336,7 +336,7 @@ io.netty.channel.DefaultEventLoop@35f983a6
 22:20:40 [DEBUG] [nioEventLoopGroup-4-1] i.n.h.l.LoggingHandler - [id: 0x79a26af9, L:/127.0.0.1:8080 - R:/127.0.0.1:52625] READ COMPLETE
 22:20:40 [DEBUG] [defaultEventLoopGroup-2-1] c.i.o.EventLoopTest - wangwu          
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>可以看到，nio 工人和 非 nio 工人也分别绑定了 channel（LoggingHandler 由 nio 工人执行，而我们自己的 handler 由非 nio 工人执行）</p>
-<figure><img src="@source/blog/itheima/Netty/img/0041.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0041.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <h4 id="💡-handler-执行中如何换人" tabindex="-1"><a class="header-anchor" href="#💡-handler-执行中如何换人" aria-hidden="true">#</a> 💡 handler 执行中如何换人？</h4>
 <p>关键代码 <code v-pre>io.netty.channel.AbstractChannelHandlerContext#invokeChannelRead()</code></p>
 <div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">invokeChannelRead</span><span class="token punctuation">(</span><span class="token keyword">final</span> <span class="token class-name">AbstractChannelHandlerContext</span> next<span class="token punctuation">,</span> <span class="token class-name">Object</span> msg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -535,11 +535,11 @@ channelFuture<span class="token punctuation">.</span><span class="token function
 </li>
 </ul>
 <p>思考下面的场景，4 个医生给人看病，每个病人花费 20 分钟，而且医生看病的过程中是以病人为单位的，一个病人看完了，才能看下一个病人。假设病人源源不断地来，可以计算一下 4 个医生一天工作 8 小时，处理的病人总数是：<code v-pre>4 * 8 * 3 = 96</code></p>
-<figure><img src="@source/blog/itheima/Netty/img/0044.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0044.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <p>经研究发现，看病可以细分为四个步骤，经拆分后每个步骤需要 5 分钟，如下</p>
-<figure><img src="@source/blog/itheima/Netty/img/0048.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0048.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <p>因此可以做如下优化，只有一开始，医生 2、3、4 分别要等待 5、10、15 分钟才能执行工作，但只要后续病人源源不断地来，他们就能够满负荷工作，并且处理病人的能力提高到了 <code v-pre>4 * 8 * 12</code> 效率几乎是原来的四倍</p>
-<figure><img src="@source/blog/itheima/Netty/img/0047.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0047.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <p>要点</p>
 <ul>
 <li>单线程没法异步提高效率，必须配合多线程、多核 cpu 才能发挥异步的优势</li>
@@ -908,7 +908,7 @@ io.netty.util.concurrent.BlockingOperationException: DefaultPromise@47499c2a(inc
 5
 4
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>可以看到，ChannelInboundHandlerAdapter 是按照 addLast 的顺序执行的，而 ChannelOutboundHandlerAdapter 是按照 addLast 的逆序执行的。ChannelPipeline 的实现是一个 ChannelHandlerContext（包装了 ChannelHandler） 组成的双向链表</p>
-<figure><img src="@source/blog/itheima/Netty/img/0008.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0008.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <ul>
 <li>入站处理器中，ctx.fireChannelRead(msg) 是 <strong>调用下一个入站处理器</strong>
 <ul>
@@ -937,7 +937,7 @@ io.netty.util.concurrent.BlockingOperationException: DefaultPromise@47499c2a(inc
 </li>
 </ul>
 <p>图1 - 服务端 pipeline 触发的原始流程，图中数字代表了处理步骤的先后次序</p>
-<figure><img src="@source/blog/itheima/Netty/img/0009.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0009.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <h3 id="_3-5-bytebuf" tabindex="-1"><a class="header-anchor" href="#_3-5-bytebuf" aria-hidden="true">#</a> 3.5 ByteBuf</h3>
 <p>是对字节数据的封装</p>
 <h4 id="_1-创建" tabindex="-1"><a class="header-anchor" href="#_1-创建" aria-hidden="true">#</a> 1）创建</h4>
@@ -982,7 +982,7 @@ io.netty.util.concurrent.BlockingOperationException: DefaultPromise@47499c2a(inc
 </ul>
 <h4 id="_4-组成" tabindex="-1"><a class="header-anchor" href="#_4-组成" aria-hidden="true">#</a> 4）组成</h4>
 <p>ByteBuf 由四部分组成</p>
-<figure><img src="@source/blog/itheima/Netty/img/0010.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0010.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <p>最开始读写指针都在 0 位置</p>
 <h4 id="_5-写入" tabindex="-1"><a class="header-anchor" href="#_5-写入" aria-hidden="true">#</a> 5）写入</h4>
 <p>方法列表，省略一些不重要的方法</p>
@@ -1220,7 +1220,7 @@ read index:8 write index:12 capacity:16
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="_9-slice" tabindex="-1"><a class="header-anchor" href="#_9-slice" aria-hidden="true">#</a> 9）slice</h4>
 <p>【零拷贝】的体现之一，对原始 ByteBuf 进行切片成多个 ByteBuf，切片后的 ByteBuf 并没有发生内存复制，还是使用原始 ByteBuf 的内存，切片后的 ByteBuf 维护独立的 read，write 指针</p>
-<figure><img src="@source/blog/itheima/Netty/img/0011.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0011.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <p>例，原始 ByteBuf 进行一些初始操作</p>
 <div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token class-name">ByteBuf</span> origin <span class="token operator">=</span> <span class="token class-name">ByteBufAllocator</span><span class="token punctuation">.</span><span class="token constant">DEFAULT</span><span class="token punctuation">.</span><span class="token function">buffer</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 origin<span class="token punctuation">.</span><span class="token function">writeBytes</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1278,7 +1278,7 @@ origin<span class="token punctuation">.</span><span class="token function">readB
 +--------+-------------------------------------------------+----------------+
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="_10-duplicate" tabindex="-1"><a class="header-anchor" href="#_10-duplicate" aria-hidden="true">#</a> 10）duplicate</h4>
 <p>【零拷贝】的体现之一，就好比截取了原始 ByteBuf 所有内容，并且没有 max capacity 的限制，也是与原始 ByteBuf 使用同一块底层内存，只是读写指针是独立的</p>
-<figure><img src="@source/blog/itheima/Netty/img/0012.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0012.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <h4 id="_11-copy" tabindex="-1"><a class="header-anchor" href="#_11-copy" aria-hidden="true">#</a> 11）copy</h4>
 <p>会将底层内存数据进行深拷贝，因此无论读写，都与原始 ByteBuf 无关</p>
 <h4 id="_12-compositebytebuf" tabindex="-1"><a class="header-anchor" href="#_12-compositebytebuf" aria-hidden="true">#</a> 12）CompositeByteBuf</h4>

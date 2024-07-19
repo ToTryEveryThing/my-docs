@@ -131,17 +131,17 @@ selector <span class="token arrow operator">--></span> c3<span class="token text
 <li>limit</li>
 </ul>
 <p>一开始</p>
-<figure><img src="@source/blog/itheima/Netty/img/0021.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0021.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <p>写模式下，position 是写入位置，limit 等于容量，下图表示写入了 4 个字节后的状态</p>
-<figure><img src="@source/blog/itheima/Netty/img/0018.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0018.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <p>flip 动作发生后，position 切换为读取位置，limit 切换为读取限制</p>
-<figure><img src="@source/blog/itheima/Netty/img/0019.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0019.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <p>读取 4 个字节后，状态</p>
-<figure><img src="@source/blog/itheima/Netty/img/0020.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0020.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <p>clear 动作发生后，状态</p>
-<figure><img src="@source/blog/itheima/Netty/img/0021.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0021.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <p>compact 方法，是把未读完的部分向前压缩，然后切换至写模式</p>
-<figure><img src="@source/blog/itheima/Netty/img/0022.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0022.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <h4 id="💡-调试工具类" tabindex="-1"><a class="header-anchor" href="#💡-调试工具类" aria-hidden="true">#</a> 💡 调试工具类</h4>
 <div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ByteBufferUtil</span> <span class="token punctuation">{</span>
     <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token constant">BYTE2CHAR</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token number">256</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -1067,7 +1067,7 @@ ld�
 
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>为什么？</p>
 <h4 id="处理消息的边界" tabindex="-1"><a class="header-anchor" href="#处理消息的边界" aria-hidden="true">#</a> 处理消息的边界</h4>
-<figure><img src="@source/blog/itheima/Netty/img/0023.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0023.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <ul>
 <li>一种思路是固定消息长度，数据包大小一样，服务器按预定长度读取，缺点是浪费带宽</li>
 <li>另一种思路是按分隔符拆分，缺点是效率低</li>
@@ -1488,31 +1488,31 @@ sc<span class="token punctuation">.</span><span class="token function">write</sp
 <li>等待数据阶段</li>
 <li>复制数据阶段</li>
 </ul>
-<figure><img src="@source/blog/itheima/Netty/img/0033.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0033.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <ul>
 <li>
 <p>阻塞 IO</p>
-<figure><img src="@source/blog/itheima/Netty/img/0039.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0039.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 </li>
 <li>
 <p>非阻塞  IO</p>
-<figure><img src="@source/blog/itheima/Netty/img/0035.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0035.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 </li>
 <li>
 <p>多路复用</p>
-<figure><img src="@source/blog/itheima/Netty/img/0038.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0038.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 </li>
 <li>
 <p>信号驱动</p>
 </li>
 <li>
 <p>异步 IO</p>
-<figure><img src="@source/blog/itheima/Netty/img/0037.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0037.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 </li>
 <li>
 <p>阻塞 IO vs 多路复用</p>
-<figure><img src="@source/blog/itheima/Netty/img/0034.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
-<figure><img src="@source/blog/itheima/Netty/img/0036.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0034.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0036.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 </li>
 </ul>
 <h4 id="🔖-参考" tabindex="-1"><a class="header-anchor" href="#🔖-参考" aria-hidden="true">#</a> 🔖 参考</h4>
@@ -1529,7 +1529,7 @@ file<span class="token punctuation">.</span><span class="token function">read</s
 <span class="token class-name">Socket</span> socket <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">;</span>
 socket<span class="token punctuation">.</span><span class="token function">getOutputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>buf<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>内部工作流程是这样的：</p>
-<figure><img src="@source/blog/itheima/Netty/img/0024.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0024.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <ol>
 <li>
 <p>java 本身并不具备 IO 读写能力，因此 read 方法调用后，要从 java 程序的<strong>用户态</strong>切换至<strong>内核态</strong>，去调用操作系统（Kernel）的读能力，将数据读入<strong>内核缓冲区</strong>。这期间用户线程阻塞，操作系统使用 DMA（Direct Memory Access）来实现文件读，其间也不会使用 cpu</p>
@@ -1558,7 +1558,7 @@ socket<span class="token punctuation">.</span><span class="token function">getOu
 <li>ByteBuffer.allocate(10)  HeapByteBuffer 使用的还是 java 内存</li>
 <li>ByteBuffer.allocateDirect(10)  DirectByteBuffer 使用的是操作系统内存</li>
 </ul>
-<figure><img src="@source/blog/itheima/Netty/img/0025.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0025.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <p>大部分步骤与优化前相同，不再赘述。唯有一点：java 可以使用 DirectByteBuf 将堆外内存映射到 jvm 内存中来直接访问使用</p>
 <ul>
 <li>这块内存不受 jvm 垃圾回收的影响，因此内存地址固定，有助于 IO 读写</li>
@@ -1571,7 +1571,7 @@ socket<span class="token punctuation">.</span><span class="token function">getOu
 <li>减少了一次数据拷贝，用户态与内核态的切换次数没有减少</li>
 </ul>
 <p>进一步优化（底层采用了 linux 2.1 后提供的 sendFile 方法），java 中对应着两个 channel 调用 transferTo/transferFrom 方法拷贝数据</p>
-<figure><img src="@source/blog/itheima/Netty/img/0026.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0026.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <ol>
 <li>java 调用 transferTo 方法后，要从 java 程序的<strong>用户态</strong>切换至<strong>内核态</strong>，使用 DMA将数据读入<strong>内核缓冲区</strong>，不会使用 cpu</li>
 <li>数据从<strong>内核缓冲区</strong>传输到 <strong>socket 缓冲区</strong>，cpu 会参与拷贝</li>
@@ -1583,7 +1583,7 @@ socket<span class="token punctuation">.</span><span class="token function">getOu
 <li>数据拷贝了 3 次</li>
 </ul>
 <p>进一步优化（linux 2.4）</p>
-<figure><img src="@source/blog/itheima/Netty/img/0027.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="@source/.vuepress/public/assets/img/0027.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <ol>
 <li>java 调用 transferTo 方法后，要从 java 程序的<strong>用户态</strong>切换至<strong>内核态</strong>，使用 DMA将数据读入<strong>内核缓冲区</strong>，不会使用 cpu</li>
 <li>只会将一些 offset 和 length 信息拷入 <strong>socket 缓冲区</strong>，几乎无消耗</li>
