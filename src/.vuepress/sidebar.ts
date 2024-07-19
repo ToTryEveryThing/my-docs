@@ -44,5 +44,18 @@ export default sidebar({
       prefix: "blog/worklogs/",
       children: "structure"
     },
+    {
+      text: "黑马",
+      icon: "heimabang",
+      collapsible: true,
+      prefix: "blog/itheima",
+      children: [
+        {
+          text:"Netty",
+          collapsible: true,
+          children:['Netty/Netty01-nio','Netty/Netty02.md','Netty/Netty03.md','Netty/Netty04.md']
+        }
+      ]
+    }
   ],
 });
