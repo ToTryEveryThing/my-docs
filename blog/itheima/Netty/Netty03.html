@@ -30,7 +30,7 @@
     </script>
     <meta property="og:url" content="https://totryeverything.github.io/blog/itheima/Netty/Netty03.html"><meta property="og:title" content="Netty 进阶"><meta property="og:description" content="1. 粘包与半包 1.1 粘包现象 服务端代码 客户端代码希望发送 10 个消息，每个消息是 16 字节 服务器端的某次输出，可以看到一次就接收了 160 个字节，而非分 10 次接收 1.2 半包现象 客户端代码希望发送 1 个消息，这个消息是 160 字节，代码改为 为现象明显，服务端修改一下接收缓冲区，其它代码不变 服务器端的某次输出，可以看到接..."><meta property="og:type" content="article"><meta property="og:image" content="https://totryeverything.github.io/"><meta property="og:locale" content="zh-CN"><meta property="og:updated_time" content="2024-07-19T02:43:35.000Z"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image:alt" content="Netty 进阶"><meta property="article:author" content="ToTryEveryThing"><meta property="article:tag" content="Netty"><meta property="article:modified_time" content="2024-07-19T02:43:35.000Z"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Netty 进阶","image":["https://totryeverything.github.io/"],"dateModified":"2024-07-19T02:43:35.000Z","author":[{"@type":"Person","name":"ToTryEveryThing","url":"https://beink.cn/"}]}</script><title>Netty 进阶</title><meta name="description" content="1. 粘包与半包 1.1 粘包现象 服务端代码 客户端代码希望发送 10 个消息，每个消息是 16 字节 服务器端的某次输出，可以看到一次就接收了 160 个字节，而非分 10 次接收 1.2 半包现象 客户端代码希望发送 1 个消息，这个消息是 160 字节，代码改为 为现象明显，服务端修改一下接收缓冲区，其它代码不变 服务器端的某次输出，可以看到接...">
     <link rel="preload" href="/assets/style-VIhIhFwZ.css" as="style"><link rel="stylesheet" href="/assets/style-VIhIhFwZ.css">
-    <link rel="modulepreload" href="/assets/app-QY4QCEAX.js"><link rel="modulepreload" href="/assets/Netty03.html-9FrOfdB0.js"><link rel="modulepreload" href="/assets/Netty03.html-Cr_YHvjp.js"><link rel="modulepreload" href="/assets/plugin-vue_export-helper-DlAUqK2U.js">
+    <link rel="modulepreload" href="/assets/app-C_XpMuPX.js"><link rel="modulepreload" href="/assets/Netty03.html-9FrOfdB0.js"><link rel="modulepreload" href="/assets/Netty03.html-eOg_a4_E.js"><link rel="modulepreload" href="/assets/plugin-vue_export-helper-DlAUqK2U.js">
     
   </head>
   <body>
@@ -1248,6 +1248,6 @@ ch<span class="token punctuation">.</span><span class="token function">pipeline<
   <a href="https://theme-hope.vuejs.press/zh/">vuepress-home-theme</a>
 
   </div><div class="vp-copyright">Copyright © 2024 ToTryEveryThing</div></footer></div><!--]--><!----><!----><!--]--></div>
-    <script type="module" src="/assets/app-QY4QCEAX.js" defer></script>
+    <script type="module" src="/assets/app-C_XpMuPX.js" defer></script>
   </body>
 </html>
