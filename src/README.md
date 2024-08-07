@@ -7,7 +7,7 @@ heroFullScreen: true
 ![](https://raw.githubusercontent.com/ToTryEveryThing/ToTryEveryThing/output/github-contribution-grid-snake.svg)
 
 
-[![](https://img.shields.io/badge/Tool-badge-blue)](https://mvnrepository.com/) [![](https://img.shields.io/badge/Tool-Maven-red)](https://mvnrepository.com/) [![](https://img.shields.io/badge/Theme-OhMyPosh-orange)]([https://mvnrepository.com/](https://ohmyposh.dev/))
+[![](https://img.shields.io/badge/Tool-badge-blue)](https://mvnrepository.com/) [![](https://img.shields.io/badge/Tool-Maven-red)](https://mvnrepository.com/) [![](https://img.shields.io/badge/Theme-OhMyPosh-orange)](https://ohmyposh.dev/)
 
 
 
