@@ -2,10 +2,11 @@
 title: Linux
 icon: linux
 order: 2
+description: Linux基础知识，docker、mysql、vim
 category:
-  - 使用指南
+  - 常用操作
 tag:
-  - Markdown
+  - Linux
 ---
 
 ## 查找命令

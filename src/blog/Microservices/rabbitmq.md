@@ -1,11 +1,12 @@
 ---
 title: RabbitMQ
 icon: rabbitmq
-order: 3
+description: 分布式消息中间件
+order: 2
 category:
   - 微服务
 tag:
-  - Markdown
+  - RabbitMQ
 ---
 
 # RabbitMQ

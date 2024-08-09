@@ -1,11 +1,12 @@
 ---
 title: Quartz
 icon: time
-order: 1
+order: 2
+description: quartz的简单操作以及整合Spring Boot
 category:
-  - 使用指南
+  - SSM
 tag:
-  - Markdown
+  - Quartz
 ---
 # Quartz
 

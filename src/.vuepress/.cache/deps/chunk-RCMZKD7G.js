@@ -48,9 +48,9 @@ import {
   toHandlerKey,
   toNumber,
   toRawType
-} from "./chunk-FUXUM2AF.js";
+} from "./chunk-RYICVAY6.js";
 
-// node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js
+// node_modules/.store/@vue+reactivity@3.4.33/node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js
 function warn(msg, ...args) {
   console.warn(`[Vue warn] ${msg}`, ...args);
 }
@@ -1248,7 +1248,7 @@ var TriggerOpTypes = {
   "CLEAR": "clear"
 };
 
-// node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js
+// node_modules/.store/@vue+runtime-core@3.4.33/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js
 var stack = [];
 function pushWarningContext(vnode) {
   stack.push(vnode);
@@ -8832,8 +8832,6 @@ function createComponentInstance(vnode, parent, suspense) {
     refs: EMPTY_OBJ,
     setupState: EMPTY_OBJ,
     setupContext: null,
-    attrsProxy: null,
-    slotsProxy: null,
     // suspense related
     suspense,
     suspenseId: suspense ? suspense.pendingId : 0,
@@ -9114,12 +9112,12 @@ var attrsProxyHandlers = true ? {
   }
 };
 function getSlotsProxy(instance) {
-  return instance.slotsProxy || (instance.slotsProxy = new Proxy(instance.slots, {
+  return new Proxy(instance.slots, {
     get(target, key) {
       track(instance, "get", "$slots");
       return target[key];
     }
-  }));
+  });
 }
 function createSetupContext(instance) {
   const expose = (exposed) => {
@@ -9147,12 +9145,13 @@ function createSetupContext(instance) {
   };
   if (true) {
     let attrsProxy;
+    let slotsProxy;
     return Object.freeze({
       get attrs() {
         return attrsProxy || (attrsProxy = new Proxy(instance.attrs, attrsProxyHandlers));
       },
       get slots() {
-        return getSlotsProxy(instance);
+        return slotsProxy || (slotsProxy = getSlotsProxy(instance));
       },
       get emit() {
         return (event, ...args) => instance.emit(event, ...args);
@@ -9447,7 +9446,7 @@ function isMemoSame(cached, memo) {
   }
   return true;
 }
-var version = "3.4.32";
+var version = "3.4.33";
 var warn2 = true ? warn$1 : NOOP;
 var ErrorTypeStrings = ErrorTypeStrings$1;
 var devtools = true ? devtools$1 : void 0;
@@ -9466,7 +9465,7 @@ var resolveFilter = null;
 var compatUtils = null;
 var DeprecationTypes = null;
 
-// node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js
+// node_modules/.store/@vue+runtime-dom@3.4.33/node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js
 var svgNS = "http://www.w3.org/2000/svg";
 var mathmlNS = "http://www.w3.org/1998/Math/MathML";
 var doc = typeof document !== "undefined" ? document : null;
@@ -10052,7 +10051,7 @@ function patchAttr(el, key, value, isSVG, instance, isBoolean2 = isSpecialBoolea
 }
 function patchDOMProp(el, key, value, parentComponent) {
   if (key === "innerHTML" || key === "textContent") {
-    if (value === null)
+    if (value == null)
       return;
     el[key] = value;
     return;
@@ -11060,7 +11059,7 @@ var initDirectivesForSSR = () => {
   }
 };
 
-// node_modules/vue/dist/vue.runtime.esm-bundler.js
+// node_modules/.store/vue@3.4.33/node_modules/vue/dist/vue.runtime.esm-bundler.js
 function initDev() {
   {
     initCustomFormatter();
@@ -11235,14 +11234,14 @@ export {
 
 @vue/reactivity/dist/reactivity.esm-bundler.js:
   (**
-  * @vue/reactivity v3.4.32
+  * @vue/reactivity v3.4.33
   * (c) 2018-present Yuxi (Evan) You and Vue contributors
   * @license MIT
   **)
 
 @vue/runtime-core/dist/runtime-core.esm-bundler.js:
   (**
-  * @vue/runtime-core v3.4.32
+  * @vue/runtime-core v3.4.33
   * (c) 2018-present Yuxi (Evan) You and Vue contributors
   * @license MIT
   **)
@@ -11250,7 +11249,7 @@ export {
 
 @vue/runtime-dom/dist/runtime-dom.esm-bundler.js:
   (**
-  * @vue/runtime-dom v3.4.32
+  * @vue/runtime-dom v3.4.33
   * (c) 2018-present Yuxi (Evan) You and Vue contributors
   * @license MIT
   **)
@@ -11258,9 +11257,9 @@ export {
 
 vue/dist/vue.runtime.esm-bundler.js:
   (**
-  * vue v3.4.32
+  * vue v3.4.33
   * (c) 2018-present Yuxi (Evan) You and Vue contributors
   * @license MIT
   **)
 */
-//# sourceMappingURL=chunk-2C6GVK5W.js.map
+//# sourceMappingURL=chunk-RCMZKD7G.js.map

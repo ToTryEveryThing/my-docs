@@ -1,11 +1,12 @@
 ---
 title: Mybatis Plus
 icon: mybatisplus
-order: 2
+order: 4
+description: mybatis plus
 category:
-  - 使用指南
+  - SSM
 tag:
-  - Markdown
+  - Mybatis Plus
 ---
 
 ## Mybatis Plus

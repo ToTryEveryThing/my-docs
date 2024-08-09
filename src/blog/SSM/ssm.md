@@ -1,11 +1,12 @@
 ---
 title: Spring SpringMVC
 icon: spring
-order: 1
+description: Spring框架基础及其在Web开发中的应用。
+order: 5
 category:
-  - 使用指南
+  - SSM
 tag:
-  - Markdown
+  - Spring SpringMVC
 ---
 ## Spring
 [Spring-01-初识Spring_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Fi4y1S7ix?p=3&vd_source=f8821730ff8a13ec89104c8629e6d42b)

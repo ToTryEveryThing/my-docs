@@ -1,11 +1,12 @@
 ---
 title: Git
 icon: git
-order: 2
+order: 1
+description: git常用的简单操作
 category:
-  - 使用指南
+  - 常用操作
 tag:
-  - Markdown
+  - Git
 ---
 ### 一、git安装后-指定名称和邮箱
 
