@@ -1,11 +1,12 @@
 ---
 title: Mysql
 icon: Mysql
-order: 2
+order: 1
+description: mysql简单常用基础操作
 category:
-  - ssm
+  - SSM
 tag:
-  - mysql
+  - Mysql
 ---
 
 # Mysql

@@ -1,4 +1,11 @@
 <template><div><h1 id="二-netty-入门" tabindex="-1"><a class="header-anchor" href="#二-netty-入门" aria-hidden="true">#</a> 二. Netty 入门</h1>
+<iframe 
+  src="//player.bilibili.com/player.html?isOutside=true&aid=802157994&bvid=BV1py4y1E7oA&cid=311799044&p=53" 
+  scrolling="no" 
+  border="0" 
+  frameborder="no" 
+  framespacing="0"  
+></iframe>
 <h2 id="_1-概述" tabindex="-1"><a class="header-anchor" href="#_1-概述" aria-hidden="true">#</a> 1. 概述</h2>
 <h3 id="_1-1-netty-是什么" tabindex="-1"><a class="header-anchor" href="#_1-1-netty-是什么" aria-hidden="true">#</a> 1.1 Netty 是什么？</h3>
 <div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>Netty is an asynchronous event-driven network application framework

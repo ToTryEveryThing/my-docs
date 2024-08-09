@@ -1,11 +1,12 @@
 ---
 title: Redis
 icon: Redis
-order: 2
+order: 1
+description: redis基本数据类型以及数据保存恢复
 category:
   - 微服务
 tag:
-  - Markdown
+  - Redis
 ---
 [Redis详细解释](https://www.bilibili.com/video/BV1Fd4y1T7pD/?spm_id_from=333.880.my_history.page.click&vd_source=f8821730ff8a13ec89104c8629e6d42b)
 

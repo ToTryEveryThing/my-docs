@@ -2,10 +2,11 @@
 title: aliyun OSS
 icon: ossduixiangcunchuOSS
 order: 2
+description: Java上传文件概述和文件下载,自定义aliyun oss starter
 category:
-  - 使用指南
+  - 常用操作
 tag:
-  - Markdown
+  - aliyun OSS
 ---
 
 ## Java 上传 aliyun OSS 

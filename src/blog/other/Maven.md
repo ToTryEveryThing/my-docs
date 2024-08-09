@@ -1,11 +1,12 @@
 ---
 title: Maven
 icon: pluginIcon
-order: 2
+order: 3
+description: maven阿里镜像、分模块、多模块打包
 category:
-  - 使用指南
+  - 常用操作
 tag:
-  - Markdown
+  - Maven
 ---
 
 ## 安装

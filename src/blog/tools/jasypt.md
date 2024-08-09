@@ -1,6 +1,8 @@
 ---
 title: Jasypt
 icon: jiami
+order: 2
+description: 适用于spirng项目中配置文件的敏感数据
 category:
   - Tool
 tag:

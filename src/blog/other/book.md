@@ -2,8 +2,9 @@
 title: 书本
 icon: book
 order: 2
+description: 简单配置即可上手的操作，例如邮件、定时任务、数据校验。
 category:
-  - 使用指南
+  - 常用操作
 tag:
   - Markdown
 ---

@@ -1,4 +1,5 @@
 <template><div><h1 id="一-nio-基础" tabindex="-1"><a class="header-anchor" href="#一-nio-基础" aria-hidden="true">#</a> 一. NIO 基础</h1>
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=802157994&bvid=BV1py4y1E7oA&cid=1235854697&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 <p>non-blocking io 非阻塞 IO</p>
 <h2 id="_1-三大组件" tabindex="-1"><a class="header-anchor" href="#_1-三大组件" aria-hidden="true">#</a> 1. 三大组件</h2>
 <h3 id="_1-1-channel-buffer" tabindex="-1"><a class="header-anchor" href="#_1-1-channel-buffer" aria-hidden="true">#</a> 1.1 Channel &amp; Buffer</h3>

@@ -1,6 +1,8 @@
 ---
 title: regex
 icon: -regexpreplace
+order: 2
+description: 正则表达式示例以及介绍
 category:
   - Tool
 tag:

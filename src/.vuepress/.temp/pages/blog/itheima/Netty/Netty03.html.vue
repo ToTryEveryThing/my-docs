@@ -1,4 +1,6 @@
 <template><div><h1 id="三-netty-进阶" tabindex="-1"><a class="header-anchor" href="#三-netty-进阶" aria-hidden="true">#</a> 三. Netty 进阶</h1>
+<p><a href="https://www.bilibili.com/video/BV1py4y1E7oA?p=91&amp;vd_source=f8821730ff8a13ec89104c8629e6d42b" target="_blank" rel="noopener noreferrer">bilibili<ExternalLinkIcon/></a></p>
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=802157994&bvid=BV1py4y1E7oA&cid=311805996&p=91" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 <h2 id="_1-粘包与半包" tabindex="-1"><a class="header-anchor" href="#_1-粘包与半包" aria-hidden="true">#</a> 1. 粘包与半包</h2>
 <h3 id="_1-1-粘包现象" tabindex="-1"><a class="header-anchor" href="#_1-1-粘包现象" aria-hidden="true">#</a> 1.1 粘包现象</h3>
 <p>服务端代码</p>
