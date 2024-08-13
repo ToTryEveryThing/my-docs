@@ -53,6 +53,7 @@ export default sidebar({
         {
           text:"Netty",
           collapsible: true,
+          icon: "Netty",
           children:['Netty/Netty01-nio','Netty/Netty02.md','Netty/Netty03.md','Netty/Netty04.md']
         }
       ]

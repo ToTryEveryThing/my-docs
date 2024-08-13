@@ -12,6 +12,7 @@
     "update": "scp -r src/.vuepress/dist  beink:/www/wwwroot/mydocs"
   },
   "devDependencies": {
+    "@nolebase/vitepress-plugin-enhanced-readabilities": "^2.4.0",
     "@vuepress/client": "2.0.0-rc.0",
     "@vuepress/plugin-register-components": "2.0.0-rc.0",
     "@vuepress/plugin-shiki": "2.0.0-rc.0",

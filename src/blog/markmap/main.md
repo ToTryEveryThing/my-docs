@@ -2,6 +2,7 @@
 title: xmind
 icon: person-chalkboard
 order: 2
+index: false
 category:
   - 使用指南
 tag:
