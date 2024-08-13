@@ -23,6 +23,8 @@ export default hopeTheme({
 
   docsDir: "src",
 
+  catalog:false,
+
   // navbar
   navbar,
 
@@ -34,7 +36,7 @@ export default hopeTheme({
 
   displayFooter: true,
  
-  footer: `<a href="https://beian.miit.gov.cn/#/Integrated/index">豫ICP备2021034834号</a> |
+  footer: `
   <a href="https://theme-hope.vuejs.press/zh/">vuepress-home-theme</a>
 
   `,

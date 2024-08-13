@@ -11,6 +11,6 @@ heroFullScreen: true
 
 
 
-
+<AutoCatalog />
 
 
