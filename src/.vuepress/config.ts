@@ -3,6 +3,7 @@ import { defineUserConfig } from "vuepress";
 import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
 import { searchProPlugin } from "vuepress-plugin-search-pro";
 import { hopeTheme } from "vuepress-theme-hope";
+import { catalogPlugin } from '@vuepress/plugin-catalog'
 import theme from "./theme.js";
 
 export default defineUserConfig({
@@ -34,8 +35,7 @@ export default defineUserConfig({
       `,
     ]
   ],
-
-
+  
   theme,
 
   // Enable it with pwa

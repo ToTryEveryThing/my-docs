@@ -2,5 +2,6 @@
 title: 黑马
 icon: heimabang
 index: false
-order: 1
+dir: 
+    order: 6
 ---
