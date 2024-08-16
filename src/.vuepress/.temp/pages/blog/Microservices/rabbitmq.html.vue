@@ -149,7 +149,7 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="广播" tabindex="-1"><a class="header-anchor" href="#广播" aria-hidden="true">#</a> 广播</h2>
-<p><img src="https://www.rabbitmq.com/img/tutorials/exchanges.png" alt="Description" loading="lazy"><br>
+<p><img src="https://cdn.beink.cn/study/image-20240816150952709.png" alt="广播" loading="lazy"><br>
 流程如下：</p>
 <ul>
 <li>有多个消费者</li>
@@ -195,7 +195,7 @@
 <span class="token punctuation">}</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="路由模型" tabindex="-1"><a class="header-anchor" href="#路由模型" aria-hidden="true">#</a> 路由模型</h2>
 <h4 id="直连" tabindex="-1"><a class="header-anchor" href="#直连" aria-hidden="true">#</a> 直连</h4>
-<figure><img src="https://www.rabbitmq.com/img/tutorials/python-four.png" alt="Description" tabindex="0" loading="lazy"><figcaption>Description</figcaption></figure>
+<figure><img src="https://cdn.beink.cn/study/image-20240816151030389.png" alt="直连路由" tabindex="0" loading="lazy"><figcaption>直连路由</figcaption></figure>
 <blockquote>
 <p>在fanout的模式下，一条消息，会被订阅的队列消费。但有时我们希望不同的消息被不同的队列消费，</p>
 <p>此时就用到了 Direct类型的Exchange</p>
@@ -263,7 +263,7 @@
 <span class="token punctuation">}</span>
 
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="动态" tabindex="-1"><a class="header-anchor" href="#动态" aria-hidden="true">#</a> 动态</h4>
-<figure><img src="https://www.rabbitmq.com/img/tutorials/python-five.png" alt="Description" tabindex="0" loading="lazy"><figcaption>Description</figcaption></figure>
+<figure><img src="https://cdn.beink.cn/study/image-20240816151041571.png" alt="动态路由" tabindex="0" loading="lazy"><figcaption>动态路由</figcaption></figure>
 <blockquote>
 <p>Topic类型的<code v-pre>Exchange</code>与<code v-pre>Direct </code>相比，都是可以根据<code v-pre>Routinghey</code>把消息路由到不同的队列。只不过<code v-pre>Topic </code>类型Exchange可以让队列在绑定Routing key的时候使用通配符!这种模型Routingkey一般都是由一个或多个单词组成，多个单词之间以<code v-pre>&quot;.	&quot;</code>分割，例如:<code v-pre>item.insert</code></p>
 </blockquote>

@@ -1,7 +1,7 @@
 ---
 title: Jenkins
 icon: jenkins
-order: 3
+order: 4
 description: Jenkins自动化流水线
 category:
   - Tool

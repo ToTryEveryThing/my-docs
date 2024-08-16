@@ -1,13 +1,10 @@
 <template><div><h1 id="一-nio-基础" tabindex="-1"><a class="header-anchor" href="#一-nio-基础" aria-hidden="true">#</a> 一. NIO 基础</h1>
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=802157994&bvid=BV1py4y1E7oA&cid=1235854697&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+<!-- <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=802157994&bvid=BV1py4y1E7oA&cid=1235854697&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe> -->
 <p>non-blocking io 非阻塞 IO</p>
 <h2 id="_1-三大组件" tabindex="-1"><a class="header-anchor" href="#_1-三大组件" aria-hidden="true">#</a> 1. 三大组件</h2>
 <h3 id="_1-1-channel-buffer" tabindex="-1"><a class="header-anchor" href="#_1-1-channel-buffer" aria-hidden="true">#</a> 1.1 Channel &amp; Buffer</h3>
 <p>channel 有一点类似于 stream，它就是读写数据的<strong>双向通道</strong>，可以从 channel 将数据读入 buffer，也可以将 buffer 的数据写入 channel，而之前的 stream 要么是输入，要么是输出，channel 比 stream 更为底层</p>
-<div class="language-mermaid line-numbers-mode" data-ext="mermaid"><pre v-pre class="language-mermaid"><code><span class="token keyword">graph</span> LR
-channel <span class="token arrow operator">--></span> buffer
-buffer <span class="token arrow operator">--></span> channel
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>常见的 Channel 有</p>
+<Mermaid id="mermaid-16" code="eJxLL0osyFDwCeJKzkjMy0vNUdDVtVNIKk1LSy3iglBgEagsFwB0Lg9F"></Mermaid><p>常见的 Channel 有</p>
 <ul>
 <li>FileChannel</li>
 <li>DatagramChannel</li>
@@ -33,41 +30,21 @@ buffer <span class="token arrow operator">--></span> channel
 <h3 id="_1-2-selector" tabindex="-1"><a class="header-anchor" href="#_1-2-selector" aria-hidden="true">#</a> 1.2 Selector</h3>
 <p>selector 单从字面意思不好理解，需要结合服务器的设计演化来理解它的用途</p>
 <h4 id="多线程版设计" tabindex="-1"><a class="header-anchor" href="#多线程版设计" aria-hidden="true">#</a> 多线程版设计</h4>
-<div class="language-mermaid line-numbers-mode" data-ext="mermaid"><pre v-pre class="language-mermaid"><code><span class="token keyword">graph</span> TD
-<span class="token keyword">subgraph</span> 多线程版
-t1<span class="token text string">(thread)</span> <span class="token arrow operator">--></span> s1<span class="token text string">(socket1)</span>
-t2<span class="token text string">(thread)</span> <span class="token arrow operator">--></span> s2<span class="token text string">(socket2)</span>
-t3<span class="token text string">(thread)</span> <span class="token arrow operator">--></span> s3<span class="token text string">(socket3)</span>
-<span class="token keyword">end</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="⚠️-多线程版缺点" tabindex="-1"><a class="header-anchor" href="#⚠️-多线程版缺点" aria-hidden="true">#</a> ⚠️ 多线程版缺点</h4>
+<Mermaid id="mermaid-108" code="eJxLL0osyFAIceEqLk2CsJ8umfV81/7nK7qfd3ZwlRhqlGQUpSamaCro6topFBtqFOcnZ6eWGGpylRihShlBpYyAUsaoUsZQKWNNrtS8FC4AEW0oNw=="></Mermaid><h4 id="⚠️-多线程版缺点" tabindex="-1"><a class="header-anchor" href="#⚠️-多线程版缺点" aria-hidden="true">#</a> ⚠️ 多线程版缺点</h4>
 <ul>
 <li>内存占用高</li>
 <li>线程上下文切换成本高</li>
 <li>只适合连接数少的场景</li>
 </ul>
 <h4 id="线程池版设计" tabindex="-1"><a class="header-anchor" href="#线程池版设计" aria-hidden="true">#</a> 线程池版设计</h4>
-<div class="language-mermaid line-numbers-mode" data-ext="mermaid"><pre v-pre class="language-mermaid"><code><span class="token keyword">graph</span> TD
-<span class="token keyword">subgraph</span> 线程池版
-t4<span class="token text string">(thread)</span> <span class="token arrow operator">--></span> s4<span class="token text string">(socket1)</span>
-t5<span class="token text string">(thread)</span> <span class="token arrow operator">--></span> s5<span class="token text string">(socket2)</span>
-t4<span class="token text string">(thread)</span> <span class="token arrow operator">-.-></span> s6<span class="token text string">(socket3)</span>
-t5<span class="token text string">(thread)</span> <span class="token arrow operator">-.-></span> s7<span class="token text string">(socket4)</span>
-<span class="token keyword">end</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="⚠️-线程池版缺点" tabindex="-1"><a class="header-anchor" href="#⚠️-线程池版缺点" aria-hidden="true">#</a> ⚠️ 线程池版缺点</h4>
+<Mermaid id="mermaid-132" code="eJxLL0osyFAIceEqLk2CsJ/v2v98RfezjQued3ZwlZholGQUpSamaCro6topFJtoFOcnZ6eWGGpylZiiSplCpYyAUki69EByZlA5Y1RtYDlzqJyJJldqXgoXACuQMMM="></Mermaid><h4 id="⚠️-线程池版缺点" tabindex="-1"><a class="header-anchor" href="#⚠️-线程池版缺点" aria-hidden="true">#</a> ⚠️ 线程池版缺点</h4>
 <ul>
 <li>阻塞模式下，线程仅能处理一个 socket 连接</li>
 <li>仅适合短连接场景</li>
 </ul>
 <h4 id="selector-版设计" tabindex="-1"><a class="header-anchor" href="#selector-版设计" aria-hidden="true">#</a> selector 版设计</h4>
 <p>selector 的作用就是配合一个线程来管理多个 channel，获取这些 channel 上发生的事件，这些 channel 工作在非阻塞模式下，不会让线程吊死在一个 channel 上。适合连接数特别多，但流量低的场景（low traffic）</p>
-<div class="language-mermaid line-numbers-mode" data-ext="mermaid"><pre v-pre class="language-mermaid"><code><span class="token keyword">graph</span> TD
-<span class="token keyword">subgraph</span> selector 版
-thread <span class="token arrow operator">--></span> selector
-selector <span class="token arrow operator">--></span> c1<span class="token text string">(channel)</span>
-selector <span class="token arrow operator">--></span> c2<span class="token text string">(channel)</span>
-selector <span class="token arrow operator">--></span> c3<span class="token text string">(channel)</span>
-<span class="token keyword">end</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>调用 selector 的 select() 会阻塞直到 channel 发生了读写就绪事件，这些事件发生，select 方法就会返回这些事件交给 thread 来处理</p>
+<Mermaid id="mermaid-154" code="eJxLL0osyFAIceEqLk2CsItTc1KTS/KLFJ53dnCVZBSlJqYo6OrawcW54ApAosmGGskZiXl5qTmaaBJGuCSMERKpeSlcAK2xK9Y="></Mermaid><p>调用 selector 的 select() 会阻塞直到 channel 发生了读写就绪事件，这些事件发生，select 方法就会返回这些事件交给 thread 来处理</p>
 <h2 id="_2-bytebuffer" tabindex="-1"><a class="header-anchor" href="#_2-bytebuffer" aria-hidden="true">#</a> 2. ByteBuffer</h2>
 <p>有一普通文本文件 data.txt，内容为</p>
 <div class="language-text line-numbers-mode" data-ext="text"><pre v-pre class="language-text"><code>1234567890abcd
@@ -828,14 +805,7 @@ ssc<span class="token punctuation">.</span><span class="token function">bind</sp
 </li>
 </ul>
 <h3 id="_4-2-selector" tabindex="-1"><a class="header-anchor" href="#_4-2-selector" aria-hidden="true">#</a> 4.2 Selector</h3>
-<div class="language-mermaid line-numbers-mode" data-ext="mermaid"><pre v-pre class="language-mermaid"><code><span class="token keyword">graph</span> TD
-<span class="token keyword">subgraph</span> selector 版
-thread <span class="token arrow operator">--></span> selector
-selector <span class="token arrow operator">--></span> c1<span class="token text string">(channel)</span>
-selector <span class="token arrow operator">--></span> c2<span class="token text string">(channel)</span>
-selector <span class="token arrow operator">--></span> c3<span class="token text string">(channel)</span>
-<span class="token keyword">end</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>好处</p>
+<Mermaid id="mermaid-844" code="eJxLL0osyFAIceEqLk2CsItTc1KTS/KLFJ53dnCVZBSlJqYo6OrawcW54ApAosmGGskZiXl5qTmaaBJGuCSMERKpeSlcAK2xK9Y="></Mermaid><p>好处</p>
 <ul>
 <li>一个线程配合 selector 就可以监控多个 channel 的事件，事件发生线程才去处理。避免非阻塞模式下所做无用功</li>
 <li>让这个线程能够被充分利用</li>
@@ -1079,18 +1049,7 @@ ld�
 </ul>
 </li>
 </ul>
-<div class="language-mermaid line-numbers-mode" data-ext="mermaid"><pre v-pre class="language-mermaid"><code><span class="token keyword">sequenceDiagram</span> 
-<span class="token keyword">participant</span> c1 as 客户端1
-<span class="token keyword">participant</span> s as 服务器
-<span class="token keyword">participant</span> b1 as ByteBuffer1
-<span class="token keyword">participant</span> b2 as ByteBuffer2
-c1 <span class="token arrow operator">->></span> s<span class="token operator">:</span> 发送 01234567890abcdef3333\r
-s <span class="token arrow operator">->></span> b1<span class="token operator">:</span> 第一次 read 存入 01234567890abcdef
-s <span class="token arrow operator">->></span> b2<span class="token operator">:</span> 扩容
-b1 <span class="token arrow operator">->></span> b2<span class="token operator">:</span> 拷贝 01234567890abcdef
-s <span class="token arrow operator">->></span> b2<span class="token operator">:</span> 第二次 read 存入 3333\r
-b2 <span class="token arrow operator">->></span> b2<span class="token operator">:</span> 01234567890abcdef3333\r
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>服务器端</p>
+<Mermaid id="mermaid-1095" code="eJwrTi0sTc1LTnXJTEwvSsxV4CpILCrJTM4sSMwrUUg2VEgsVni6btGzju3PV683RJEsBsk9m9P7tGvh05krUKSSwPqcKktSnUrT0lKLUDUmGaHKGnEB7dG1s1MotlJ42j/xZUOjgoGhkbGJqZm5haVBYlJySmqaMRDEFHEVg9UlGVopPF+z5smOhmdrFioUpSamKDxdO+Np61JMfTAdRlYKzzpXPl23kwvoNrhI9/YXW+bi1QSyZlcPujVQ1wA9AlOHy8EAwViBAQ=="></Mermaid><p>服务器端</p>
 <div class="language-java line-numbers-mode" data-ext="java"><pre v-pre class="language-java"><code><span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">split</span><span class="token punctuation">(</span><span class="token class-name">ByteBuffer</span> source<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     source<span class="token punctuation">.</span><span class="token function">flip</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> source<span class="token punctuation">.</span><span class="token function">limit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>

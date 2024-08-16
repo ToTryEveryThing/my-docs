@@ -169,7 +169,7 @@ public class consumer2 {
 }
 ```
 ## 广播
-![Description](https://www.rabbitmq.com/img/tutorials/exchanges.png)
+![广播](https://cdn.beink.cn/study/image-20240816150952709.png)
 流程如下：
 
 - 有多个消费者
@@ -222,7 +222,7 @@ public class consumerOne {
 ```
 ## 路由模型
 #### 直连
-![Description](https://www.rabbitmq.com/img/tutorials/python-four.png)
+![直连路由](https://cdn.beink.cn/study/image-20240816151030389.png)
 > 在fanout的模式下，一条消息，会被订阅的队列消费。但有时我们希望不同的消息被不同的队列消费，
 >
 > 此时就用到了 Direct类型的Exchange
@@ -300,7 +300,7 @@ public class consumerTwo {
 ```
 
 #### 动态
-![Description](https://www.rabbitmq.com/img/tutorials/python-five.png)
+![动态路由](https://cdn.beink.cn/study/image-20240816151041571.png)
 
 > Topic类型的`Exchange`与`Direct `相比，都是可以根据`Routinghey`把消息路由到不同的队列。只不过`Topic `类型Exchange可以让队列在绑定Routing key的时候使用通配符!这种模型Routingkey一般都是由一个或多个单词组成，多个单词之间以`".	"`分割，例如:`item.insert`
 

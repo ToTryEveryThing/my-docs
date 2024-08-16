@@ -9,12 +9,12 @@ blockquote {
 .no-sidebar {
     .vp-navbar{
         background-color: transparent;
-        backdrop-filter:none;
         color: black;
     }
     .search-pro-button{
         border: none;
-        background-color: transparent;
+        color: #666666;
+        background-color: rgb(93 93 93 / 51%);
     }
     .search-pro-key{
         border: none;
@@ -37,5 +37,12 @@ blockquote {
 }
 
 .external-link-icon{
+    display: none;
+}
+
+li.vp-catalog {
+    list-style: none;
+}
+.vp-catalog-wrapper h2{
     display: none;
 }

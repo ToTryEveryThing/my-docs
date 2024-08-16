@@ -1,14 +1,14 @@
 ---
 title: Action
 icon: liushuixian
-order: 2
+order: 3
 description: Github Action 简单操作示例 
 category:
   - Tool
 tag:
   - action 
 ---
-[b](https://www.bilibili.com/video/BV1RE411R7Uy/?spm_id_from=333.788.recommend_more_video.1&vd_source=f8821730ff8a13ec89104c8629e6d42b)
+[bilibili](https://www.bilibili.com/video/BV1RE411R7Uy/?spm_id_from=333.788.recommend_more_video.1&vd_source=f8821730ff8a13ec89104c8629e6d42b)
 
 [将文件推送到新的分支](https://github.com/JamesIves/github-pages-deploy-action)
 ```yml

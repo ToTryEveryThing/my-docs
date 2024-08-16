@@ -1,4 +1,4 @@
-<template><div><p><a href="https://www.bilibili.com/video/BV1RE411R7Uy/?spm_id_from=333.788.recommend_more_video.1&amp;vd_source=f8821730ff8a13ec89104c8629e6d42b" target="_blank" rel="noopener noreferrer">b<ExternalLinkIcon/></a></p>
+<template><div><p><a href="https://www.bilibili.com/video/BV1RE411R7Uy/?spm_id_from=333.788.recommend_more_video.1&amp;vd_source=f8821730ff8a13ec89104c8629e6d42b" target="_blank" rel="noopener noreferrer">bilibili<ExternalLinkIcon/></a></p>
 <p><a href="https://github.com/JamesIves/github-pages-deploy-action" target="_blank" rel="noopener noreferrer">将文件推送到新的分支<ExternalLinkIcon/></a></p>
 <div class="language-yaml line-numbers-mode" data-ext="yml"><pre v-pre class="language-yaml"><code><span class="token comment"># 程序名字</span>
 <span class="token key atrule">name</span><span class="token punctuation">:</span> CI

@@ -1,6 +1,7 @@
 <template><div><h1 id="mysql" tabindex="-1"><a class="header-anchor" href="#mysql" aria-hidden="true">#</a> Mysql</h1>
 <p><a href="https://www.bilibili.com/video/BV1Kr4y1i7ru/?p=4&amp;vd_source=f8821730ff8a13ec89104c8629e6d42b" target="_blank" rel="noopener noreferrer">哔哩哔哩_bilibili<ExternalLinkIcon/></a></p>
 <p><code v-pre>utf8mb4</code>: 编码格式</p>
+<h2 id="基础语句" tabindex="-1"><a class="header-anchor" href="#基础语句" aria-hidden="true">#</a> 基础语句</h2>
 <h4 id="insert" tabindex="-1"><a class="header-anchor" href="#insert" aria-hidden="true">#</a> insert</h4>
 <ul>
 <li>给指定字段添加值</li>
@@ -25,12 +26,12 @@ insert into 表名  values(值1，值2..),(值1，值2..),(值1，值2..);
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><blockquote>
 <p>delete from 表名   删除所有数据</p>
 </blockquote>
-<h2 id="select" tabindex="-1"><a class="header-anchor" href="#select" aria-hidden="true">#</a> select</h2>
+<h3 id="select" tabindex="-1"><a class="header-anchor" href="#select" aria-hidden="true">#</a> select</h3>
 <div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>select [字段列表] from [表名列表] where [条件列表] group by [分组字段列表] having [分组后条件列表] order by [排序字段列表] limit [分页]
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><blockquote>
 <p>条件查询(where)、聚合查询(count,max,min,avg,sum)、分组查询(group by)、排序查询(order by)、分页查询(limit)</p>
 </blockquote>
-<h3 id="基本查询" tabindex="-1"><a class="header-anchor" href="#基本查询" aria-hidden="true">#</a> 基本查询</h3>
+<h4 id="基本查询" tabindex="-1"><a class="header-anchor" href="#基本查询" aria-hidden="true">#</a> 基本查询</h4>
 <ul>
 <li>起别名</li>
 </ul>
@@ -39,7 +40,7 @@ insert into 表名  values(值1，值2..),(值1，值2..),(值1，值2..);
 <li>不重复</li>
 </ul>
 <div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>select distinct name from 表名;
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h3 id="条件查询" tabindex="-1"><a class="header-anchor" href="#条件查询" aria-hidden="true">#</a> 条件查询</h3>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h4 id="条件查询" tabindex="-1"><a class="header-anchor" href="#条件查询" aria-hidden="true">#</a> 条件查询</h4>
 <table>
 <thead>
 <tr>
@@ -102,7 +103,7 @@ insert into 表名  values(值1，值2..),(值1，值2..),(值1，值2..);
 </tr>
 </tbody>
 </table>
-<h3 id="聚合函数" tabindex="-1"><a class="header-anchor" href="#聚合函数" aria-hidden="true">#</a> 聚合函数</h3>
+<h4 id="聚合函数" tabindex="-1"><a class="header-anchor" href="#聚合函数" aria-hidden="true">#</a> 聚合函数</h4>
 <blockquote>
 <p>null 不参与计算</p>
 </blockquote>
@@ -120,13 +121,13 @@ insert into 表名  values(值1，值2..),(值1，值2..),(值1，值2..);
 <div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>select max(age) from 表名;   select min(age) from 表名; 
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div></li>
 </ul>
-<h3 id="分组查询" tabindex="-1"><a class="header-anchor" href="#分组查询" aria-hidden="true">#</a> 分组查询</h3>
+<h4 id="分组查询" tabindex="-1"><a class="header-anchor" href="#分组查询" aria-hidden="true">#</a> 分组查询</h4>
 <blockquote>
 <p>分组后的列只有待分组的字段和聚合函数</p>
 </blockquote>
 <figure><img src="https://cdn.beink.cn/study/bwSxT-4sdgkRCKhbCV1hH.png" alt="study" tabindex="0" loading="lazy"><figcaption>study</figcaption></figure>
 <div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>select sex,count(sex) from s group by sex having avg(age) &gt; 50;
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h3 id="排序查询" tabindex="-1"><a class="header-anchor" href="#排序查询" aria-hidden="true">#</a> 排序查询</h3>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h4 id="排序查询" tabindex="-1"><a class="header-anchor" href="#排序查询" aria-hidden="true">#</a> 排序查询</h4>
 <ul>
 <li>ASC 升序（默认）</li>
 <li>DESC  降序</li>
@@ -135,15 +136,16 @@ insert into 表名  values(值1，值2..),(值1，值2..),(值1，值2..);
 <p>多字段排序，先按第一个排序，然后相同的按照第二个方式排序</p>
 </blockquote>
 <div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>select * from s order by age asc , id desc;
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h3 id="分页查询" tabindex="-1"><a class="header-anchor" href="#分页查询" aria-hidden="true">#</a> 分页查询</h3>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h4 id="分页查询" tabindex="-1"><a class="header-anchor" href="#分页查询" aria-hidden="true">#</a> 分页查询</h4>
 <div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>select * from 表名 limit 起始索引，查询记录数
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><ul>
 <li>起始索引从0开始， 起始索引 = （查询页码-1）* 每页记录数</li>
 </ul>
 <div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>select * from s limit 0,10;   select * from s limit 10,10;
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><hr>
-<h2 id="函数" tabindex="-1"><a class="header-anchor" href="#函数" aria-hidden="true">#</a> 函数</h2>
-<h3 id="字符串函数" tabindex="-1"><a class="header-anchor" href="#字符串函数" aria-hidden="true">#</a> 字符串函数</h3>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h2 id="函数" tabindex="-1"><a class="header-anchor" href="#函数" aria-hidden="true">#</a> 函数</h2>
+<ul>
+<li>字符串函数</li>
+</ul>
 <div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>-- concat
 select concat(&quot;hello&quot;,&quot;world&quot;);
 -- lower
@@ -154,14 +156,18 @@ select upper(&quot;hello&quot;);
 -- substring  截取
 
 update 表名 set name = upper(name) where id = 51;
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="数值函数" tabindex="-1"><a class="header-anchor" href="#数值函数" aria-hidden="true">#</a> 数值函数</h3>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
+<li>数值函数</li>
+</ul>
 <div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>-- ceil 向上取整
 -- floor 向下取整
 -- mod(x,y) 返回x/y的模
 -- rand()  返回0-1的随机小数
 -- round(x,y)  求参数x的四舍五入的值  保留y位小数  
 select round(5.456871865468,3); --&gt;  5.457   
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="日期函数" tabindex="-1"><a class="header-anchor" href="#日期函数" aria-hidden="true">#</a> 日期函数</h3>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
+<li>日期函数</li>
+</ul>
 <div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>-- curdate()  返回当前日期
 -- curtime()  返回当前时间
 -- now()      返回当前日期和时间
@@ -173,8 +179,7 @@ select date_add(now(),interval 110 day);
 select date_add(now(),interval 110 year);
 
 -- datediff(date1,date2)   时间间隔
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><hr>
-<h2 id="约束" tabindex="-1"><a class="header-anchor" href="#约束" aria-hidden="true">#</a> 约束</h2>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="约束" tabindex="-1"><a class="header-anchor" href="#约束" aria-hidden="true">#</a> 约束</h2>
 <ul>
 <li>default: 默认约束</li>
 <li>not null: 非空约束</li>
@@ -182,7 +187,7 @@ select date_add(now(),interval 110 year);
 <li>primary key: 主键约束</li>
 <li>foreign key: 外键约束</li>
 </ul>
-<h3 id="外键约束" tabindex="-1"><a class="header-anchor" href="#外键约束" aria-hidden="true">#</a> 外键约束</h3>
+<h4 id="外键约束" tabindex="-1"><a class="header-anchor" href="#外键约束" aria-hidden="true">#</a> 外键约束</h4>
 <ul>
 <li>命令</li>
 </ul>
@@ -198,42 +203,53 @@ alter table s add constraint fk_s_b_id foreign key (b_id) references b(id);
 </ul>
 </li>
 </ul>
-<hr>
 <h2 id="多表查询" tabindex="-1"><a class="header-anchor" href="#多表查询" aria-hidden="true">#</a> 多表查询</h2>
 <blockquote>
 <p>笛卡尔积：两个表的所有组合  s(5个字段)，b(3个字段)    s X b  = 15</p>
 <p>可以使用两个表之间的联系去除无用数据</p>
 </blockquote>
-<h3 id="内连接" tabindex="-1"><a class="header-anchor" href="#内连接" aria-hidden="true">#</a> 内连接</h3>
+<ul>
+<li>内连接</li>
+</ul>
 <blockquote>
 <p>相当与查询A,B交集部分数据</p>
 </blockquote>
 <div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>select s.name,b.name from s,b  where s.b_id = b.id;               隐式内连接
 select s.name,b.name from s inner join b on s.b_id = b.id;      显式内连接
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="左外连接" tabindex="-1"><a class="header-anchor" href="#左外连接" aria-hidden="true">#</a> 左外连接</h3>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><ul>
+<li>左外连接</li>
+</ul>
 <blockquote>
 <p>查询左表全部数据，以及两张表交集部分</p>
 </blockquote>
 <div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>select s.*,b.name from s left outer join b on s.b_id = b.id;
 select s.*,b.name from s left join b on s.b_id = b.id;
 s表的全部 以及b表的name
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="右外连接" tabindex="-1"><a class="header-anchor" href="#右外连接" aria-hidden="true">#</a> 右外连接</h3>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
+<li>右外连接</li>
+</ul>
 <blockquote>
 <p>查询右表。。。。</p>
 </blockquote>
-<h3 id="自连接" tabindex="-1"><a class="header-anchor" href="#自连接" aria-hidden="true">#</a> 自连接</h3>
+<ul>
+<li>自连接</li>
+</ul>
 <blockquote>
 <p>当前表与自身的连接查询，子链接必须使用表别名</p>
 <p>select 字段列表  from 表A 别名a join 表B 别名b on 条件 ...</p>
 </blockquote>
-<h3 id="联合查询" tabindex="-1"><a class="header-anchor" href="#联合查询" aria-hidden="true">#</a> 联合查询</h3>
+<ul>
+<li>联合查询</li>
+</ul>
 <blockquote>
 <p>比如要求：将年龄低于50和性别为’男‘的人 全部查出来   就要用到<code v-pre>联合查询</code>了</p>
 <p>列数必须保持一致，字段类型也一致。</p>
 </blockquote>
 <div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>select * from s where age &lt; 50 union all select * from s where sex = '男' ;    不去重
 select * from s where age &lt; 50 union select * from s where sex = '男' ;    去重
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="子查询" tabindex="-1"><a class="header-anchor" href="#子查询" aria-hidden="true">#</a> 子查询</h3>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><ul>
+<li>子查询</li>
+</ul>
 <blockquote>
 <p><a href="https://www.bilibili.com/video/BV1Kr4y1i7ru?p=43&amp;vd_source=f8821730ff8a13ec89104c8629e6d42b" target="_blank" rel="noopener noreferrer">43. 基础-多表查询-子查询介绍_哔哩哔哩_bilibili<ExternalLinkIcon/></a></p>
 </blockquote>
@@ -248,58 +264,33 @@ select * from s where age &lt; 50 union select * from s where sex = '男' ;    �
 <li>UNIQUE索引：用于强制保证某列或某组列的唯一性。它确保索引列的值在表中是唯一的，不允许重复值。UNIQUE索引适用于需要唯一性约束的列，比如用户名或身份证号。它可以应用于大多数的数据类型和存储引擎。</li>
 </ol>
 <p><code v-pre>当对某一字段增加索引后,会减少查询耗时，空间换时间。</code></p>
-<h2 id="锁" tabindex="-1"><a class="header-anchor" href="#锁" aria-hidden="true">#</a> 锁</h2>
-<h3 id="全局锁" tabindex="-1"><a class="header-anchor" href="#全局锁" aria-hidden="true">#</a> 全局锁</h3>
+<h2 id="视图" tabindex="-1"><a class="header-anchor" href="#视图" aria-hidden="true">#</a> 视图</h2>
+<p>​	视图是一个虚拟表，其内容由查询定义。同真实的表一样，视图包含一系列带有名称的列和行数据。但是，<code v-pre>数据库中只存放了视图的定义，而并没有存放视图中的数据，这些数据存放在原来的表中</code>。使用视图查询数据时，数据库系统会从原来的表中取出对应的数据。因此，视图中的数据是依赖于原来的表中的数据的。一旦表中的数据发生改变，显示在视图中的数据也会发生改变。同样对视图的更新，会影响到原来表的数据。</p>
+<pre><code>- 使复杂的sql简单化
+- 只能修改查询暴漏出来的字段
+</code></pre>
 <blockquote>
-<p>只可读 不可写。</p>
+<p>sql 的语句中是无法区分是 表格还是 视图的。视图名和表名无法重复。</p>
 </blockquote>
-<div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>mysql&gt; flush tables with read lock; # 加全局锁
-Query OK, 0 rows affected (0.00 sec)
+<p>[com] 视图名</p>
+<h4 id="创建视图" tabindex="-1"><a class="header-anchor" href="#创建视图" aria-hidden="true">#</a> 创建视图</h4>
+<div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>create view com  as select * from js_compet;
 
-mysql&gt; delete from chat where id  = 10;
-1223 - Can't execute the query because you have a conflicting read lock
-mysql&gt; unlock tables; # 释放锁
-Query OK, 0 rows affected (0.00 sec)
-
-mysql&gt; delete from chat where id  = 10;
-Query OK, 1 row affected (0.01 sec)
- 
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="表级锁" tabindex="-1"><a class="header-anchor" href="#表级锁" aria-hidden="true">#</a> 表级锁</h3>
-<h4 id="表锁" tabindex="-1"><a class="header-anchor" href="#表锁" aria-hidden="true">#</a> 表锁</h4>
-<blockquote>
-<p>加锁 <code v-pre>lock tables 表名 read/write</code></p>
-</blockquote>
-<blockquote>
-<p>解锁 <code v-pre>unlock tables</code></p>
-</blockquote>
-<ul>
-<li>表共享读锁 read lock    # 都能读只有自己能写</li>
-<li>表独占写锁 write lock   #只有自己能读写</li>
-</ul>
-<h4 id="元数据锁" tabindex="-1"><a class="header-anchor" href="#元数据锁" aria-hidden="true">#</a> 元数据锁</h4>
-<blockquote>
-<p>锁定表结构</p>
-</blockquote>
-<h4 id="意向锁" tabindex="-1"><a class="header-anchor" href="#意向锁" aria-hidden="true">#</a> 意向锁</h4>
-<h3 id="行级锁" tabindex="-1"><a class="header-anchor" href="#行级锁" aria-hidden="true">#</a> 行级锁</h3>
-<ul>
-<li>行锁</li>
-</ul>
-<blockquote>
-<p>锁定单个行记录的锁 防止对其进行update,delete</p>
-</blockquote>
-<ul>
-<li>间隙锁</li>
-</ul>
-<blockquote>
-<p>防止进行insert</p>
-</blockquote>
-<h2 id="其他" tabindex="-1"><a class="header-anchor" href="#其他" aria-hidden="true">#</a> 其他</h2>
-<h3 id="查看curd执行频率" tabindex="-1"><a class="header-anchor" href="#查看curd执行频率" aria-hidden="true">#</a> 查看curd执行频率</h3>
+create view com  as select id,cc_name from js_compet where cc_name like '%2%';
+# 重命名
+create view ali_com(iddd,ccname)  as  select id,cc_name from js_compet where cc_name like '%2%';
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="修改视图" tabindex="-1"><a class="header-anchor" href="#修改视图" aria-hidden="true">#</a> 修改视图</h4>
+<div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>alert view com  as select * from js_compet;
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h4 id="删除视图" tabindex="-1"><a class="header-anchor" href="#删除视图" aria-hidden="true">#</a> 删除视图</h4>
+<div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>drop view if exists com; #只会删除视图 ， 不影响表格
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h4 id="查看" tabindex="-1"><a class="header-anchor" href="#查看" aria-hidden="true">#</a> 查看</h4>
+<div class="language-mysql line-numbers-mode" data-ext="mysql"><pre v-pre class="language-mysql"><code>desc com;
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h2 id="其他" tabindex="-1"><a class="header-anchor" href="#其他" aria-hidden="true">#</a> 其他</h2>
+<h4 id="查看curd执行频率" tabindex="-1"><a class="header-anchor" href="#查看curd执行频率" aria-hidden="true">#</a> 查看curd执行频率</h4>
 <blockquote>
 <p>show global status like 'Com_______';</p>
 </blockquote>
-<h3 id="慢查询日志" tabindex="-1"><a class="header-anchor" href="#慢查询日志" aria-hidden="true">#</a> 慢查询日志</h3>
+<h4 id="慢查询日志" tabindex="-1"><a class="header-anchor" href="#慢查询日志" aria-hidden="true">#</a> 慢查询日志</h4>
 <blockquote>
 <p>MySQL的慢查询日志是MySQL提供的一种日志记录，它用来记录在MySQL中响应时间超过阀值的语句，具体指运行时间超过long_query_time值的SQL，则会被记录到慢查询日志中。long_query_time的默认值为 10，意思是运行10秒以上的SQL语句。</p>
 <p>由他来查看哪些SQL超出了我们的最大忍耐时间值，比如一条sql执行超过5秒钟，我们就算慢SQL，希望能 收集超过5秒的sql，结合之前explain进行全面分析。</p>
@@ -311,7 +302,7 @@ slow_query_log=1
 slow_query_log_file=/var/lib/mysql/atguigu-slow.log 
 long_query_time=3 
 log_output=FILE
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="show-profiles" tabindex="-1"><a class="header-anchor" href="#show-profiles" aria-hidden="true">#</a> show profiles</h3>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="show-profiles" tabindex="-1"><a class="header-anchor" href="#show-profiles" aria-hidden="true">#</a> show profiles</h4>
 <blockquote>
 <p>用来查看sql语句性能，等其他</p>
 </blockquote>

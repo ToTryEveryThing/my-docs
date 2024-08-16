@@ -8,10 +8,8 @@ tag:
   - Netty
 ---
 # 三. Netty 进阶
-
 [bilibili](https://www.bilibili.com/video/BV1py4y1E7oA?p=91&vd_source=f8821730ff8a13ec89104c8629e6d42b)
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=802157994&bvid=BV1py4y1E7oA&cid=311805996&p=91" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
-
+<!-- <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=802157994&bvid=BV1py4y1E7oA&cid=311805996&p=91" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe> -->
 ## 1. 粘包与半包
 
 ### 1.1 粘包现象
