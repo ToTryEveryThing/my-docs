@@ -75,73 +75,73 @@
 <template #title6="{ value, isActive }">{}</template>
 <template #title7="{ value, isActive }">|</template>
 <template #tab0="{ value, isActive }">
-<div class="language-markdown line-numbers-mode" data-ext="md"><pre v-pre class="language-markdown"><code><span class="token list punctuation">-</span> 是元字符中最简单的例子。
-<span class="token list punctuation">-</span> 匹配任意单个字符，但不匹配换行符。
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code>- 是元字符中最简单的例子。
+- 匹配任意单个字符，但不匹配换行符。
 
-".ar" => The <span class="token code-snippet code keyword">`car`</span> <span class="token code-snippet code keyword">`par`</span>ked in the <span class="token code-snippet code keyword">`gar`</span>age.
+<span class="token string">".ar"</span> <span class="token operator">=</span><span class="token operator">></span> The <span class="token variable"><span class="token variable">`</span>car<span class="token variable">`</span></span> <span class="token variable"><span class="token variable">`</span>par<span class="token variable">`</span></span>ked <span class="token keyword">in</span> the <span class="token variable"><span class="token variable">`</span>gar<span class="token variable">`</span></span>age.
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></template>
 <template #tab1="{ value, isActive }">
-<div class="language-markdown line-numbers-mode" data-ext="md"><pre v-pre class="language-markdown"><code><span class="token list punctuation">-</span> 字符集也叫做字符类。
-<span class="token list punctuation">-</span> 方括号用来指定一个字符集。
-<span class="token list punctuation">-</span> 在方括号中使用连字符来指定字符集的范围。
-<span class="token list punctuation">-</span> 在方括号中的字符集不关心顺序。
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code>- 字符集也叫做字符类。
+- 方括号用来指定一个字符集。
+- 在方括号中使用连字符来指定字符集的范围。
+- 在方括号中的字符集不关心顺序。
 
-"[Tt]he" => <span class="token code-snippet code keyword">`The`</span> car parked in <span class="token code-snippet code keyword">`the`</span> garage.
+<span class="token string">"[Tt]he"</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token variable"><span class="token variable">`</span>The<span class="token variable">`</span></span> car parked <span class="token keyword">in</span> <span class="token variable"><span class="token variable">`</span>the<span class="token variable">`</span></span> garage.
 
-<span class="token list punctuation">-</span> 方括号的句号就表示句号。
+- 方括号的句号就表示句号。
 
-"ar[.]" => A garage is a good place to park a c<span class="token code-snippet code keyword">`ar.`</span>
+<span class="token string">"ar[.]"</span> <span class="token operator">=</span><span class="token operator">></span> A garage is a good place to park a c<span class="token variable"><span class="token variable">`</span>ar.<span class="token variable">`</span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></template>
 <template #tab2="{ value, isActive }">
-<div class="language-markdown line-numbers-mode" data-ext="md"><pre v-pre class="language-markdown"><code><span class="token list punctuation">-</span> 否定字符集
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code>- 否定字符集
 
-[^c]ar => The car <span class="token code-snippet code keyword">`par`</span>ked in the <span class="token code-snippet code keyword">`gar`</span>age.
+<span class="token punctuation">[</span>^c<span class="token punctuation">]</span>ar <span class="token operator">=</span><span class="token operator">></span> The car <span class="token variable"><span class="token variable">`</span>par<span class="token variable">`</span></span>ked <span class="token keyword">in</span> the <span class="token variable"><span class="token variable">`</span>gar<span class="token variable">`</span></span>age.
 
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></template>
 <template #tab3="{ value, isActive }">
-<div class="language-markdown line-numbers-mode" data-ext="md"><pre v-pre class="language-markdown"><code><span class="token list punctuation">-</span> <span class="token code-snippet code keyword">`*`</span>号匹配 在<span class="token code-snippet code keyword">`*`</span>之前的字符出现<span class="token code-snippet code keyword">`大于等于0`</span>次。
-<span class="token list punctuation">-</span> 表达式<span class="token code-snippet code keyword">`[a-z]*`</span> 匹配一个行中所有以小写字母开头的字符串。
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code>- <span class="token variable"><span class="token variable">`</span>*<span class="token variable">`</span></span>号匹配 在<span class="token variable"><span class="token variable">`</span>*<span class="token variable">`</span></span>之前的字符出现<span class="token variable"><span class="token variable">`</span>大于等于0<span class="token variable">`</span></span>次。
+- 表达式<span class="token variable"><span class="token variable">`</span><span class="token punctuation">[</span>a-z<span class="token punctuation">]</span>*<span class="token variable">`</span></span> 匹配一个行中所有以小写字母开头的字符串。
 
-"[a-z]*" => T<span class="token code-snippet code keyword">`he car parked in the garage`</span>
+<span class="token string">"[a-z]*"</span> <span class="token operator">=</span><span class="token operator">></span> T<span class="token variable"><span class="token variable">`</span>he car parked <span class="token keyword">in</span> the garage<span class="token variable">`</span></span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></template>
 <template #tab4="{ value, isActive }">
-<div class="language-markdown line-numbers-mode" data-ext="md"><pre v-pre class="language-markdown"><code><span class="token list punctuation">-</span> <span class="token code-snippet code keyword">`+`</span>号匹配<span class="token code-snippet code keyword">`+`</span>号之前的字符出现 >=1 次。
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code>- <span class="token variable"><span class="token variable">`</span>+<span class="token variable">`</span></span>号匹配<span class="token variable"><span class="token variable">`</span>+<span class="token variable">`</span></span>号之前的字符出现 <span class="token operator">>=</span><span class="token number">1</span> 次。
 
-<span class="token list punctuation">-</span> 例如表达式<span class="token code-snippet code keyword">`c.+t`</span> 匹配以首字母<span class="token code-snippet code keyword">`c`</span>开头以<span class="token code-snippet code keyword">`t`</span>结尾，中间跟着至少一个字符的字符串。
+- 例如表达式<span class="token variable"><span class="token variable">`</span>c.+t<span class="token variable">`</span></span> 匹配以首字母<span class="token variable"><span class="token variable">`</span>c<span class="token variable">`</span></span>开头以<span class="token variable"><span class="token variable">`</span>t<span class="token variable">`</span></span>结尾，中间跟着至少一个字符的字符串。
 
-"c.+t" => The fat <span class="token code-snippet code keyword">`cat sat on the mat`</span>.
+<span class="token string">"c.+t"</span> <span class="token operator">=</span><span class="token operator">></span> The fat <span class="token variable"><span class="token variable">`</span><span class="token function">cat</span> sat on the mat<span class="token variable">`</span></span><span class="token builtin class-name">.</span>
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></template>
 <template #tab5="{ value, isActive }">
-<div class="language-markdown line-numbers-mode" data-ext="md"><pre v-pre class="language-markdown"><code><span class="token list punctuation">-</span> 出现 0 或 1 次。
-<span class="token list punctuation">-</span> 表达式 <span class="token code-snippet code keyword">`[T]?he`</span> 匹配字符串 <span class="token code-snippet code keyword">`he`</span> 和 <span class="token code-snippet code keyword">`The`</span>
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code>- 出现 <span class="token number">0</span> 或 <span class="token number">1</span> 次。
+- 表达式 <span class="token variable"><span class="token variable">`</span><span class="token punctuation">[</span>T<span class="token punctuation">]</span>?he<span class="token variable">`</span></span> 匹配字符串 <span class="token variable"><span class="token variable">`</span>he<span class="token variable">`</span></span> 和 <span class="token variable"><span class="token variable">`</span>The<span class="token variable">`</span></span>
 
-"[T]he" => <span class="token code-snippet code keyword">`The`</span> car is parked in the garage.
+<span class="token string">"[T]he"</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token variable"><span class="token variable">`</span>The<span class="token variable">`</span></span> car is parked <span class="token keyword">in</span> the garage.
 
-"[T]?he" => <span class="token code-snippet code keyword">`The`</span> car is parked in t<span class="token code-snippet code keyword">`he`</span> garage.
+<span class="token string">"[T]?he"</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token variable"><span class="token variable">`</span>The<span class="token variable">`</span></span> car is parked <span class="token keyword">in</span> t<span class="token variable"><span class="token variable">`</span>he<span class="token variable">`</span></span> garage.
 
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></template>
 <template #tab6="{ value, isActive }">
-<div class="language-markdown line-numbers-mode" data-ext="md"><pre v-pre class="language-markdown"><code><span class="token list punctuation">-</span> 常用来限定一个或一组字符可以重复出现的次数。
-<span class="token list punctuation">-</span> 表达式 <span class="token code-snippet code keyword">`[0-9]{2,3}`</span> 匹配最少 2 位最多 3 位 0~9 的数字
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code>- 常用来限定一个或一组字符可以重复出现的次数。
+- 表达式 <span class="token variable"><span class="token variable">`</span><span class="token punctuation">[</span><span class="token number">0</span>-9<span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token number">2,3</span><span class="token punctuation">}</span><span class="token variable">`</span></span> 匹配最少 <span class="token number">2</span> 位最多 <span class="token number">3</span> 位 <span class="token number">0</span>~9 的数字
 
-"[0-9]{2,3}" => The number was 9.<span class="token code-snippet code keyword">`9997`</span> but we rounded it off to <span class="token code-snippet code keyword">`10`</span>.0.
+<span class="token string">"[0-9]{2,3}"</span> <span class="token operator">=</span><span class="token operator">></span> The number was <span class="token number">9</span>.<span class="token variable"><span class="token variable">`</span><span class="token number">9997</span><span class="token variable">`</span></span> but we rounded it off to <span class="token variable"><span class="token variable">`</span><span class="token number">10</span><span class="token variable">`</span></span>.0.
 
-<span class="token list punctuation">-</span> 我们可以省略第二个参数。
-<span class="token list punctuation">-</span> <span class="token code-snippet code keyword">`[0-9]{2,}`</span> 匹配至少两位 0~9 的数字。
+- 我们可以省略第二个参数。
+- <span class="token variable"><span class="token variable">`</span><span class="token punctuation">[</span><span class="token number">0</span>-9<span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token number">2</span>,<span class="token punctuation">}</span><span class="token variable">`</span></span> 匹配至少两位 <span class="token number">0</span>~9 的数字。
 
-"[0-9]{2,}" => The number was 9.<span class="token code-snippet code keyword">`9997`</span> but we rounded it off to <span class="token code-snippet code keyword">`10`</span>.0.
+<span class="token string">"[0-9]{2,}"</span> <span class="token operator">=</span><span class="token operator">></span> The number was <span class="token number">9</span>.<span class="token variable"><span class="token variable">`</span><span class="token number">9997</span><span class="token variable">`</span></span> but we rounded it off to <span class="token variable"><span class="token variable">`</span><span class="token number">10</span><span class="token variable">`</span></span>.0.
 
-<span class="token list punctuation">-</span> 如果逗号也省略掉则表示重复固定的次数。
-<span class="token list punctuation">-</span> <span class="token code-snippet code keyword">`[0-9]{3}`</span> 匹配3位数字
+- 如果逗号也省略掉则表示重复固定的次数。
+- <span class="token variable"><span class="token variable">`</span><span class="token punctuation">[</span><span class="token number">0</span>-9<span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token number">3</span><span class="token punctuation">}</span><span class="token variable">`</span></span> 匹配3位数字
 
-"[0-9]{3}" => The number was 9.<span class="token code-snippet code keyword">`999`</span>7 but we rounded it off to 10.0.
+<span class="token string">"[0-9]{3}"</span> <span class="token operator">=</span><span class="token operator">></span> The number was <span class="token number">9</span>.<span class="token variable"><span class="token variable">`</span><span class="token number">999</span><span class="token variable">`</span></span><span class="token number">7</span> but we rounded it off to <span class="token number">10.0</span>.
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></template>
 <template #tab7="{ value, isActive }">
-<div class="language-markdown line-numbers-mode" data-ext="md"><pre v-pre class="language-markdown"><code><span class="token list punctuation">-</span> 或运算符就表示或，用作判断条件。
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code>- 或运算符就表示或，用作判断条件。
 
-<span class="token list punctuation">-</span> <span class="token code-snippet code keyword">`(T|t)he|car`</span> 匹配 <span class="token code-snippet code keyword">`(T|t)he`</span> 或 <span class="token code-snippet code keyword">`car`</span>。
+- <span class="token variable"><span class="token variable">`</span><span class="token punctuation">(</span>T<span class="token operator">|</span>t<span class="token punctuation">)</span>he<span class="token operator">|</span>car<span class="token variable">`</span></span> 匹配 <span class="token variable"><span class="token variable">`</span><span class="token punctuation">(</span>T<span class="token operator">|</span>t<span class="token punctuation">)</span>he<span class="token variable">`</span></span> 或 <span class="token variable"><span class="token variable">`</span>car<span class="token variable">`</span></span>。
 
-"(T|t)he|car" => <span class="token code-snippet code keyword">`The`</span> <span class="token code-snippet code keyword">`car`</span> is parked in <span class="token code-snippet code keyword">`the`</span> garage.
+<span class="token string">"(T|t)he|car"</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token variable"><span class="token variable">`</span>The<span class="token variable">`</span></span> <span class="token variable"><span class="token variable">`</span>car<span class="token variable">`</span></span> is parked <span class="token keyword">in</span> <span class="token variable"><span class="token variable">`</span>the<span class="token variable">`</span></span> garage.
 </code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></template>
 </CodeTabs>
 <h2 id="简写字符集" tabindex="-1"><a class="header-anchor" href="#简写字符集" aria-hidden="true">#</a> 简写字符集</h2>

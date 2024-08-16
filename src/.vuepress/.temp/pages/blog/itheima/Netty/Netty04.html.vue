@@ -1,5 +1,5 @@
 <template><div><h1 id="四-优化与源码" tabindex="-1"><a class="header-anchor" href="#四-优化与源码" aria-hidden="true">#</a> 四. 优化与源码</h1>
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=802157994&bvid=BV1py4y1E7oA&cid=311829977&p=119" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+<!-- <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=802157994&bvid=BV1py4y1E7oA&cid=311829977&p=119" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe> -->
 <h2 id="_1-优化" tabindex="-1"><a class="header-anchor" href="#_1-优化" aria-hidden="true">#</a> 1. 优化</h2>
 <h3 id="_1-1-扩展序列化算法" tabindex="-1"><a class="header-anchor" href="#_1-1-扩展序列化算法" aria-hidden="true">#</a> 1.1 扩展序列化算法</h3>
 <p>序列化，反序列化主要用在消息正文的转换上</p>
@@ -272,28 +272,7 @@ message<span class="token punctuation">.</span><span class="token function">setS
 <ul>
 <li>属于 ServerSocketChannal 参数</li>
 </ul>
-<div class="language-mermaid line-numbers-mode" data-ext="mermaid"><pre v-pre class="language-mermaid"><code><span class="token keyword">sequenceDiagram</span>
-
-<span class="token keyword">participant</span> c as client
-<span class="token keyword">participant</span> s as server
-<span class="token keyword">participant</span> sq as syns queue
-<span class="token keyword">participant</span> aq as accept queue
-
-s <span class="token arrow operator">->></span> s <span class="token operator">:</span> bind<span class="token punctuation">(</span><span class="token punctuation">)</span>
-s <span class="token arrow operator">->></span> s <span class="token operator">:</span> listen<span class="token punctuation">(</span><span class="token punctuation">)</span>
-c <span class="token arrow operator">->></span> c <span class="token operator">:</span> connect<span class="token punctuation">(</span><span class="token punctuation">)</span>
-c <span class="token arrow operator">->></span> s <span class="token operator">:</span> 1. SYN
-<span class="token keyword">Note left of</span> c <span class="token operator">:</span> SYN_SEND
-s <span class="token arrow operator">->></span> sq <span class="token operator">:</span> put
-<span class="token keyword">Note right of</span> s <span class="token operator">:</span> SYN_RCVD
-s <span class="token arrow operator">->></span> c <span class="token operator">:</span> 2. SYN + ACK
-<span class="token keyword">Note left of</span> c <span class="token operator">:</span> ESTABLISHED
-c <span class="token arrow operator">->></span> s <span class="token operator">:</span> 3. ACK
-sq <span class="token arrow operator">->></span> aq <span class="token operator">:</span> put
-<span class="token keyword">Note right of</span> s <span class="token operator">:</span> ESTABLISHED
-aq <span class="token arrow operator">-->></span> s <span class="token operator">:</span> 
-s <span class="token arrow operator">->></span> s <span class="token operator">:</span> accept<span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ol>
+<Mermaid id="mermaid-91" code="eJx1kMGqwjAQRff9ilm+x0Ph6c6FoLagKF1YEVxJHEcN1LRNpoJ/7yRaaRG35565k4mjqiaDFGt1tuoaRaWyrFGXyjAgKAeYazLc4c5zR/ZGtsurENyNA2mtqROqECpEKvkVRw5647HUjeCgzfHntwVy7ZiMIAwIBWFhDCG/mdf++5Dt0igtmCCnE0NxCq7AfZakcdNYCStrfopWny/B9A3eXM+2jemHB6EU/mAyW35WJ9lmMl0tsnkStx4y7AdbFnkix37b1x4XrdcUtG5/fpLc+QBVknuT"></Mermaid><ol>
 <li>第一次握手，client 发送 SYN 到 server，状态修改为 SYN_SEND，server 收到，状态改变为 SYN_REVD，并将该请求放入 sync queue 队列</li>
 <li>第二次握手，server 回复 SYN + ACK 给 client，client 收到，状态改变为 ESTABLISHED，并发送 ACK 给 server</li>
 <li>第三次握手，server 收到 ACK，状态改变为 ESTABLISHED，将该请求从 sync queue 放入 accept queue</li>

@@ -97,7 +97,7 @@ public class RegexExample3 {
 
 @tab .
 
-```md
+```bash
 - 是元字符中最简单的例子。
 - 匹配任意单个字符，但不匹配换行符。
 
@@ -105,7 +105,7 @@ public class RegexExample3 {
 ```
 
 @tab []
-```md
+```bash
 - 字符集也叫做字符类。
 - 方括号用来指定一个字符集。
 - 在方括号中使用连字符来指定字符集的范围。
@@ -120,21 +120,21 @@ public class RegexExample3 {
 
 @tab ^
 
-```md
+```bash
 - 否定字符集
 
 [^c]ar => The car `par`ked in the `gar`age.
 
 ```
 @tab *
-```md
+```bash
 - `*`号匹配 在`*`之前的字符出现`大于等于0`次。
 - 表达式`[a-z]*` 匹配一个行中所有以小写字母开头的字符串。
 
 "[a-z]*" => T`he car parked in the garage`
 ```
 @tab +
-```md
+```bash
 - `+`号匹配`+`号之前的字符出现 >=1 次。
 
 - 例如表达式`c.+t` 匹配以首字母`c`开头以`t`结尾，中间跟着至少一个字符的字符串。
@@ -143,7 +143,7 @@ public class RegexExample3 {
 ```
 
 @tab ?
-```md 
+```bash
 - 出现 0 或 1 次。
 - 表达式 `[T]?he` 匹配字符串 `he` 和 `The`
 
@@ -153,7 +153,7 @@ public class RegexExample3 {
 
 ```
 @tab {}
-```md
+```bash
 - 常用来限定一个或一组字符可以重复出现的次数。
 - 表达式 `[0-9]{2,3}` 匹配最少 2 位最多 3 位 0~9 的数字
 
@@ -171,7 +171,7 @@ public class RegexExample3 {
 ```
 
 @tab | 
-```md
+```bash
 - 或运算符就表示或，用作判断条件。
 
 - `(T|t)he|car` 匹配 `(T|t)he` 或 `car`。
@@ -214,4 +214,3 @@ public class RegexExample3 {
 - 修饰符 `g` 常用于执行一个全局搜索匹配
 
 "/.(at)/g" => The `fat` `cat` `sat` on the `mat`.
-

@@ -1,7 +1,7 @@
 ---
 title: Puppeteer
 icon: puppeteer
-order: 4
+order: 5
 category:
   - Tool
 tag:

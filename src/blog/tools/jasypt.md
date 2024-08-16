@@ -1,7 +1,7 @@
 ---
 title: Jasypt
 icon: jiami
-order: 2
+order: 3
 description: 适用于spirng项目中配置文件的敏感数据
 category:
   - Tool
@@ -9,6 +9,9 @@ tag:
   - jasypt 
 ---
 # jasypt加密
+
+> Jasypt Spring Boot 为 spring boot 应用程序中的属性源提供加密支持，出于安全考虑，Spring boot 配置文件中的敏感信息通常需要对它进行加密/脱敏处理，尽量不使用明文，要实现这一点，办法有很多，自己手动对敏感信息进行加解密也是可以的
+
 依赖
 ```xml
     <dependency>

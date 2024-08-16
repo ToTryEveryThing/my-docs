@@ -3,18 +3,18 @@ import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
 
 export default hopeTheme({
-  hostname: "totryeverything.github.io",
+  hostname: "docs.beink.cn/",
   repoLabel: "GitHub",
   repo: "ToTryEveryThing/my-docs",
   repoDisplay: true,
   author: {
     name: "ToTryEveryThing",
-    url: "https://beink.cn/",
+    url: "https://docs.beink.cn/",
   },
 
   darkmode: "toggle",
   
-  breadcrumb: false,
+  breadcrumb: true,
 
   iconAssets: 'https://at.alicdn.com/t/c/font_4618431_gb92n24tlxt.css',
 
@@ -23,7 +23,7 @@ export default hopeTheme({
 
   docsDir: "src",
 
-  catalog:false,
+  catalog: false,
 
   // navbar
   navbar,
@@ -83,7 +83,7 @@ export default hopeTheme({
       include: true,
       katex: false,
       mark: false,
-      mermaid: false,
+      mermaid: true,
       playground: {
         presets: ["ts", "vue"],
       },

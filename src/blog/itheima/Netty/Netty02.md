@@ -9,13 +9,13 @@ tag:
 ---
 # 二. Netty 入门
 
-<iframe 
+<!-- <iframe 
   src="//player.bilibili.com/player.html?isOutside=true&aid=802157994&bvid=BV1py4y1E7oA&cid=311799044&p=53" 
   scrolling="no" 
   border="0" 
   frameborder="no" 
   framespacing="0"  
-></iframe>
+></iframe> -->
 
 ## 1. 概述
 
