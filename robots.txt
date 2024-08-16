@@ -2,4 +2,4 @@
 User-agent:*
 Disallow:
 
-Sitemap: https://totryeverything.github.io/sitemap.xml
+Sitemap: https://docs.beink.cn/sitemap.xml
