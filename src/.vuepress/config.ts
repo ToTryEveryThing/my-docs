@@ -22,6 +22,7 @@ export default defineUserConfig({
     }),
   ],
   head:[
+    ['link', { rel: 'icon', href: '/logo.svg' }],
     [
 
       "script",
