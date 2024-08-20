@@ -60,21 +60,22 @@ public class Main {
 
 #### Bean
 
->     被构造 调用的是无参构造
->
->     生命周期：
->
->     ```
->     public void init(){
->     System.out.println("init");
->     }
->     public void destory(){
->     System.out.println("destory");
->     }
->     配置
->     <bean init-method="init" destroy-method="destory"/>
->     或者 直接 implements InitializingBean, DisposableBean 同样效果
->     ```
+被构造 调用的是无参构造
+
+生命周期：
+
+```java
+    public void init(){
+        System.out.println("init");
+    }
+    public void destory(){
+        System.out.println("destory");
+    }
+```
+> 配置
+>    <bean init-method="init" destroy-method="destory"/>
+>    或者 直接 implements InitializingBean, DisposableBean 同样效果
+
 
 #### 依赖注入
 
@@ -95,7 +96,7 @@ private int a;
 
 #### 构造器
 
-```XML
+```xml
 <bean id="bookDao" class="com.beink.dao.Impl.bookDaoImpl">
      <constructor-arg name="a" value="6"/>
      <constructor-arg name="s" value="true"/>
@@ -133,7 +134,7 @@ public bookDaoImpl(String s, int a) {
 
 #### 集合注入
 
-```XML
+```xml
     <bean id="bookDao" class="com.beink.dao.Impl.bookDaoImpl">
         <property name="list">
             <array>
@@ -197,7 +198,7 @@ public class MyAop {
 
 ### 切入点表达式
 
-> ```
+> ```java
 > 使用*通配符即可
 > @Pointcut("execution( * * com.beink.dao.*)")
 > ```
@@ -261,7 +262,7 @@ public class MyAop {
 
 pom.xml
 
-```XML
+```xml
   <dependencies>
     <dependency>
       <groupId>javax.servlet</groupId>
