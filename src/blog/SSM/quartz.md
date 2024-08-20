@@ -17,6 +17,8 @@ tag:
 >3. `Trigger` 代表一个调度参数的配置，什么时候去调。
 >4. `Scheduler` 代表一个调度容器，一个调度容器中可以注册多个 JobDetail 和 Trigger。当 Trigger 与 JobDetail 组合，就可以被 Scheduler 容器调度了。
 
+
+
 #### 依赖
 
 ```xml

@@ -10,7 +10,7 @@ tag:
 ---
 ### 一、git安装后-指定名称和邮箱
 
-```git
+```bash
 # 全局配置
 git config --global user.name "Your Name"
 git config --global user.email "email@example.com"
@@ -21,7 +21,7 @@ git config  user.email "email@example.com"
 ```
 
 ### 二、分支管理
-```git
+```bash
 git branch    #查看分支
 git chenkout xxx  #切换为分支xxx 
 git checkout -b xxx  #新建分支xxx 并且切换过去
@@ -36,7 +36,7 @@ git checkout -b first origin/first ##新建本地分支  和远程分支连接�
 
 ### 二、创建版本库
 
-```git
+```bash
 $ mkdir learngit	//创建
 $ cd learngit	//使用
 $ pwd	//查看当前目录
@@ -45,7 +45,7 @@ $ git init	//初始化，生成.git文件(若该文件隐藏，则使用ls -ah)
 
 ### 三、把文件添加add和提交commit到版本库
 
-```git
+```bash
 $ git add test.txt	//添加
 $ git commit -m "wrote a test file"	//提交
 $ git commit -m "add 3 files."		//一次性提交多个文件
@@ -53,7 +53,7 @@ $ git commit -m "add 3 files."		//一次性提交多个文件
 
 ### 四、版本控制
 
-```
+```bash
 $ git log	//查看提交历史记录，从最近到最远，可以看到3次
 $ git log --pretty=oneline	//加参，简洁查看
 $ git reflog	//查看每一次修改历史
@@ -66,7 +66,7 @@ $ git reset HEAD test.txt	//丢弃暂存区的修改（若已提交，则回退�
 
 ### 五、删除文件/缓存
 
-```
+```bash
 清空git缓存
 git rm -r --cached .
 git add .
@@ -82,7 +82,7 @@ $ git checkout -- test.txt
 
 ### 六、远程仓库
 
-```
+```bash
 $ ssh-keygen -t rsa -C "youremail@example.com"	//创建SSH Key
 $ git remote add origin git@github.com:Daisy/AKgit.git	//关联
 $ git push -u origin master	//将本地内容推送到远程仓库（第一次）

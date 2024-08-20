@@ -1,6 +1,6 @@
 // place your custom styles here
 code{
-    color:#fc3e4e;
+    color:#ff7675;
 }
 
 blockquote {
@@ -45,4 +45,23 @@ li.vp-catalog {
 }
 .vp-catalog-wrapper h2{
     display: none;
+}
+
+
+
+blockquote {
+    border-left: 4px solid var(--theme-color);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 5px 24px;
+    border-radius: 10px;
+    padding: 0rem 1rem 0.5rem 1rem;
+}
+
+
+blockquote:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.6em;
 }
