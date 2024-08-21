@@ -8,8 +8,8 @@ export default hopeTheme({
   repo: "ToTryEveryThing/my-docs",
   repoDisplay: true,
   author: {
-    name: "ToTryEveryThing",
-    url: "https://docs.beink.cn/",
+    name: "mishu",
+    url: "https://github.com/ToTryEveryThing/my-docs",
   },
 
   darkmode: "toggle",
