@@ -58,6 +58,25 @@ $ <span class="token builtin class-name">cd</span> gitskills
 $ <span class="token function">ls</span>
 $ <span class="token function">git</span> remote	//查看远程库的信息
 $ <span class="token function">git</span> remote <span class="token parameter variable">-v</span>	//查看远程库的详细信息
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div></template>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="七、批量修改提交人信息" tabindex="-1"><a class="header-anchor" href="#七、批量修改提交人信息" aria-hidden="true">#</a> 七、批量修改提交人信息</h3>
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token function">git</span> filter-branch <span class="token parameter variable">-f</span> --env-filter <span class="token string">'
+CORRECT_NAME="mishu"
+CORRECT_EMAIL="riceuncle@outlook.com"
+if [ "$GIT_COMMITTER_EMAIL" != "$CORRECT_EMAIL" ]
+then
+    export GIT_COMMITTER_NAME="$CORRECT_NAME"
+    export GIT_COMMITTER_EMAIL="$CORRECT_EMAIL"
+fi
+if [ "$GIT_AUTHOR_EMAIL" != "$CORRECT_EMAIL" ]
+then
+    export GIT_AUTHOR_NAME="$CORRECT_NAME"
+    export GIT_AUTHOR_EMAIL="$CORRECT_EMAIL"
+fi
+'</span> --tag-name-filter <span class="token function">cat</span> -- <span class="token parameter variable">--branches</span> <span class="token parameter variable">--tags</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><blockquote>
+<p>// 拒绝合并不相关的历史</p>
+<p><a href="https://blog.csdn.net/Eternalyii/article/details/119643754" target="_blank" rel="noopener noreferrer">https://blog.csdn.net/Eternalyii/article/details/119643754<ExternalLinkIcon/></a></p>
+</blockquote>
+</div></template>
 
 
