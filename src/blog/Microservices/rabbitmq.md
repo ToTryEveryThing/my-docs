@@ -13,6 +13,7 @@ tag:
 
 > 安装地址 [Docker安装RabbitMQ详细步骤 - 逊老头 - 博客园 (cnblogs.com)](https://www.cnblogs.com/Aamir-Ye/p/16832374.html)
 >  学习地址 [MQ的引言和不同MQ的特点_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1dE411K7MG?p=7&vd_source=f8821730ff8a13ec89104c8629e6d42b)
+> [完美解决 RabbitMQ可视化界面Overview不显示折线图和队列不显示Messages](https://blog.csdn.net/weixin_44467567/article/details/136713078)
 
 ## 基础部分
 

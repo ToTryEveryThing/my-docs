@@ -1,7 +1,8 @@
 <template><div><h1 id="rabbitmq" tabindex="-1"><a class="header-anchor" href="#rabbitmq" aria-hidden="true">#</a> RabbitMQ</h1>
 <blockquote>
 <p>安装地址 <a href="https://www.cnblogs.com/Aamir-Ye/p/16832374.html" target="_blank" rel="noopener noreferrer">Docker安装RabbitMQ详细步骤 - 逊老头 - 博客园 (cnblogs.com)<ExternalLinkIcon/></a><br>
-学习地址 <a href="https://www.bilibili.com/video/BV1dE411K7MG?p=7&amp;vd_source=f8821730ff8a13ec89104c8629e6d42b" target="_blank" rel="noopener noreferrer">MQ的引言和不同MQ的特点_哔哩哔哩_bilibili<ExternalLinkIcon/></a></p>
+学习地址 <a href="https://www.bilibili.com/video/BV1dE411K7MG?p=7&amp;vd_source=f8821730ff8a13ec89104c8629e6d42b" target="_blank" rel="noopener noreferrer">MQ的引言和不同MQ的特点_哔哩哔哩_bilibili<ExternalLinkIcon/></a><br>
+<a href="https://blog.csdn.net/weixin_44467567/article/details/136713078" target="_blank" rel="noopener noreferrer">完美解决 RabbitMQ可视化界面Overview不显示折线图和队列不显示Messages<ExternalLinkIcon/></a></p>
 </blockquote>
 <h2 id="基础部分" tabindex="-1"><a class="header-anchor" href="#基础部分" aria-hidden="true">#</a> 基础部分</h2>
 <h3 id="simple简单模式" tabindex="-1"><a class="header-anchor" href="#simple简单模式" aria-hidden="true">#</a> simple简单模式</h3>
