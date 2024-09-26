@@ -1,4 +1,7 @@
 import {
+  setupDevtoolsPlugin
+} from "./chunk-UKCZNIRO.js";
+import {
   computed,
   defineComponent,
   getCurrentInstance,
@@ -16,17 +19,18 @@ import {
   unref,
   watch,
   watchEffect
-} from "./chunk-2C6GVK5W.js";
-import "./chunk-FUXUM2AF.js";
-import {
-  setupDevtoolsPlugin
-} from "./chunk-UKCZNIRO.js";
-import "./chunk-F3FYYIAV.js";
+} from "./chunk-ONFHZ5OS.js";
+import "./chunk-V6TY7KAL.js";
 
 // node_modules/vue-router/dist/vue-router.mjs
 var isBrowser = typeof document !== "undefined";
+function isRouteComponent(component) {
+  return typeof component === "object" || "displayName" in component || "props" in component || "__vccOpts" in component;
+}
 function isESModule(obj) {
-  return obj.__esModule || obj[Symbol.toStringTag] === "Module";
+  return obj.__esModule || obj[Symbol.toStringTag] === "Module" || // support CF with dynamic imports that do not
+  // add the Module string tag
+  obj.default && isRouteComponent(obj.default);
 }
 var assign = Object.assign;
 function applyToParams(fn, params) {
@@ -425,7 +429,7 @@ function useHistoryStateNavigation(base) {
 
 history.replaceState(history.state, '', url)
 
-You can find more information at https://next.router.vuejs.org/guide/migration/#usage-of-history-state.`);
+You can find more information at https://router.vuejs.org/guide/migration/#Usage-of-history-state`);
     }
     changeLocation(currentState.current, currentState, true);
     const state = assign({}, buildState(currentLocation.value, to, null), { position: currentState.position + 1 }, data);
@@ -946,22 +950,24 @@ function createRouterMatcher(routes, globalOptions) {
     }
     mainNormalizedRecord.aliasOf = originalRecord && originalRecord.record;
     const options = mergeOptions(globalOptions, record);
-    const normalizedRecords = [
-      mainNormalizedRecord
-    ];
+    const normalizedRecords = [mainNormalizedRecord];
     if ("alias" in record) {
       const aliases = typeof record.alias === "string" ? [record.alias] : record.alias;
       for (const alias of aliases) {
-        normalizedRecords.push(assign({}, mainNormalizedRecord, {
-          // this allows us to hold a copy of the `components` option
-          // so that async components cache is hold on the original record
-          components: originalRecord ? originalRecord.record.components : mainNormalizedRecord.components,
-          path: alias,
-          // we might be the child of an alias
-          aliasOf: originalRecord ? originalRecord.record : mainNormalizedRecord
-          // the aliases are always of the same kind as the original since they
-          // are defined on the same record
-        }));
+        normalizedRecords.push(
+          // we need to normalize again to ensure the `mods` property
+          // being non enumerable
+          normalizeRouteRecord(assign({}, mainNormalizedRecord, {
+            // this allows us to hold a copy of the `components` option
+            // so that async components cache is hold on the original record
+            components: originalRecord ? originalRecord.record.components : mainNormalizedRecord.components,
+            path: alias,
+            // we might be the child of an alias
+            aliasOf: originalRecord ? originalRecord.record : mainNormalizedRecord
+            // the aliases are always of the same kind as the original since they
+            // are defined on the same record
+          }))
+        );
       }
     }
     let matcher;
@@ -974,7 +980,7 @@ function createRouterMatcher(routes, globalOptions) {
         normalizedRecord.path = parent.record.path + (path && connectingSlash + path);
       }
       if (normalizedRecord.path === "*") {
-        throw new Error('Catch all routes ("*") must now be defined using a param with a custom regexp.\nSee more at https://next.router.vuejs.org/guide/migration/#removed-star-or-catch-all-routes.');
+        throw new Error('Catch all routes ("*") must now be defined using a param with a custom regexp.\nSee more at https://router.vuejs.org/guide/migration/#Removed-star-or-catch-all-routes.');
       }
       matcher = createRouteRecordMatcher(normalizedRecord, parent, options);
       if (parent && path[0] === "/")
@@ -1124,12 +1130,12 @@ function paramsFromLocation(params, keys) {
   return newParams;
 }
 function normalizeRouteRecord(record) {
-  return {
+  const normalized = {
     path: record.path,
     redirect: record.redirect,
     name: record.name,
     meta: record.meta || {},
-    aliasOf: void 0,
+    aliasOf: record.aliasOf,
     beforeEnter: record.beforeEnter,
     props: normalizeRecordProps(record),
     children: record.children || [],
@@ -1137,8 +1143,14 @@ function normalizeRouteRecord(record) {
     leaveGuards: /* @__PURE__ */ new Set(),
     updateGuards: /* @__PURE__ */ new Set(),
     enterCallbacks: {},
+    // must be declared afterwards
+    // mods: {},
     components: "components" in record ? record.components || null : record.component && { default: record.component }
   };
+  Object.defineProperty(normalized, "mods", {
+    value: {}
+  });
+  return normalized;
 }
 function normalizeRecordProps(record) {
   const propsObject = {};
@@ -1446,8 +1458,9 @@ function extractComponentsGuards(matched, guardType, to, from, runWithContext = 
         }
         guards.push(() => componentPromise.then((resolved) => {
           if (!resolved)
-            return Promise.reject(new Error(`Couldn't resolve component "${name}" at "${record.path}"`));
+            throw new Error(`Couldn't resolve component "${name}" at "${record.path}"`);
           const resolvedComponent = isESModule(resolved) ? resolved.default : resolved;
+          record.mods[name] = resolved;
           record.components[name] = resolvedComponent;
           const options = resolvedComponent.__vccOpts || resolvedComponent;
           const guard = options[guardType];
@@ -1458,9 +1471,6 @@ function extractComponentsGuards(matched, guardType, to, from, runWithContext = 
   }
   return guards;
 }
-function isRouteComponent(component) {
-  return typeof component === "object" || "displayName" in component || "props" in component || "__vccOpts" in component;
-}
 function loadRouteLocation(route) {
   return route.matched.every((record) => record.redirect) ? Promise.reject(new Error("Cannot load a route that redirects.")) : Promise.all(route.matched.map((record) => record.components && Promise.all(Object.keys(record.components).reduce((promises, name) => {
     const rawComponent = record.components[name];
@@ -1469,6 +1479,7 @@ function loadRouteLocation(route) {
         if (!resolved)
           return Promise.reject(new Error(`Couldn't resolve component "${name}" at "${record.path}". Ensure you passed a function that returns a promise.`));
         const resolvedComponent = isESModule(resolved) ? resolved.default : resolved;
+        record.mods[name] = resolved;
         record.components[name] = resolvedComponent;
         return;
       }));
@@ -2152,7 +2163,7 @@ function createRouter(options) {
   const stringifyQuery$1 = options.stringifyQuery || stringifyQuery;
   const routerHistory = options.history;
   if (!routerHistory)
-    throw new Error('Provide the "history" option when calling "createRouter()": https://next.router.vuejs.org/api/#history.');
+    throw new Error('Provide the "history" option when calling "createRouter()": https://router.vuejs.org/api/interfaces/RouterOptions.html#history');
   const beforeGuards = useCallbacks();
   const beforeResolveGuards = useCallbacks();
   const afterGuards = useCallbacks();
@@ -2738,7 +2749,7 @@ export {
 
 vue-router/dist/vue-router.mjs:
   (*!
-    * vue-router v4.4.0
+    * vue-router v4.4.5
     * (c) 2024 Eduardo San Martin Morote
     * @license MIT
     *)

@@ -49,14 +49,15 @@ export default sidebar({
       icon: "heimabang",
       collapsible: true,
       prefix: "blog/itheima",
-      children: [
-        {
-          text:"Netty",
-          collapsible: true,
-          icon: "Netty",
-          children:['Netty/Netty01-nio','Netty/Netty02.md','Netty/Netty03.md','Netty/Netty04.md']
-        }
-      ]
+      children: "structure",
+      // children: [
+      //   {
+      //     text:"Netty",
+      //     collapsible: true,
+      //     icon: "Netty",
+      //     children:['Netty/Netty01-nio','Netty/Netty02.md','Netty/Netty03.md','Netty/Netty04.md']
+      //   }
+      // ]
     }
   ],
 });

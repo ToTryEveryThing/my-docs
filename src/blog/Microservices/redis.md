@@ -12,7 +12,7 @@ tag:
 
 ## 安装
 
-```
+```bash
 sudo apt update
 sudo apt install redis-server
 redis-cli 启动命令
@@ -20,7 +20,7 @@ redis-cli 启动命令
 
 ## 基本命令
 
-```
+```bash
 bdsize 当前数据库大小
 select 数据库切换
 flushdb 清空当前数据库
@@ -32,7 +32,7 @@ type name  查看key的类型
 
 - Redsi-Key
 
-```
+```bash
 keys *     打印所有的key
 set name hhh   设置k-v("name","hh")
 get name   打印name的value
@@ -44,7 +44,7 @@ ttl name 查看name剩余过期时间
 
 - String
 
-```
+```bash
 append name  "world"     #value后面增加world
 strlen name   #value的长度
 incr  age    #实现自增
@@ -59,7 +59,7 @@ getset  #找不到就创建 找到就设置
 
 - List
 
-```
+```bash
 lpush list hello   #往list中加入hello
 lrange list 0 -1   #打印所有
 lpop/rpop list     #删除左右头部
@@ -72,7 +72,7 @@ lset list 0 hello    # 指定下标值替换为hello
 
 - set
 
-```
+```bash
 sadd: 向集合中添加元素。例如：sadd myset "element1" "element2"
 
 smembers: 返回集合中所有元素。例如：smembers myset
@@ -96,7 +96,7 @@ srandmember: 随机返回集合中的一个元素。例如：srandmember myset
 
 - Hash
 
-```
+```bash
 hset key field value : 在key对应的hash中设置field对应的value。如果key不存在，则新建一个。
 例如:hset user:1 name "tom"
 hget key field : 获取key对应的hash中field对应的value。
@@ -118,7 +118,7 @@ hvals key : 获取key对应的hash中所有的value。
 
 - Sorted sets
 
-```
+```bash
 zadd: 向有序集合中添加元素，支持指定分数。例如：zadd mysortedset 1 "element1" 2 "element2"
 
 zrange: 返回有序集合中指定范围的元素。例如：zrange mysortedset 0 -1

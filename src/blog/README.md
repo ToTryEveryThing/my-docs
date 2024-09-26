@@ -4,4 +4,4 @@ icon: boke
 index: false
 ---
 
-<AutoCatalog />
+ <Catalog />

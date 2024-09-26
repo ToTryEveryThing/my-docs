@@ -13,7 +13,7 @@ export default hopeTheme({
   },
 
   darkmode: "toggle",
-  
+
   breadcrumb: true,
 
   iconAssets: 'https://at.alicdn.com/t/c/font_4618431_zu8qu0uispt.css',
@@ -23,7 +23,7 @@ export default hopeTheme({
 
   docsDir: "src",
 
-  catalog: false,
+  // catalog: false,
 
   // navbar
   navbar,
@@ -35,7 +35,7 @@ export default hopeTheme({
 
 
   displayFooter: true,
- 
+
   footer: `
   <a href="https://theme-hope.vuejs.press/zh/">vuepress-home-theme</a>
 
@@ -47,17 +47,30 @@ export default hopeTheme({
       "/demo/encrypt.html": ["1234"],
     },
   },
-    navbarLayout: {
-      start: ["Brand"],
-      end: ["Links","Outlook","Repo", "Search"],
-    },
+  navbarLayout: {
+    start: ["Brand"],
+    end: ["Links", "Outlook", "Repo", "Search"],
+  },
+
+
+
   plugins: {
-    prismjs: {
-      light: "one-dark",
-      dark: "one-dark",
+    shiki: {
+      lineNumbers: true,
+      collapsedLines: 10,
+      themes: {
+        light: "github-light",
+        dark: "one-dark-pro",
+      }
     },
-    blog:false,
-    git:true,
+    catalog: {
+      exclude: ["/^\/blog\/itheima\//", "/^\/blog\/itheima\/Netty\//"]
+    },
+    markdownTab: {
+      codeTabs: true,
+    },
+    blog: false,
+    git: true,
     // You should generate and use your own comment service
     // comment: {
     //   provider: "Giscus",
@@ -69,27 +82,28 @@ export default hopeTheme({
     // All features are enabled for demo, only preserve features you need here
     // markdown  用不到的false
     mdEnhance: {
+      // codeTabs:true,
       align: false,
       attrs: false,
       chart: false,
-      codetabs: true,
+      // codetabs: true,
       demo: false,
       echarts: false,
-      figure: true,
+      // figure: true,
       flowchart: false,
       gfm: true,
-      imgLazyload: true,
-      imgSize: true,
+      // imgLazyload: true,
+      // imgSize: true,
       include: true,
-      katex: false,
+      // katex: false,
       mark: false,
       mermaid: true,
       playground: {
         presets: ["ts", "vue"],
       },
-      presentation: {
-        plugins: ["highlight", "math", "search", "notes", "zoom"],
-      },
+      // presentation: {
+      //   plugins: ["highlight", "math", "search", "notes", "zoom"],
+      // },
       stylize: [
         {
           matcher: "Recommended",
@@ -105,7 +119,7 @@ export default hopeTheme({
       ],
       sub: false,
       sup: false,
-      tabs: false,
+      // tabs: false,
       vPre: false,
       vuePlayground: false,
     },

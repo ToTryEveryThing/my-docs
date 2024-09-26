@@ -21,26 +21,26 @@ tag:
 
 - 给指定字段添加值
 
-```mysql
+```sql
 insert into 表名 (字段1，字段2..) values(值1，值2..);
 ```
 
 - 给指定字段批量添加值
 
-```mysql
+```sql
 insert into 表名 (字段1，字段2..) values(值1，值2..),(值1，值2..),(值1，值2..);
 insert into 表名  values(值1，值2..),(值1，值2..),(值1，值2..);
 ```
 
 - 给全部字段添加值
 
-```mysql
+```sql
 insert into 表名  values(值1，值2..);
 ```
 
 #### update
 
-```mysql
+```sql
 update 表名 set 字段1=值1，字段2=值2... [where 条件];
 ```
 
@@ -48,7 +48,7 @@ update 表名 set 字段1=值1，字段2=值2... [where 条件];
 
 #### delete
 
-```mysql
+```sql
 delete from 表名 [where 条件];
 ```
 
@@ -56,7 +56,7 @@ delete from 表名 [where 条件];
 
 ### select
 
-```mysql
+```sql
 select [字段列表] from [表名列表] where [条件列表] group by [分组字段列表] having [分组后条件列表] order by [排序字段列表] limit [分页]
 ```
 
@@ -66,18 +66,18 @@ select [字段列表] from [表名列表] where [条件列表] group by [分组�
 
 - 起别名
 
-```mysql
+```sql
 select name as '姓名' from 表名;    或者  select name '姓名' from 表名;
 ```
 
 - 不重复
 
-```mysql
+```sql
 select distinct name from 表名;
 ```
 
-[^distinct]: 去重
-[^as]: 别名
+<!-- [^distinct]: 去重
+[^as]: 别名 -->
 
 #### 条件查询
 
@@ -103,19 +103,19 @@ select distinct name from 表名;
 
 - sum
 
-  ```mysql
+  ```sql
   select sum(*) from 表名; 
   ```
 
 - avg
 
-  ```mysql
+  ```sql
   select agv(age) from 表名;
   ```
 
 - max | min
 
-  ```mysql
+  ```sql
   select max(age) from 表名;   select min(age) from 表名; 
   ```
 
@@ -127,7 +127,7 @@ select distinct name from 表名;
 
 
 
-```mysql
+```sql
 select sex,count(sex) from s group by sex having avg(age) > 50;
 ```
 
@@ -138,19 +138,19 @@ select sex,count(sex) from s group by sex having avg(age) > 50;
 
 > 多字段排序，先按第一个排序，然后相同的按照第二个方式排序
 
-```mysql
+```sql
 select * from s order by age asc , id desc;
 ```
 
 #### 分页查询
 
-```mysql
+```sql
 select * from 表名 limit 起始索引，查询记录数
 ```
 
 - 起始索引从0开始， 起始索引 = （查询页码-1）* 每页记录数
 
-```mysql
+```sql
 select * from s limit 0,10;   select * from s limit 10,10;
 ```
 
@@ -158,7 +158,7 @@ select * from s limit 0,10;   select * from s limit 10,10;
 
 - 字符串函数
 
-```mysql
+```sql
 -- concat
 select concat("hello","world");
 -- lower
@@ -173,7 +173,7 @@ update 表名 set name = upper(name) where id = 51;
 
 - 数值函数
 
-```mysql
+```sql
 -- ceil 向上取整
 -- floor 向下取整
 -- mod(x,y) 返回x/y的模
@@ -184,7 +184,7 @@ select round(5.456871865468,3); -->  5.457
 
 - 日期函数
 
-```mysql
+```sql
 -- curdate()  返回当前日期
 -- curtime()  返回当前时间
 -- now()      返回当前日期和时间
@@ -210,7 +210,7 @@ select date_add(now(),interval 110 year);
 
 - 命令
 
-```mysql
+```sql
 b为父表   s为子表   s表的字段(b_id)外键到b表的（id） 
 alter table s add constraint fk_s_b_id foreign key (b_id) references b(id);
 ```
@@ -231,7 +231,7 @@ alter table s add constraint fk_s_b_id foreign key (b_id) references b(id);
 
 > 相当与查询A,B交集部分数据
 
-```mysql
+```sql
 select s.name,b.name from s,b  where s.b_id = b.id;               隐式内连接
 select s.name,b.name from s inner join b on s.b_id = b.id;      显式内连接
 ```
@@ -240,7 +240,7 @@ select s.name,b.name from s inner join b on s.b_id = b.id;      显式内连接
 
 > 查询左表全部数据，以及两张表交集部分   
 
-```mysql
+```sql
 select s.*,b.name from s left outer join b on s.b_id = b.id;
 select s.*,b.name from s left join b on s.b_id = b.id;
 s表的全部 以及b表的name
@@ -262,7 +262,7 @@ s表的全部 以及b表的name
 >
 > 列数必须保持一致，字段类型也一致。
 
-```mysql
+```sql
 select * from s where age < 50 union all select * from s where sex = '男' ;    不去重
 select * from s where age < 50 union select * from s where sex = '男' ;    去重
 ```
@@ -295,7 +295,7 @@ select * from s where age < 50 union select * from s where sex = '男' ;    去�
 
 #### 创建视图
 
-```mysql
+```sql
 create view com  as select * from js_compet;
 
 create view com  as select id,cc_name from js_compet where cc_name like '%2%';
@@ -305,19 +305,19 @@ create view ali_com(iddd,ccname)  as  select id,cc_name from js_compet where cc_
 
 #### 修改视图
 
-```mysql
+```sql
 alert view com  as select * from js_compet;
 ```
 
 #### 删除视图
 
-```mysql
+```sql
 drop view if exists com; #只会删除视图 ， 不影响表格
 ```
 
 #### 查看
 
-```mysql
+```sql
 desc com;
 ```
 
@@ -333,7 +333,7 @@ desc com;
 >
 > 由他来查看哪些SQL超出了我们的最大忍耐时间值，比如一条sql执行超过5秒钟，我们就算慢SQL，希望能 收集超过5秒的sql，结合之前explain进行全面分析。
 
-```mysql
+```sql
 SHOW VARIABLES LIKE 'long_query_time%';  #查询目前慢日志时间
 ```
 
@@ -351,7 +351,7 @@ log_output=FILE
 
 > 用来查看sql语句性能，等其他
 
-```mysql
+```sql
 mysql> select @@have_profiling;  # 是否支持
 +------------------+
 | @@have_profiling |

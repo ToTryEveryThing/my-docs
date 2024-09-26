@@ -1,22 +1,33 @@
-import { defineClientConfig } from "@vuepress/client";
-import { VPLink } from "D:/mishu/my-docs/node_modules/vuepress-shared/lib/client/index.js";
+import { HopeIcon, Layout, NotFound, injectDarkmode, setupDarkmode, setupSidebarItems, scrollPromise } from "D:/mishu/my-docs/node_modules/vuepress-theme-hope/lib/bundle/export.js";
 
-import { HopeIcon, Layout, NotFound, useScrollPromise, injectDarkmode, setupDarkmode, setupSidebarItems } from "D:/mishu/my-docs/node_modules/vuepress-theme-hope/lib/bundle/export.js";
-
-import { defineAutoCatalogIconComponent } from "D:/mishu/my-docs/node_modules/vuepress-plugin-auto-catalog/lib/client/index.js"
+import { defineCatalogInfoGetter } from "D:/mishu/my-docs/node_modules/@vuepress/plugin-catalog/lib/client/index.js"
+import { h } from "vue"
 import { GlobalEncrypt, LocalEncrypt } from "D:/mishu/my-docs/node_modules/vuepress-theme-hope/lib/bundle/modules/encrypt/export.js";
 import "D:/mishu/my-docs/node_modules/vuepress-theme-hope/lib/bundle/modules/encrypt/styles/all.scss"
 
+import "D:/mishu/my-docs/node_modules/@vuepress/helper/lib/client/styles/colors.css";
+import "D:/mishu/my-docs/node_modules/@vuepress/helper/lib/client/styles/normalize.css";
 import "D:/mishu/my-docs/node_modules/vuepress-theme-hope/lib/bundle/styles/all.scss";
 
-defineAutoCatalogIconComponent(HopeIcon);
+defineCatalogInfoGetter((meta) => {
+  const title = meta.t;
+  const shouldIndex = meta.I !== false;
+  const icon = meta.i;
 
-export default defineClientConfig({
+  return shouldIndex ? {
+    title,
+    content: icon ? () =>[h(HopeIcon, { icon }), title] : null,
+    order: meta.O,
+    index: meta.I,
+  } : null;
+});
+
+export default {
   enhance: ({ app, router }) => {
     const { scrollBehavior } = router.options;
 
     router.options.scrollBehavior = async (...args) => {
-      await useScrollPromise().wait();
+      await scrollPromise.wait();
 
       return scrollBehavior(...args);
     };
@@ -26,8 +37,6 @@ export default defineClientConfig({
 
     // provide HopeIcon as global component
     app.component("HopeIcon", HopeIcon);
-    // provide VPLink as global component
-    app.component("VPLink", VPLink);
 
     app.component("GlobalEncrypt", GlobalEncrypt);
     app.component("LocalEncrypt", LocalEncrypt);
@@ -42,4 +51,4 @@ export default defineClientConfig({
     NotFound,
 
   }
-});
+};

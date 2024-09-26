@@ -1,10 +1,10 @@
-<template><div><h1 id="cron" tabindex="-1"><a class="header-anchor" href="#cron" aria-hidden="true">#</a> cron</h1>
-<p><a href="https://crontab.guru/" target="_blank" rel="noopener noreferrer">在线测试<ExternalLinkIcon/></a></p>
+<template><div><h1 id="cron" tabindex="-1"><a class="header-anchor" href="#cron"><span>cron</span></a></h1>
+<p><a href="https://crontab.guru/" target="_blank" rel="noopener noreferrer">在线测试</a></p>
 <blockquote>
 <p>Cron适用于周期性执行、日常维护、在某时刻需要完成的单次任务等场景。Cron表达式是一个具有时间含义的字符串，字符串以5个空格隔开，分为6个域，格式为<code v-pre>X X X X X X</code>。其中<code v-pre>X</code>是一个域的占位符。单个域有多个取值时，使用半角逗号<code v-pre>,</code>隔开取值。每个域可以是确定的取值，也可以是具有逻辑意义的特殊字符。</p>
 </blockquote>
 <p>秒 分 时 日 月 周</p>
-<h2 id="取值范围" tabindex="-1"><a class="header-anchor" href="#取值范围" aria-hidden="true">#</a> 取值范围</h2>
+<h2 id="取值范围" tabindex="-1"><a class="header-anchor" href="#取值范围"><span>取值范围</span></a></h2>
 <table>
 <thead>
 <tr>
@@ -53,7 +53,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="连接符" tabindex="-1"><a class="header-anchor" href="#连接符" aria-hidden="true">#</a> 连接符</h2>
+<h2 id="连接符" tabindex="-1"><a class="header-anchor" href="#连接符"><span>连接符</span></a></h2>
 <ul>
 <li>【*】：每的意思。在不同的字段上，就代表每秒，每分，每小时等。</li>
 <li>【-】：指定值的范围。比如[1-10]，在秒字段里就是每分钟的第1到10秒，在分就是每小时的第1到10分钟，以此类推。</li>
@@ -61,7 +61,7 @@
 <li>【/】：指定值的起始和增加幅度。比如[3/5]，在秒字段就是每分钟的第3秒开始，每隔5秒生效一次，也就是第3秒、8秒、13秒，以此类推。</li>
 <li>【?】：仅用于【日】和【周】字段。因为在指定某日和周几的时候，这两个值实际上是冲突的，所以需要用【?】标识不生效的字段。比如【0 1 * * * ?】就代表每年每月每日每小时的1分0秒触发任务。这里的周就没有效果了。</li>
 </ul>
-<h2 id="示例" tabindex="-1"><a class="header-anchor" href="#示例" aria-hidden="true">#</a> 示例</h2>
+<h2 id="示例" tabindex="-1"><a class="header-anchor" href="#示例"><span>示例</span></a></h2>
 <table>
 <thead>
 <tr>
