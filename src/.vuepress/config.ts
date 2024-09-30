@@ -2,7 +2,7 @@ import path from "path";
 import { viteBundler } from '@vuepress/bundler-vite'
 import { defineUserConfig } from "vuepress";
 import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
-import { searchProPlugin } from "vuepress-plugin-search-pro";
+import { docsearchPlugin } from '@vuepress/plugin-docsearch'
 import { hopeTheme } from "vuepress-theme-hope";
 import { catalogPlugin } from '@vuepress/plugin-catalog'
 import theme from "./theme.js";
@@ -16,9 +16,21 @@ export default defineUserConfig({
     //   // 配置项
     //   componentsDir: path.resolve(__dirname, './components')
     // }),
-    searchProPlugin({
-      // 索引全部内容
-      indexContent: true,
+    docsearchPlugin({
+      // 配置项
+      appId: 'GTPYHRH7GU',
+      apiKey: '918b433328b9828b7156977a294134a2',
+      indexName: 'beink',
+      locales: {
+        '/': {
+          placeholder: '搜索文档',
+          translations: {
+            button: {
+              buttonText: '搜索文档',
+            },
+          },
+        },
+      }
     }),
   ],
   bundler: viteBundler({

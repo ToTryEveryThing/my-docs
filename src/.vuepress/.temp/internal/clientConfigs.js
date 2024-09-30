@@ -13,7 +13,7 @@ import * as clientConfig11 from 'D:/mishu/my-docs/src/.vuepress/.temp/markdown-t
 import * as clientConfig12 from 'D:/mishu/my-docs/src/.vuepress/.temp/md-enhance/config.js'
 import * as clientConfig13 from 'D:/mishu/my-docs/node_modules/@vuepress/plugin-photo-swipe/lib/client/config.js'
 import * as clientConfig14 from 'D:/mishu/my-docs/src/.vuepress/.temp/theme-hope/config.js'
-import * as clientConfig15 from 'D:/mishu/my-docs/node_modules/vuepress-plugin-search-pro/lib/client/config.js'
+import * as clientConfig15 from 'D:/mishu/my-docs/src/.vuepress/.temp/docsearch/config.js'
 
 export const clientConfigs = [
   clientConfig0,
