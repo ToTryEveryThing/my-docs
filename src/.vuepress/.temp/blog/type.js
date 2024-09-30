@@ -1,13 +1,13 @@
-export const typeMap = {"article":{"/":{"path":"/article/","keys":["v-00404208","v-62533046","v-4d91c61a","v-72d40a42","v-515b615c","v-14596a62","v-0b42c94d","v-3325177c","v-ac0d9bb4","v-35bc9840","v-befb9404","v-4a3181d5","v-095629c8","v-2e3eac9e","v-145ac574","v-e7d29956","v-870b7946","v-2bcb26fa","v-083f0e38","v-9e67bfbe"]}},"star":{"/":{"path":"/star/","keys":[]}},"timeline":{"/":{"path":"/timeline/","keys":["v-00404208","v-62533046","v-4d91c61a","v-72d40a42","v-515b615c","v-14596a62","v-0b42c94d","v-3325177c","v-ac0d9bb4","v-35bc9840","v-befb9404","v-4a3181d5","v-095629c8","v-2e3eac9e","v-145ac574","v-e7d29956","v-870b7946","v-2bcb26fa","v-083f0e38","v-9e67bfbe"]}}};
+export const typesMap = {"article":{"/":{"path":"/article/","indexes":[22,23,5,30,31,32,33,34,35,36,37,26,27,28,29,24,25,16,1,0,11,17,18,2,19,20,21,12,38,39,3,4,6,7,8,9,10,13,14,15]}},"star":{"/":{"path":"/star/","indexes":[]}},"timeline":{"/":{"path":"/timeline/","indexes":[22,23,5,30,31,32,33,34,35,36,37,26,27,28,29,24,25,16,1,0,11,17,18,2,19,20,21,12,38,39,3,4,6,7,8,9,10,13,14,15]}}};
 
 if (import.meta.webpackHot) {
   import.meta.webpackHot.accept();
   if (__VUE_HMR_RUNTIME__.updateBlogType)
-    __VUE_HMR_RUNTIME__.updateBlogType(typeMap);
+    __VUE_HMR_RUNTIME__.updateBlogType(typesMap);
 }
 
 if (import.meta.hot)
-  import.meta.hot.accept(({ typeMap }) => {
-    __VUE_HMR_RUNTIME__.updateBlogType(typeMap);
+  import.meta.hot.accept(({ typesMap }) => {
+    __VUE_HMR_RUNTIME__.updateBlogType(typesMap);
   });
 

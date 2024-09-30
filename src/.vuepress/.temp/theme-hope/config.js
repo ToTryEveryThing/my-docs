@@ -2,6 +2,8 @@ import { HopeIcon, Layout, NotFound, injectDarkmode, setupDarkmode, setupSidebar
 
 import { defineCatalogInfoGetter } from "D:/mishu/my-docs/node_modules/@vuepress/plugin-catalog/lib/client/index.js"
 import { h } from "vue"
+import { BlogCategory, BlogHome, BlogType, BloggerInfo, SocialMedias, Timeline, setupBlog } from "D:/mishu/my-docs/node_modules/vuepress-theme-hope/lib/bundle/modules/blog/export.js";
+import "D:/mishu/my-docs/node_modules/vuepress-theme-hope/lib/bundle/modules/blog/styles/all.scss";
 import { GlobalEncrypt, LocalEncrypt } from "D:/mishu/my-docs/node_modules/vuepress-theme-hope/lib/bundle/modules/encrypt/export.js";
 import "D:/mishu/my-docs/node_modules/vuepress-theme-hope/lib/bundle/modules/encrypt/styles/all.scss"
 
@@ -38,17 +40,22 @@ export default {
     // provide HopeIcon as global component
     app.component("HopeIcon", HopeIcon);
 
+    app.component("BloggerInfo", BloggerInfo);
+    app.component("SocialMedias", SocialMedias);
     app.component("GlobalEncrypt", GlobalEncrypt);
     app.component("LocalEncrypt", LocalEncrypt);
   },
   setup: () => {
     setupDarkmode();
     setupSidebarItems();
-
+    setupBlog();
   },
   layouts: {
     Layout,
     NotFound,
-
+    BlogCategory,
+    BlogHome,
+    BlogType,
+    Timeline,
   }
 };

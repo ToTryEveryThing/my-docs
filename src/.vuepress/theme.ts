@@ -12,11 +12,13 @@ export default hopeTheme({
     url: "https://github.com/ToTryEveryThing/my-docs",
   },
 
-  darkmode: "toggle",
+  darkmode: "switch",
 
-  breadcrumb: true,
+  breadcrumb: false,
 
-  iconAssets: 'https://at.alicdn.com/t/c/font_4618431_zu8qu0uispt.css',
+  iconAssets: [
+    "https://at.alicdn.com/t/c/font_4618431_zu8qu0uispt.css"
+  ],
 
   logo: "logo.svg",
 
@@ -63,13 +65,10 @@ export default hopeTheme({
         dark: "one-dark-pro",
       }
     },
-    catalog: {
-      exclude: ["/^\/blog\/itheima\//", "/^\/blog\/itheima\/Netty\//"]
-    },
     markdownTab: {
       codeTabs: true,
     },
-    blog: false,
+    blog: true,
     git: true,
     // You should generate and use your own comment service
     // comment: {

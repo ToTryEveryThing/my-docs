@@ -6,7 +6,7 @@ description: mysql简单常用基础操作
 category:
   - SSM
 tag:
-  - Mysql
+  - mysql
 ---
 
 # Mysql

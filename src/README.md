@@ -2,6 +2,7 @@
 icon: home
 home: true
 bgImage: https://cdn.beink.cn/background/back.jpg
+# layout: BlogHome
 heroFullScreen: true
 description: 记录、学习
 ---
