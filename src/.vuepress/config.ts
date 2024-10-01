@@ -18,8 +18,8 @@ export default defineUserConfig({
     // }),
     docsearchPlugin({
       // 配置项
-      appId: 'GTPYHRH7GU',
-      apiKey: '918b433328b9828b7156977a294134a2',
+      appId: 'YFHDW2CZWH',
+      apiKey: 'bdc344cc78ce33e2a92faa9e82bb5d07',
       indexName: 'beink',
       locales: {
         '/': {
