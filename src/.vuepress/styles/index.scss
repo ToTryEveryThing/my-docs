@@ -7,20 +7,16 @@ code{
 //     border-color: var(--theme-color);
 // }
 .no-sidebar {
+    .DocSearch .DocSearch-Button-Key{
+        background-color: #6666664b;
+    }
     .vp-navbar{
         background-color: transparent;
-        color: black;
     }
     .search-pro-button{
         border: none;
-        color: #666666;
+        color: #666;
         background-color: rgb(93 93 93 / 51%);
-    }
-    .search-pro-key{
-        border: none;
-    }
-    kbd{
-        background-color: transparent;
     }
     .vp-hero-mask{
         height: 100vh;
