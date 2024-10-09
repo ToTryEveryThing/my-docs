@@ -1,6 +1,6 @@
 ---
 title: Jenkins
-icon: jenkins
+icon: skill-icons:jenkins-light
 order: 4
 description: Jenkins自动化流水线
 category:

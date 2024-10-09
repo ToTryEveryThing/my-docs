@@ -1,6 +1,6 @@
 ---
 title: Spring SpringMVC
-icon: spring
+icon: openmoji:hot-springs
 description: Spring框架基础及其在Web开发中的应用。
 order: 5
 category:

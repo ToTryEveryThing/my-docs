@@ -1,6 +1,6 @@
 ---
 title: Nginx
-icon: Nginx
+icon: vscode-icons:file-type-nginx
 order: 2
 description: Nginx(代理、负载均衡)
 category:

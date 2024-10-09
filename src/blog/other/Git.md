@@ -1,6 +1,6 @@
 ---
 title: Git
-icon: git
+icon: devicon:git
 order: 1
 description: git常用的简单操作
 category:

@@ -1,6 +1,6 @@
 ---
 title: Netty 进阶
-icon: Netty
+icon: logos:importio
 order: 2
 category:
   - itheima

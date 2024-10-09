@@ -1,6 +1,6 @@
 ---
 title: Action
-icon: liushuixian
+icon: logos:github-actions
 order: 3
 description: Github Action 简单操作示例 
 category:

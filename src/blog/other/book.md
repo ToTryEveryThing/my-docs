@@ -1,6 +1,6 @@
 ---
 title: 书本
-icon: book
+icon: icon-park:book
 order: 2
 description: 简单配置即可上手的操作，例如邮件、定时任务、数据校验。
 category:

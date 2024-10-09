@@ -1,6 +1,6 @@
 ---
 title: regex
-icon: -regexpreplace
+icon: skill-icons:regex-light
 order: 2
 description: 正则表达式示例以及介绍
 category:

@@ -1,6 +1,6 @@
 ---
 title: ElasticSearch
-icon: ESpeizhi
+icon: devicon:elasticsearch
 description: Elasticsearch可以很好地存储和查询文档，用于应用程序搜索、企业搜索和网站搜索。
 order: 3
 category:

@@ -1,6 +1,6 @@
 ---
 title: 文档
-icon: gdoc
+icon: vscode-icons:file-type-docz
 index: false
 dir:
     order: 4

@@ -1,6 +1,6 @@
 ---
 title: blog
-icon: boke
+icon: logos:blogger
 ---
 
  <Catalog />

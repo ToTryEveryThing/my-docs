@@ -1,6 +1,6 @@
 ---
 title: aliyun OSS
-icon: ossduixiangcunchuOSS
+icon: ant-design:aliyun-outlined
 order: 4
 description: Java上传文件概述和文件下载,自定义aliyun oss starter
 category:

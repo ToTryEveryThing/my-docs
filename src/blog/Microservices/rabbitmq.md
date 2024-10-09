@@ -1,6 +1,6 @@
 ---
 title: RabbitMQ
-icon: rabbitmq
+icon: devicon:rabbitmq
 description: 分布式消息中间件
 order: 2
 category:

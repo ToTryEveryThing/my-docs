@@ -1,6 +1,6 @@
 ---
 title: Redis
-icon: Redis
+icon: devicon:redis
 order: 1
 description: redis基本数据类型以及数据保存恢复
 category:

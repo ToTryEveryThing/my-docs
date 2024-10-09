@@ -1,6 +1,6 @@
 ---
 title: Mybatis Plus
-icon: mybatisplus
+icon: noto-v1:plus
 order: 4
 description: mybatis plus
 category:

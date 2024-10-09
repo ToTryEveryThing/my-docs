@@ -1,6 +1,6 @@
 ---
 title: Mysql
-icon: Mysql
+icon: logos:mysql-icon
 order: 1
 description: mysql简单常用基础操作
 category:

@@ -1,6 +1,6 @@
 ---
 title: 解析xml
-icon: xml1
+icon: catppuccin:xml
 order: 2
 description: java解析修改xml文件
 category:

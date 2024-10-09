@@ -1,6 +1,6 @@
 ---
 title: Puppeteer
-icon: puppeteer
+icon: devicon:puppeteer
 order: 5
 category:
   - Tool

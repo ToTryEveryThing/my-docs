@@ -13,7 +13,7 @@ export default {
     
   },
   setup: () => {
-    useScriptTag(`https://at.alicdn.com/t/c/font_4618431_zu8qu0uispt.js`);
+    useScriptTag(`https://cdn.jsdelivr.net/npm/iconify-icon@1`);
   },
   rootComponents: [
 

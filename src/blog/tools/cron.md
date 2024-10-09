@@ -1,6 +1,6 @@
 ---
 title: cron
-icon: crontab
+icon: flat-color-icons:serial-tasks
 order: 1
 description: Cron表达式
 category:

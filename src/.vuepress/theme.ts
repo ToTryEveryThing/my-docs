@@ -16,9 +16,7 @@ export default hopeTheme({
 
   breadcrumb: true,
 
-  iconAssets: [
-    "https://at.alicdn.com/t/c/font_4618431_zu8qu0uispt.js",
-  ],
+  iconAssets: "iconify",
 
   logo: "logo.svg",
 

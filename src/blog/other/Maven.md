@@ -1,6 +1,6 @@
 ---
 title: Maven
-icon: pluginIcon
+icon: devicon:maven
 order: 3
 description: maven阿里镜像、分模块、多模块打包
 category:

@@ -1,6 +1,6 @@
 ---
 title: Netty
-icon: Netty
+icon: logos:importio
 index: false
 dir: 
     order: 6

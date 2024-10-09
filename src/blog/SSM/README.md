@@ -1,6 +1,6 @@
 ---
 title: SSM
-icon: spring
+icon: logos:react-spring
 index: false
 order: 4
 dir:

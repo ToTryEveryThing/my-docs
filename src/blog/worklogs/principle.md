@@ -1,6 +1,6 @@
 ---
 title: principle
-icon: book
+icon: icon-park:book
 order: 3
 category:
   - work

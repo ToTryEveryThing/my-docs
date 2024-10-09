@@ -1,6 +1,6 @@
 ---
 title: Jasypt
-icon: jiami
+icon: material-symbols-light:password
 order: 3
 description: 适用于spirng项目中配置文件的敏感数据
 category:

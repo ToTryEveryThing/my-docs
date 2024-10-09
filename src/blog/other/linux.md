@@ -1,6 +1,6 @@
 ---
 title: Linux
-icon: linux
+icon: flat-color-icons:linux
 order: 2
 description: Linux基础知识，docker、mysql、vim
 category:

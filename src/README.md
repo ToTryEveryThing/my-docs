@@ -1,5 +1,5 @@
 ---
-icon: home
+icon: fluent-color:home-48
 home: true
 welcome: ''
 portfolio: true
@@ -21,6 +21,6 @@ description: 记录、学习
 
 
 
-<Catalog />
+<!-- <Catalog /> -->
 
 

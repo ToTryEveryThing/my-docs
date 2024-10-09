@@ -1,6 +1,6 @@
 ---
 title: Netty-Nio
-icon: Netty
+icon: logos:importio
 order: 2
 category:
   - itheima

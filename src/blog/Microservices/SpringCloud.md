@@ -1,6 +1,6 @@
 ---
 title: Spring Cloud
-icon: springcloud
+icon: marketeq:cloud
 order: 4
 description: 微服务全家桶
 category:
