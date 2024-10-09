@@ -1,6 +1,7 @@
 import path from "path";
 import { viteBundler } from '@vuepress/bundler-vite'
 import { defineUserConfig } from "vuepress";
+import { setupTransparentNavbar } from "vuepress-theme-hope/presets/transparentNavbar.js";
 import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
 import { docsearchPlugin } from '@vuepress/plugin-docsearch'
 import { hopeTheme } from "vuepress-theme-hope";
@@ -69,6 +70,7 @@ export default defineUserConfig({
         },
       }
     }),
+
   ],
   bundler: viteBundler({
     viteOptions: {},

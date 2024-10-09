@@ -12,8 +12,10 @@ import * as clientConfig10 from 'D:/mishu/my-docs/src/.vuepress/.temp/markdown-i
 import * as clientConfig11 from 'D:/mishu/my-docs/src/.vuepress/.temp/markdown-tab/config.js'
 import * as clientConfig12 from 'D:/mishu/my-docs/src/.vuepress/.temp/md-enhance/config.js'
 import * as clientConfig13 from 'D:/mishu/my-docs/node_modules/@vuepress/plugin-photo-swipe/lib/client/config.js'
-import * as clientConfig14 from 'D:/mishu/my-docs/src/.vuepress/.temp/theme-hope/config.js'
-import * as clientConfig15 from 'D:/mishu/my-docs/src/.vuepress/.temp/docsearch/config.js'
+import * as clientConfig14 from 'D:/mishu/my-docs/node_modules/@vuepress/plugin-redirect/lib/client/config.js'
+import * as clientConfig15 from 'D:/mishu/my-docs/src/.vuepress/.temp/theme-hope/config.js'
+import * as clientConfig16 from 'D:/mishu/my-docs/src/.vuepress/.temp/docsearch/config.js'
+import * as clientConfig17 from 'D:/mishu/my-docs/src/.vuepress/client.ts'
 
 export const clientConfigs = [
   clientConfig0,
@@ -32,4 +34,6 @@ export const clientConfigs = [
   clientConfig13,
   clientConfig14,
   clientConfig15,
+  clientConfig16,
+  clientConfig17,
 ].map((m) => m.default).filter(Boolean)

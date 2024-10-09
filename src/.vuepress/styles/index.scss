@@ -6,27 +6,16 @@ code{
 // blockquote {
 //     border-color: var(--theme-color);
 // }
-.no-sidebar {
-    .DocSearch .DocSearch-Button-Key{
-        background-color: #6666664b;
-    }
-    .vp-navbar{
-        background-color: transparent;
-    }
-    .search-pro-button{
-        border: none;
-        color: #666;
-        background-color: rgb(93 93 93 / 51%);
-    }
-    .vp-hero-mask{
-        height: 100vh;
-        top: -3.75rem;
-    }   
+.no-sidebar .DocSearch .DocSearch-Button-Key {
+    background-color: #ffffff15;
 }
 // a::after{
 //     content: n;
 // }
 
+p br{
+    display: none;
+}
 
 .vp-child-catalog{
     list-style: none;

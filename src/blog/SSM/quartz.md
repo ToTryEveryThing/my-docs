@@ -1,6 +1,6 @@
 ---
 title: Quartz
-icon: time
+icon: hourglass-half
 order: 2
 description: quartz的简单操作以及整合Spring Boot
 category:

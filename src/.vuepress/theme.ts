@@ -14,10 +14,10 @@ export default hopeTheme({
 
   darkmode: "switch",
 
-  breadcrumb: false,
+  breadcrumb: true,
 
   iconAssets: [
-    "https://at.alicdn.com/t/c/font_4618431_zu8qu0uispt.css"
+    "https://at.alicdn.com/t/c/font_4618431_zu8qu0uispt.js",
   ],
 
   logo: "logo.svg",
