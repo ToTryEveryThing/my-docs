@@ -7,7 +7,7 @@ export default sidebar({
   "/blog/worklogs/": "structure",
   "/blog/tools/": "structure",
   "/blog/itheima/": "structure",
-
+  "/blog/Software Designer/": "structure"
 });
 
 

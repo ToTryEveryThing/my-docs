@@ -63,6 +63,9 @@ export default hopeTheme({
         dark: "one-dark-pro",
       }
     },
+    components: {
+      components: ["SiteInfo", "PDF"]
+    },
     markdownTab: {
       codeTabs: true,
     },
