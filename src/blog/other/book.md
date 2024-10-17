@@ -18,6 +18,9 @@ spring:
     resources:
       static-locations: classpath:/static/
 ```
+
+或者 
+
 ```java
 @Configuration
 public class staticHandles implements WebMvcConfigurer {
@@ -29,6 +32,11 @@ public class staticHandles implements WebMvcConfigurer {
     }
 }
 ```
+![image](https://github.com/user-attachments/assets/0907b832-fac1-4f55-871e-d8467e6c4d01)
+
+
+访问 url http://127.0.0.1:port/static/1.png
+
 ## 文件上传
 ```xml
         <dependency>
