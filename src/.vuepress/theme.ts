@@ -14,7 +14,7 @@ export default hopeTheme({
 
   darkmode: "switch",
 
-  breadcrumb: true,
+  breadcrumb: false,
 
   iconAssets: "iconify",
 
@@ -57,7 +57,7 @@ export default hopeTheme({
   plugins: {
     shiki: {
       lineNumbers: true,
-      collapsedLines: 10,
+      collapsedLines: 20,
       themes: {
         light: "github-light",
         dark: "one-dark-pro",

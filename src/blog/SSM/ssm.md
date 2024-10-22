@@ -172,6 +172,132 @@ public bookDaoImpl(String s, int a) {
 > @PropertySource("xxx.yml") 数据源 内容--（name=hello world）
 > ```
 
+### 反射
+
+[大白话说Java反射：入门、使用、原理 - 陈树义 - 博客园](https://www.cnblogs.com/chanshuyi/p/head_first_of_reflection.html)
+
+[Java 反射（Reflection） | 菜鸟教程](https://www.runoob.com/java/java-reflection.html)
+
+> 反射就是在运行时才知道要操作的类是什么，并且可以在运行时获取类的完整构造，并调用对应的方法。
+
+**获取反射的 Class 对象**
+
+- 使用 Class.forName 静态方法。当你知道该类的全路径名时，你可以使用该方法获取 Class 类对象。
+
+```java
+Class clz = Class.forName("java.lang.String");
+```
+
+- 使用 .class 方法。
+
+> 这种方法只适合在编译前就知道操作的 Class。
+
+```java
+Class clz = String.class;
+```
+
+- 使用类对象的 getClass() 方法。
+
+```java
+String str = new String("Hello");
+Class clz = str.getClass();
+```
+
+::: code-tabs#shell
+
+@tab 访问字段
+
+```java
+Class<?> clazz = Person.class;
+Field field = clazz.getDeclaredField("name");
+field.setAccessible(true); // 如果字段是私有的，需要设置为可访问
+Object value = field.get(personInstance); // 获取字段值
+field.set(personInstance, "New Name"); // 设置字段值
+```
+
+@tab 调用方法
+
+```java
+Class<?> clazz = Person.class;
+Method method = clazz.getMethod("sayHello");
+method.invoke(personInstance);
+
+Method methodWithArgs = clazz.getMethod("greet", String.class);
+methodWithArgs.invoke(personInstance, "World");
+```
+
+@tab 获取构造函数
+
+```java
+Class<?> clazz = Person.class;
+Constructor<?> constructor = clazz.getConstructor(String.class, int.class);
+Object obj = constructor.newInstance("John", 30);
+```
+@tab  获取接口和父类
+
+```java
+Class<?> clazz = Person.class;
+
+// 获取所有接口
+Class<?>[] interfaces = clazz.getInterfaces();
+for (Class<?> i : interfaces) {
+    System.out.println("Interface: " + i.getName());
+}
+
+// 获取父类
+Class<?> superClass = clazz.getSuperclass();
+System.out.println("Superclass: " + superClass.getName());
+```
+
+@tab 示例
+```java
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+
+public class ReflectionExample {
+
+    public static void main(String[] args) throws Exception {
+        // 获取 Class 对象
+        Class<?> clazz = Person.class;
+        
+        // 创建对象
+        Constructor<?> constructor = clazz.getConstructor(String.class, int.class);
+        Object person = constructor.newInstance("John", 30);
+        
+        // 访问字段
+        Field nameField = clazz.getDeclaredField("name");
+        nameField.setAccessible(true);
+        System.out.println("Name: " + nameField.get(person));
+        
+        // 修改字段
+        nameField.set(person, "Doe");
+        System.out.println("Updated Name: " + nameField.get(person));
+        
+        // 调用方法
+        Method greetMethod = clazz.getMethod("greet", String.class);
+        greetMethod.invoke(person, "World");
+    }
+}
+
+class Person {
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public void greet(String message) {
+        System.out.println(name + " says: " + message);
+    }
+}
+```
+
+:::
+
+
 ### AOP
 
 > **不改变原始设计 将功能增强**
@@ -198,59 +324,134 @@ public class MyAop {
 
 ### 切入点表达式
 
-> ```java
-> 使用*通配符即可
-> @Pointcut("execution( * * com.beink.dao.*)")
-> ```
+- 定义切入点
 
-#### 通知类型
+> 类型都可以使用
 
-```java
-public class MyAop {
-    @Pointcut("execution(void com.beink.dao.bookDao.save())")
-    private void ss(){}
-    
-    @AfterReturning("ss()")
-    public void set(){
-        System.out.println("AOP");
-    }
-//  环绕
-    @Around("ss()")
-    public void round(ProceedingJoinPoint e) throws Throwable {
-        System.out.println("qian");
-        e.proceed();/*调用原始操作*/
-        System.out.println("hou");
-//        如果有返回值 返回对象必须是Object
-    }
+ ```java
+ //使用*通配符即可
+ @Pointcut("execution( * * com.beink.dao.*)")
+ ```
 
-//    @AfterReturning
-//    @AfterThrowing
+- 使用注解切入
+
+```java 4,5
+public @interface Redisdel {
+    String key() default "";
 }
+// 必须是小写
+@Around("@annotation(redisdel)")
+
+```
+
+:::details 类型执行顺序
+
+```mermaid
+graph TD
+    A(开始) --> B[@Before 通知执行]
+    B --> C[@Around 通知的前置逻辑执行]
+    C --> D{目标方法执行?}
+    D -- 是 --> E[目标方法执行]
+    D -- 否 --> F[流程结束]
+    E --> G{是否正常返回?}
+    G -- 是 --> H[@AfterReturning 通知执行]
+    G -- 否 --> I[@AfterThrowing 通知执行]
+    H --> J[@After 通知执行]
+    I --> J
+    J --> K[@Around 通知的后置逻辑执行]
+    K --> L(流程结束)
+
 ```
 
 
-#### 获取通知数据
+:::
 
+:::details 获取参数
+| 通知           | 可以获取入参 | 可以获取出参 |
+| -------------- | ---------- | ---------- |
+| `@Before`      | ✔️          | ❌          |
+| `@Around`      | ✔️          | ✔️         |
+| `@AfterReturning` | ❌       | ✔️          |
+| `@AfterThrowing`| ❌           | ❌          |
+| `@After`       | ❌           | ❌         |
+:::
+
+:::details ProceedingJoinPoint 和 JoinPoint 
+
+- `JoinPoint`：代表一个可以被增强的点（通常是方法），允许你获取方法的参数、目标对象等信息，但不能控制方法的执行。
+
+- `ProceedingJoinPoint`：是JoinPoint的扩展，除了可以获取方法信息外，还可以控制目标方法的执行，比如在方法执行前后添加自定义逻辑。
+
+获取参数和返回值：
+- 获取参数：JoinPoint和ProceedingJoinPoint都可以获取方法的参数。
+- 获取返回值：@AfterReturning通知可以直接获取返回值。在@Around通知中，通过调用proceed()方法可以获取并可能修改返回值。
+
+
+:::
+
+#### 实操
 ```java
-public class MyAop {
-    @Pointcut("execution(void com.beink.dao.bookDao.save(..))")
-    private void ss(){}
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Advice;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.AfterThrowing;
 
-//  环绕
-    @Around("ss()")
-    public Object round(ProceedingJoinPoint e) throws Throwable {
+@Aspect
+public class LoggingAspect {
 
-        Object[] args = e.getArgs();
-        e.proceed();/*调用原始操作*/
-        System.out.println(Arrays.toString(args));/*获取参数*/
-//        修改参数
-        args[0] = 666;
-        Object ret = e.proceed(args);
-        
-        return ret;
+    // 定义一个切点，匹配任意包中的任意类和任意方法
+    @Pointcut("execution(* *.*(..))")
+    public void anyMethod() {}
+
+    // 定义一个切点，匹配使用了@Loggable注解的方法
+    @Pointcut("@annotation(Loggable)")
+    public void loggableMethod() {}
+
+    // 使用@Before注解定义前置通知
+    @Before("loggableMethod()")
+    public void beforeAdvice(JoinPoint joinPoint) {
+        System.out.println("Before advice: 方法 " + joinPoint.getSignature().getName() + " 即将执行");
     }
 
+    // 使用@Around注解定义环绕通知
+    @Around("loggableMethod()")
+    public Object aroundAdvice(ProceedingJoinPoint joinPoint) throws Throwable {
+        System.out.println("Around advice: 方法 " + joinPoint.getSignature().getName() + " 开始执行");
+        Object result = null;
+        try {
+            result = joinPoint.proceed(); // 执行目标方法
+        } finally {
+            System.out.println("Around advice: 方法 " + joinPoint.getSignature().getName() + " 执行结束");
+        }
+        return result;
+    }
+
+    // 使用@AfterReturning注解定义返回后通知
+    @AfterReturning(pointcut = "loggableMethod()", returning = "result")
+    public void afterReturningAdvice(JoinPoint joinPoint, Object result) {
+        System.out.println("After returning advice: 方法 " + joinPoint.getSignature().getName() + " 返回值是 " + result);
+    }
+
+    // 使用@After注解定义最终通知
+    @After("loggableMethod()")
+    public void afterAdvice(JoinPoint joinPoint) {
+        System.out.println("After advice: 方法 " + joinPoint.getSignature().getName() + " 已经执行完毕");
+    }
+
+    // 使用@AfterThrowing注解定义异常通知
+    @AfterThrowing(pointcut = "loggableMethod()", throwing = "error")
+    public void afterThrowingAdvice(JoinPoint joinPoint, Throwable error) {
+        System.out.println("After throwing advice: 方法 " + joinPoint.getSignature().getName() + " 抛出异常 " + error.getMessage());
+    }
 }
+
 ```
 
 
