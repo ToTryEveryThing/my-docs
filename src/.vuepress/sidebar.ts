@@ -6,8 +6,7 @@ export default sidebar({
   "/blog/Microservices/": "structure",
   "/blog/worklogs/": "structure",
   "/blog/tools/": "structure",
-  "/blog/itheima/": "structure",
-  "/blog/Software Designer/": "structure"
+  "/blog/itheima/": "structure"
 });
 
 
