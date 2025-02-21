@@ -14,7 +14,7 @@ export default hopeTheme({
 
   darkmode: "switch",
 
-  breadcrumb: false,
+  breadcrumb: true,
 
   iconAssets: "iconify",
 
