@@ -1,11 +1,11 @@
-import { hasGlobalComponent } from "D:/mishu/my-docs/node_modules/@vuepress/helper/lib/client/index.js";
+import { hasGlobalComponent } from "D:/study/ToTryEveryThing/my-docs/node_modules/@vuepress/helper/lib/client/index.js";
 
-import { useScriptTag } from "D:/mishu/my-docs/node_modules/@vueuse/core/index.mjs";
-import FontIcon from "D:/mishu/my-docs/node_modules/vuepress-plugin-components/lib/client/components/FontIcon.js";
-import SiteInfo from "D:/mishu/my-docs/node_modules/vuepress-plugin-components/lib/client/components/SiteInfo.js";
-import PDF from "D:/mishu/my-docs/node_modules/vuepress-plugin-components/lib/client/components/PDF.js";
+import { useScriptTag } from "D:/study/ToTryEveryThing/my-docs/node_modules/@vueuse/core/index.mjs";
+import FontIcon from "D:/study/ToTryEveryThing/my-docs/node_modules/vuepress-plugin-components/lib/client/components/FontIcon.js";
+import SiteInfo from "D:/study/ToTryEveryThing/my-docs/node_modules/vuepress-plugin-components/lib/client/components/SiteInfo.js";
+import PDF from "D:/study/ToTryEveryThing/my-docs/node_modules/vuepress-plugin-components/lib/client/components/PDF.js";
 
-import "D:/mishu/my-docs/node_modules/vuepress-plugin-components/lib/client/styles/sr-only.scss";
+import "D:/study/ToTryEveryThing/my-docs/node_modules/vuepress-plugin-components/lib/client/styles/sr-only.scss";
 
 export default {
   enhance: ({ app }) => {

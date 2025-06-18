@@ -18,7 +18,7 @@ description: 记录、学习
 [![](https://img.shields.io/badge/Tool-badge-blue)](https://img.shields.io)
 [![](https://img.shields.io/badge/Tool-Maven-red)](https://mvnrepository.com/)
 [![](https://img.shields.io/badge/Theme-OhMyPosh-orange)](https://ohmyposh.dev/)
-
+[![](https://img.shields.io/badge/icon-iconify-white)](https://icon-sets.iconify.design/)
 
 
 <!-- <Catalog /> -->
