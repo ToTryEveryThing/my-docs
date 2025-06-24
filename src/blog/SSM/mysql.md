@@ -321,6 +321,82 @@ drop view if exists com; #只会删除视图 ， 不影响表格
 desc com;
 ```
 
+| 特点      | 存储函数(Function)     | 存储过程(Procedure)           |
+| ------- | ------------------ | ------------------------- |
+| 返回值     | 必须返回单一值            | 可返回多个结果或无返回值              |
+| 用途      | 通常用于计算、查询          | 通常用于执行复杂业务逻辑、批量处理         |
+| 是否能修改数据 | 只能只读查询，不能修改数据      | 可以执行 INSERT、UPDATE、DELETE |
+| 传入参数类型  | 只能输入参数 (IN)        | 支持 IN、OUT、INOUT 参数        |
+| 调用方式    | 在SQL语句中直接调用（可嵌入查询） | 通过 `CALL` 语句调用            |
+
+
+## 存储函数
+
+> 只能做数据处理 **不能执行任何会更改数据库状态的语句** <br>
+> 像内置函数一样调用。它接受输入参数，执行逻辑处理，并返回一个值。
+
+### 创建函数
+```sql
+CREATE DEFINER=`root`@`localhost` FUNCTION `test`(in_id INT) RETURNS int
+    READS SQL DATA -- 只读
+    DETERMINISTIC -- 幂等
+BEGIN
+    DECLARE cnt INT; -- 变量
+
+    SELECT COUNT(*) INTO cnt
+    FROM `user`
+    WHERE `id` = in_id;
+
+    RETURN cnt; -- 返回
+END
+```
+### 使用
+```sql
+select test(8990) as total
+```
+### 复杂示例
+
+```sql
+CREATE FUNCTION `days_since_registration`(in_user_id INT)
+RETURNS INT
+DETERMINISTIC
+READS SQL DATA
+BEGIN
+    DECLARE reg_date DATE;
+    DECLARE days_diff INT;
+
+    -- 查询用户的注册日期
+    SELECT registration_date INTO reg_date
+    FROM `user`
+    WHERE id = in_user_id;
+
+    -- 如果用户不存在，返回 -1
+    IF reg_date IS NULL THEN
+        RETURN -1;
+    END IF;
+
+    -- 计算当前日期和注册日期的天数差
+    SET days_diff = DATEDIFF(CURDATE(), reg_date);
+
+    RETURN days_diff;
+END
+```
+
+## 存储过程
+
+```sql
+CREATE DEFINER=`root`@`localhost` PROCEDURE `chen`(IN p_id INT, OUT p_name VARCHAR(255))
+BEGIN
+    UPDATE `user` SET `name` = 'T' WHERE `id` = p_id;
+    SELECT `name` INTO p_name FROM `user` WHERE `id` = p_id;
+END
+```
+
+```sql
+call chen(1, @name);
+select @name;
+```
+
 ## 其他
 
 #### 查看curd执行频率

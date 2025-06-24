@@ -10,6 +10,7 @@ bgImage: https://cdn.beink.cn/background/back.jpg
 # layout: BlogHome
 # heroFullScreen: true
 description: 记录、学习
+title: docs
 ---
 
 ![](https://raw.githubusercontent.com/ToTryEveryThing/ToTryEveryThing/output/github-contribution-grid-snake.svg)
