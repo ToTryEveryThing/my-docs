@@ -8,22 +8,21 @@
     "docs:build": "vuepress build src",
     "docs:clean-dev": "vuepress dev src --clean-cache",
     "docs:dev": "vuepress dev src",
-    "docs:update-package": "npx vp-update",
-    "update": "scp -r src/.vuepress/dist  beink:/www/wwwroot/mydocs"
+    "docs:update-package": "npx vp-update"
   },
   "devDependencies": {
-    "@vuepress/bundler-vite": "2.0.0-rc.23",
-    "@vuepress/client": "^2.0.0-rc.23",
-    "@vuepress/plugin-catalog": "2.0.0-rc.109",
-    "@vuepress/plugin-docsearch": "2.0.0-rc.109",
-    "@vuepress/plugin-prismjs": "2.0.0-rc.109",
-    "@vuepress/plugin-register-components": "2.0.0-rc.103",
-    "@vuepress/plugin-shiki": "2.0.0-rc.109",
+    "@vuepress/bundler-vite": "2.0.0-rc.17",
+    "@vuepress/client": "^2.0.0-rc.17",
+    "@vuepress/plugin-catalog": "2.0.0-rc.52",
+    "@vuepress/plugin-docsearch": "2.0.0-rc.52",
+    "@vuepress/plugin-prismjs": "2.0.0-rc.52",
+    "@vuepress/plugin-register-components": "2.0.0-rc.52",
+    "@vuepress/plugin-shiki": "2.0.0-rc.52",
     "sass": "^1.79.3",
-    "vue": "^3.5.17",
-    "vuepress": "2.0.0-rc.23",
-    "vuepress-plugin-search-pro": "2.0.0-rc.59",
-    "vuepress-theme-hope": "2.0.0-rc.93"
+    "vue": "^3.5.11",
+    "vuepress": "2.0.0-rc.17",
+    "vuepress-plugin-search-pro": "2.0.0-rc.57",
+    "vuepress-theme-hope": "2.0.0-rc.58"
   },
   "dependencies": {
     "jquery": "^3.7.0",
