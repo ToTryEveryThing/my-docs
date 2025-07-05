@@ -2,6 +2,7 @@
 title: principle
 icon: icon-park:book
 order: 3
+index: false
 category:
   - work
 ---
