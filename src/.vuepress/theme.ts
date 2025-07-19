@@ -12,11 +12,22 @@ export default hopeTheme({
     url: "https://github.com/ToTryEveryThing/my-docs",
   },
 
+  plugins: {
+    icon: {
+      assets: "iconify"
+    },
+    components: {
+      components: ["SiteInfo", "PDF"]
+    },
+    blog: true,
+    git: true,
+  },
+
   darkmode: "switch",
 
   breadcrumb: true,
 
-  iconAssets: "iconify",
+  changelog: true,
 
   logo: "logo.svg",
 
@@ -52,133 +63,45 @@ export default hopeTheme({
     end: ["Links", "Outlook", "Repo", "Search"],
   },
 
-
-
-  plugins: {
-    shiki: {
-      lineNumbers: true,
-      collapsedLines: 20,
-      themes: {
-        light: "github-light",
-        dark: "one-dark-pro",
-      }
+  markdown: {
+    highlighter: "shiki",
+    // codeTabs:true,
+    align: false,
+    attrs: false,
+    // codetabs: true,
+    demo: false,
+    echarts: false,
+    // figure: true,
+    flowchart: false,
+    gfm: true,
+    // imgLazyload: true,
+    // imgSize: true,
+    include: true,
+    // katex: false,
+    mark: false,
+    mermaid: true,
+    playground: {
+      presets: ["ts", "vue"],
     },
-    components: {
-      components: ["SiteInfo", "PDF"]
-    },
-    markdownTab: {
-      codeTabs: true,
-    },
-    blog: true,
-    git: true,
-    // You should generate and use your own comment service
-    // comment: {
-    //   provider: "Giscus",
-    //   repo: "vuepress-theme-hope/giscus-discussions",
-    //   repoId: "R_kgDOG_Pt2A",
-    //   category: "Announcements",
-    //   categoryId: "DIC_kwDOG_Pt2M4COD69",
-    // },
-    // All features are enabled for demo, only preserve features you need here
-    // markdown  用不到的false
-    mdEnhance: {
-      // codeTabs:true,
-      align: false,
-      attrs: false,
-      chart: false,
-      // codetabs: true,
-      demo: false,
-      echarts: false,
-      // figure: true,
-      flowchart: false,
-      gfm: true,
-      // imgLazyload: true,
-      // imgSize: true,
-      include: true,
-      // katex: false,
-      mark: false,
-      mermaid: true,
-      playground: {
-        presets: ["ts", "vue"],
-      },
-      // presentation: {
-      //   plugins: ["highlight", "math", "search", "notes", "zoom"],
-      // },
-      stylize: [
-        {
-          matcher: "Recommended",
-          replacer: ({ tag }) => {
-            if (tag === "em")
-              return {
-                tag: "Badge",
-                attrs: { type: "tip" },
-                content: "Recommended",
-              };
-          },
+    stylize: [
+      {
+        matcher: "Recommended",
+        replacer: ({ tag }) => {
+          if (tag === "em")
+            return {
+              tag: "Badge",
+              attrs: { type: "tip" },
+              content: "Recommended",
+            };
         },
-      ],
-      sub: false,
-      sup: false,
-      // tabs: false,
-      vPre: false,
-      vuePlayground: false,
-    },
-
-    // uncomment these if you want a pwa
-    // pwa: {
-    //   favicon: "/favicon.ico",
-    //   cacheHTML: true,
-    //   cachePic: true,
-    //   appendBase: true,
-    //   apple: {
-    //     icon: "/assets/icon/apple-icon-152.png",
-    //     statusBarColor: "black",
-    //   },
-    //   msTile: {
-    //     image: "/assets/icon/ms-icon-144.png",
-    //     color: "#ffffff",
-    //   },
-    //   manifest: {
-    //     icons: [
-    //       {
-    //         src: "/assets/icon/chrome-mask-512.png",
-    //         sizes: "512x512",
-    //         purpose: "maskable",
-    //         type: "image/png",
-    //       },
-    //       {
-    //         src: "/assets/icon/chrome-mask-192.png",
-    //         sizes: "192x192",
-    //         purpose: "maskable",
-    //         type: "image/png",
-    //       },
-    //       {
-    //         src: "/assets/icon/chrome-512.png",
-    //         sizes: "512x512",
-    //         type: "image/png",
-    //       },
-    //       {
-    //         src: "/assets/icon/chrome-192.png",
-    //         sizes: "192x192",
-    //         type: "image/png",
-    //       },
-    //     ],
-    //     shortcuts: [
-    //       {
-    //         name: "Demo",
-    //         short_name: "Demo",
-    //         url: "/demo/",
-    //         icons: [
-    //           {
-    //             src: "/assets/icon/guide-maskable.png",
-    //             sizes: "192x192",
-    //             purpose: "maskable",
-    //             type: "image/png",
-    //           },
-    //         ],
-    //       },
-    //     ],
-    //   },
-    // },
+      },
+    ],
+    sub: false,
+    sup: false,
+    // tabs: false,
+    vPre: false,
+    vuePlayground: false,
+    codeTabs: true,
   },
+
 });

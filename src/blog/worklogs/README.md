@@ -1,7 +1,7 @@
 ---
 title: 开发
-icon: icon-park:workbench
-index: false
+icon: svg-spinners:gooey-balls-1
+index: true
 dir:
     order: 5
     text: Group 1

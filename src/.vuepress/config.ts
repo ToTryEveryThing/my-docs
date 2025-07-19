@@ -1,11 +1,6 @@
-import path from "path";
 import { viteBundler } from '@vuepress/bundler-vite'
 import { defineUserConfig } from "vuepress";
-import { setupTransparentNavbar } from "vuepress-theme-hope/presets/transparentNavbar.js";
-import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
 import { docsearchPlugin } from '@vuepress/plugin-docsearch'
-import { hopeTheme } from "vuepress-theme-hope";
-import { catalogPlugin } from '@vuepress/plugin-catalog'
 import theme from "./theme.js";
 
 export default defineUserConfig({
@@ -13,10 +8,6 @@ export default defineUserConfig({
   base: '/',
   lang: "zh-CN",
   plugins: [
-    // registerComponentsPlugin({
-    //   // 配置项
-    //   componentsDir: path.resolve(__dirname, './components')
-    // }),
     docsearchPlugin({
       // 配置项
       appId: 'YFHDW2CZWH',
@@ -70,7 +61,6 @@ export default defineUserConfig({
         },
       }
     }),
-
   ],
   bundler: viteBundler({
     viteOptions: {},

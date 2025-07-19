@@ -11,18 +11,16 @@
     "docs:update-package": "npx vp-update"
   },
   "devDependencies": {
-    "@vuepress/bundler-vite": "2.0.0-rc.17",
-    "@vuepress/client": "^2.0.0-rc.17",
-    "@vuepress/plugin-catalog": "2.0.0-rc.52",
-    "@vuepress/plugin-docsearch": "2.0.0-rc.52",
-    "@vuepress/plugin-prismjs": "2.0.0-rc.52",
-    "@vuepress/plugin-register-components": "2.0.0-rc.52",
-    "@vuepress/plugin-shiki": "2.0.0-rc.52",
+    "@vuepress/bundler-vite": "2.0.0-rc.24",
+    "@vuepress/plugin-catalog": "2.0.0-rc.112",
+    "@vuepress/plugin-docsearch": "2.0.0-rc.112",
+    "@vuepress/plugin-prismjs": "2.0.0-rc.112",
+    "@vuepress/plugin-register-components": "2.0.0-rc.112",
+    "@vuepress/plugin-shiki": "2.0.0-rc.112",
     "sass": "^1.79.3",
-    "vue": "^3.5.11",
-    "vuepress": "2.0.0-rc.17",
-    "vuepress-plugin-search-pro": "2.0.0-rc.57",
-    "vuepress-theme-hope": "2.0.0-rc.58"
+    "vue": "^3.5.17",
+    "vuepress": "2.0.0-rc.24",
+    "vuepress-theme-hope": "2.0.0-rc.94"
   },
   "dependencies": {
     "jquery": "^3.7.0",
