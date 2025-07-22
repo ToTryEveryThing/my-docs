@@ -64,7 +64,10 @@ export default hopeTheme({
   },
 
   markdown: {
-    highlighter: "shiki",
+    highlighter: {
+      type: "shiki",
+      collapsedLines: true,
+    },
     // codeTabs:true,
     align: false,
     attrs: false,

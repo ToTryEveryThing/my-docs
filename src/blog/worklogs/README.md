@@ -20,3 +20,102 @@ dir:
 
 
 [开发文档](https://www.ssssssss.org/magic-api/pages/quick/intro/)
+
+## 数据签名
+> `数据签名`，用于防止数据被篡改
+> 
+> 把请求参数按规则排序后加时间戳和密钥生成哈希值，作为签名附在请求中，服务端用同样算法校验，防篡改。
+
+前端
+> // npm install crypto-js
+> 放在body中一起发送
+```ts
+import CryptoJS from 'crypto-js';
+
+// 与后端约定好的密钥
+const SECRET = import.meta.env.VITE_SIGN_SECRET as string;
+
+export function buildSign(data: Record<string, any>) {
+    const timestamp = Date.now();
+    // 1. 过滤掉 sign、timestamp 本身
+    const raw = { ...data };
+    delete raw.sign;
+    delete raw.timestamp;
+
+    // 2. key 升序排序后拼串
+    const qs = Object.keys(raw)
+        .sort()
+        .map(k => `${k}=${raw[k]}`)
+        .join('&');
+
+    const str = `${qs}&timestamp=${timestamp}`;
+    console.log('签名串:', str, SECRET);
+    const sign = CryptoJS.HmacSHA256(str, SECRET).toString();
+    return { sign, timestamp };
+}
+```
+后端
+> hutool工具包
+> 
+> 创建一个过滤器，在过滤器中获取请求体，并计算签名，然后与前端的签名进行比较，如果一致则继续处理请求，否则返回错误。
+> 
+> .addFilterBefore(signAuthFilter, UsernamePasswordAuthenticationFilter.class) 放在 Spring Security 的认证过滤器之前执行
+```java
+@Slf4j
+@Component
+public class SignAuthFilter extends OncePerRequestFilter {
+
+    private static final long EXPIRE_MS = 60_000L;
+    private static final String SECRET = "myc"; // 与前端一致
+
+    //因为 Servlet 规范规定：请求流只能读一次，读完就没了
+    @Override
+    protected void doFilterInternal(HttpServletRequest req, HttpServletResponse resp, FilterChain chain) throws ServletException, IOException {
+        if ("POST".equalsIgnoreCase(req.getMethod())) {
+            try {
+                // 1. 读取 body
+                CachedBodyHttpServletRequest wrapper = new CachedBodyHttpServletRequest(req);
+                String body = StreamUtils.copyToString(wrapper.getInputStream(), StandardCharsets.UTF_8);
+                JSONObject json = JSONUtil.parseObj(body);
+
+                String sign = json.getStr("sign");
+                long timestamp = json.getLong("timestamp", 0L);
+
+                if (Math.abs(System.currentTimeMillis() - timestamp) > EXPIRE_MS) {
+                    log.error("签名过期:{}-{}",System.currentTimeMillis(), timestamp );
+                    resp.sendError(HttpServletResponse.SC_UNAUTHORIZED, "签名过期");
+                    return;
+                }
+
+                String serverSign = buildSign(json, timestamp);
+                if (!serverSign.equalsIgnoreCase(sign)) {
+                    log.error("签名无效:{}-{}",serverSign, sign );
+                    resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "签名无效");
+                    return;
+                }
+
+                req = wrapper; // 继续向下传递可读 body
+            } catch (Exception e) {
+                resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "签名验证异常");
+                return;
+            }
+        }
+        chain.doFilter(req, resp);
+    }
+
+    private String buildSign(JSONObject json, long ts) {
+        Map<String, Object> map = json.entrySet().stream()
+                .filter(e -> !"timestamp".equals(e.getKey()))
+                .filter(e -> !"sign".equals(e.getKey()))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+
+        String qs = map.entrySet().stream()
+                .sorted(Map.Entry.comparingByKey())
+                .map(e -> e.getKey() + "=" + e.getValue())
+                .collect(Collectors.joining("&"));
+        String str = qs + "&timestamp=" + ts;
+        log.error("签名串比较{}，{}",str, SECRET);
+        return SecureUtil.hmacSha256(SECRET).digestHex(str);
+    }
+}
+```
