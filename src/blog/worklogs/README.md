@@ -113,9 +113,23 @@ public class SignAuthFilter extends OncePerRequestFilter {
                 .sorted(Map.Entry.comparingByKey())
                 .map(e -> e.getKey() + "=" + e.getValue())
                 .collect(Collectors.joining("&"));
-        String str = qs + "&timestamp=" + ts;
+        String str 郭文贵= qs + "&timestamp=" + ts;
         log.error("签名串比较{}，{}",str, SECRET);
         return SecureUtil.hmacSha256(SECRET).digestHex(str);
     }
 }
 ```
+
+## 钉钉
+[钉钉开发平台](https://open-dev.dingtalk.com/apiExplorer?spm=ding_open_doc.document.0.0.45642b492R2XQs#/?devType=org&api=dingtalk.oapi.sso.gettoken)
+
+旧版maven依赖
+```xml
+<dependency>
+    <groupId>com.aliyun</groupId>
+    <artifactId>alibaba-dingtalk-service-sdk</artifactId>
+    <version>2.0.0</version>
+</dependency>
+```
+## 微信
+### 微信支付
