@@ -114,6 +114,29 @@ public List deleteObject(String s){
         return null;
     }
 ````
+#### 图片过期时间
+```java
+public String generatePresignedUrl(String objectName, long expirationTime) {
+        // 600000 10分钟
+        try {
+            // 设置URL过期时间为10分钟
+            Date expirationDate = new Date(System.currentTimeMillis() + expirationTime);
+            // 生成预签名URL
+            GeneratePresignedUrlRequest generatePresignedUrlRequest =
+                    new GeneratePresignedUrlRequest(ossConfig.getBucketName(), objectName);
+            generatePresignedUrlRequest.setExpiration(expirationDate);
+            URL url = ossClient.generatePresignedUrl(generatePresignedUrlRequest);
+            return url.toString();
+        } catch (Exception oe) {
+            oe.printStackTrace();
+        } finally {
+            if (ossClient != null) {
+                ossClient.shutdown();
+            }
+        }
+        return null;
+    }
+```
 
 ## 自定义 Starter ^[来自：https://juejin.cn/post/7124603507025379365]
 
