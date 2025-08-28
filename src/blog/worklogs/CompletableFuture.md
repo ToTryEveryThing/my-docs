@@ -1,6 +1,6 @@
 ---
 title: 异步编排
-icon: hugeicons:flow
+icon: streamline-freehand-color:fireworks-2
 order: 2
 description: 异步任务编排器
 category:

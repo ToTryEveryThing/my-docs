@@ -45,4 +45,78 @@ public SseEmitter stream() throws IOException {
 
 ![web](https://beink.oss-cn-beijing.aliyuncs.com/study/Snipaste_2024-11-20_16-13-52.png)
 
+## ApplicationEvent
+[SpringBoot 结合 Spring Event 实现事件发布与监听](http://www.mydlq.club/article/135/)
 
+> Spring内置的事件发布机制，可以发布事件，监听事件，并执行相应的处理逻辑。
+> 
+> 可以发布一对多的事件，监听器可以监听多个事件。
+>
+> 同步会阻塞（一个一个执行）
+>
+> @Order指定顺序 ，越小越先执行
+
+
+对象
+```java
+@Getter
+public class UserEvent extends ApplicationEvent {
+
+    private final String name;
+    private final String mobile;
+
+    public UserEvent(Object source, String name, String mobile) {
+        super(source);          // 必须调用父类构造器
+        this.name = name;
+        this.mobile = mobile;
+    }
+
+}
+```
+
+监听1
+```java
+/**
+ * @author mishu
+ * @since 2025/8/28
+ */
+@Slf4j
+@Component
+public class OneEventListener implements ApplicationListener<UserEvent> {
+
+    @SneakyThrows
+    @Override
+    public void onApplicationEvent(UserEvent event) {
+        Thread.sleep(3000);
+        log.info("11111收到！开始处理");
+    }
+}
+```
+监听2
+```java
+/**
+ * @author mishu
+ * @since 2025/8/28
+ */
+@Slf4j
+@Component
+public class TwoEventListener {
+
+    @SneakyThrows
+    @EventListener
+    public void onApplicationEvent(UserEvent event) {
+        Thread.sleep(1000);
+        log.info("22222收到！开始处理");
+    }
+}
+```
+发布者
+```java
+    @Resource
+    private ApplicationEventPublisher publisher;
+    @GetMapping("/public")
+    public void  TEST(){
+        UserEvent userEvent = new UserEvent(this,"info", "128");
+        publisher.publishEvent(userEvent);
+    }
+```

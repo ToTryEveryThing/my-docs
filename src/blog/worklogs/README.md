@@ -1,6 +1,6 @@
 ---
 title: 开发
-icon: svg-spinners:gooey-balls-1
+icon: material-icon-theme:bicep
 index: true
 dir:
     order: 5
