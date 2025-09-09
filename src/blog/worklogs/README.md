@@ -134,8 +134,9 @@ public class SignAuthFilter extends OncePerRequestFilter {
 ```
 ## 微信
 ### 微信支付
-#### 商家转账到用户零钱
+#### 商家转账
 > 新版本 必须用户同意才能转账
 
 [开发必要参数说明](https://pay.weixin.qq.com/doc/v3/merchant/4013070756)
-[发起转账](https://pay.wechatpay.cn/doc/v3/merchant/4012716434)、
+[商家转账-新版](https://pay.wechatpay.cn/doc/v3/merchant/4012716434)
+[商家转账到零钱-旧版](https://pay.wechatpay.cn/doc/v3/merchant/4012064660)
