@@ -121,7 +121,8 @@ public class SignAuthFilter extends OncePerRequestFilter {
 ```
 
 ## 钉钉
-[钉钉开发平台](https://open-dev.dingtalk.com/apiExplorer?spm=ding_open_doc.document.0.0.45642b492R2XQs#/?devType=org&api=dingtalk.oapi.sso.gettoken)
+### 部门管理2.0
+[开发文档](https://open-dev.dingtalk.com/apiExplorer#/?devType=org&api=dingtalk.oapi.v2.department.listsub)
 
 旧版maven依赖
 ```xml
@@ -133,3 +134,8 @@ public class SignAuthFilter extends OncePerRequestFilter {
 ```
 ## 微信
 ### 微信支付
+#### 商家转账到用户零钱
+> 新版本 必须用户同意才能转账
+
+[开发必要参数说明](https://pay.weixin.qq.com/doc/v3/merchant/4013070756)
+[发起转账](https://pay.wechatpay.cn/doc/v3/merchant/4012716434)、
