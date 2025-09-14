@@ -18,8 +18,33 @@ dir:
 ## magic-api
 > `magic-api`是一个基于Java的接口快速开发框架，编写接口将通过magic-api提供的UI界面完成，自动映射为HTTP接口。 无需定义Controller、Service、Dao、Mapper、XML、VO等Java对象即可完成常见的HTTP API接口开发。
 
-
 [开发文档](https://www.ssssssss.org/magic-api/pages/quick/intro/)
+
+## oha
+
+[Github](https://github.com/hatoo/oha)
+
+win安装
+```powershell
+winget install hatoo.oha
+```
+
+| 参数                    | 简写   | 示例                 | 说明                                                           |
+| --------------------- | ---- | ------------------ | ------------------------------------------------------------ |
+| `--requests`          | `-n` | `-n 1000`          | 总请求数，跑完就停。                                                   |
+| `--concurrency`       | `-c` | `-c 50`            | 并发数（同时开多少协程）。                                                |
+| `--duration`          | `-d` | `-d 30s`           | 压测时长，如 `10s` / `2m`；与 `-n` 二选一。                              |
+| `--timeout`           | `-t` | `-t 5s`            | 单请求超时时长，默认 10 s。                                             |
+| `--method`            | `-m` | `-m POST`          | HTTP 方法，默认 GET。                                              |
+| `--header`            | `-H` | `-H "token:abc"`   | 自定义头，可重复多次。                                                  |
+| `--data`              | `-D` | `-D '{"id":1}'`    | POST/PUT 请求体；JSON 记得加头 `-H "Content-Type:application/json"`。 |
+| `--data-file`         |      | `-D @payload.json` | 把请求体写在文件里。                                                   |
+| `--http-version`      |      | `--http-version 2` | 强制 HTTP/2。                                                   |
+| `--disable-keepalive` | `-k` |                    | 关闭长连接，默认开启 Keep-Alive。                                       |
+| `--insecure`          |      |                    | 跳过 HTTPS 证书校验（自测证书常用）。                                       |
+| `--quiet`             | `-q` |                    | 只打印最终汇总，不显示实时条。                                              |
+| `--json`              | `-j` |                    | 把结果导出成 JSON，方便后续脚本解析。                                        |
+
 
 ## 数据签名
 > `数据签名`，用于防止数据被篡改
