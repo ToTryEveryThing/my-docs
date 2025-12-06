@@ -67,6 +67,10 @@ export default hopeTheme({
     highlighter: {
       type: "shiki",
       collapsedLines: true,
+      themes: {
+        light: "one-light",
+        dark: "github-dark",
+      }
     },
     // codeTabs:true,
     align: false,
