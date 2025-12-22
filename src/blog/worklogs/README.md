@@ -166,3 +166,7 @@ public class SignAuthFilter extends OncePerRequestFilter {
 [商家转账-新版](https://pay.wechatpay.cn/doc/v3/merchant/4012716434)
 [商家转账到零钱-旧版](https://pay.wechatpay.cn/doc/v3/merchant/4012064660)
 
+### 小程序消息订阅
+> openid仅仅和微信号相关
+
+[小程序订阅消息](https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/subscribe-message.html)
