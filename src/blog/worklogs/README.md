@@ -170,3 +170,5 @@ public class SignAuthFilter extends OncePerRequestFilter {
 > openid仅仅和微信号相关
 
 [小程序订阅消息](https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/subscribe-message.html)
+
+[一次性订阅](https://www.crmeb.com/ask/thread/30324)
