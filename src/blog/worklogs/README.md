@@ -145,8 +145,8 @@ public class SignAuthFilter extends OncePerRequestFilter {
 }
 ```
 
-## 钉钉
-### 部门管理2.0
+## 阿里
+### 钉钉部门管理2.0
 [开发文档](https://open-dev.dingtalk.com/apiExplorer#/?devType=org&api=dingtalk.oapi.v2.department.listsub)
 
 旧版maven依赖
@@ -157,6 +157,15 @@ public class SignAuthFilter extends OncePerRequestFilter {
     <version>2.0.0</version>
 </dependency>
 ```
+
+### 内容审查
+
+> 上线app需要接入内容审查
+> 
+> 异步回调 签名uid + seed + content ```uid 为主账号id！```
+
+[内容审查](https://help.aliyun.com/zh/document_detail/433945.html?spm=a2c4g.11186623.help-menu-28415.d_3_1.23c23554e93KuW)
+
 ## 微信
 ### 微信支付
 #### 商家转账
@@ -170,5 +179,22 @@ public class SignAuthFilter extends OncePerRequestFilter {
 > openid仅仅和微信号相关
 
 [小程序订阅消息](https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/subscribe-message.html)
-
 [一次性订阅](https://www.crmeb.com/ask/thread/30324)
+
+### 微信登录app
+
+> union_id 打通app和小程序
+
+[微信登录](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/WeChat_Login/Authorized_API_call_UnionID.html)
+
+## Apple
+
+### 第三方登录
+
+```yml
+apple:
+  team-id: 
+  key-id: 
+  bundle-id: 
+  private-key-path: 
+```
